@@ -33,7 +33,7 @@ jobs:
       - name: Get Node version from Dockerfile
         id: get-node-version
         run: echo "node_version=$(grep -oP 'FROM .* node:\K[\d.]+' Dockerfile)" >> $GITHUB_OUTPUT
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ steps.get-node-version.outputs.node_version }}
           cache: yarn
@@ -72,7 +72,7 @@ jobs:
       - name: Get Node version from Dockerfile
         id: get-node-version
         run: echo "node_version=$(grep -oP 'FROM .* node:\K[\d.]+' Dockerfile)" >> $GITHUB_OUTPUT
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: ${{ steps.get-node-version.outputs.node_version }}
           cache: yarn
