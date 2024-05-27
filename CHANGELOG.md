@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.4.4](https://github.com/cailloumajor/factory-frontend/compare/v2.4.3...v2.4.4) (2024-05-27)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @quasar/extras to v1.16.11 ([45d3206](https://github.com/cailloumajor/factory-frontend/commit/45d3206326abea169f666d4dec599534ddce1b4d))
+* **deps:** update dependency @vueuse/core to v10.10.0 ([b3c67af](https://github.com/cailloumajor/factory-frontend/commit/b3c67afcad87f704e33b7780b0e4b18e71e2a6a9))
+* **deps:** update dependency @vueuse/core to v10.9.0 ([60b9d21](https://github.com/cailloumajor/factory-frontend/commit/60b9d217132176856ea05c4bd78c78d45ef1a3d0))
+* **deps:** update dependency centrifuge to v5.1.1 ([56bf9d8](https://github.com/cailloumajor/factory-frontend/commit/56bf9d8db80e5a9b74824d2abf834c6146c94153))
+* **deps:** update dependency mande to v2.0.9 ([eb5a0fa](https://github.com/cailloumajor/factory-frontend/commit/eb5a0fa7bd1b0b2af426fae7e1c04214d00450a7))
+* **deps:** update dependency vue to v3.4.27 ([ec2ee15](https://github.com/cailloumajor/factory-frontend/commit/ec2ee1579281a92991773ab15123e6d400326b62))
+* **deps:** update dependency vue-router to v4.3.2 ([ca0edc4](https://github.com/cailloumajor/factory-frontend/commit/ca0edc4a95f41a4190bc8f6c5efc21724462217b))
+
 ## [2.4.3](https://github.com/cailloumajor/factory-frontend/compare/v2.4.2...v2.4.3) (2023-10-19)
 
 
