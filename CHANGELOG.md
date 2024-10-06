@@ -1,5 +1,31 @@
 # Changelog
 
+## [2.4.4](https://github.com/cailloumajor/factory-frontend/compare/v2.4.3...v2.4.4) (2024-10-06)
+
+
+### Bug Fixes
+
+* adjust API schemas elements ([13b64e1](https://github.com/cailloumajor/factory-frontend/commit/13b64e1515f1b1885c73629a95ad3165182077e6))
+* **deps:** update dependency @quasar/extras to v1.16.11 ([a2847ac](https://github.com/cailloumajor/factory-frontend/commit/a2847ace15a0feb173f90c2cecb182e6444e4938))
+* **deps:** update dependency @quasar/extras to v1.16.11 ([45d3206](https://github.com/cailloumajor/factory-frontend/commit/45d3206326abea169f666d4dec599534ddce1b4d))
+* **deps:** update dependency @vueuse/core to v10.10.0 ([b221050](https://github.com/cailloumajor/factory-frontend/commit/b22105071d7b4772ec229a18b4a395bc110076a4))
+* **deps:** update dependency @vueuse/core to v10.10.0 ([b3c67af](https://github.com/cailloumajor/factory-frontend/commit/b3c67afcad87f704e33b7780b0e4b18e71e2a6a9))
+* **deps:** update dependency @vueuse/core to v10.9.0 ([6959f8e](https://github.com/cailloumajor/factory-frontend/commit/6959f8e298cec87381b1676163aec453a62d3331))
+* **deps:** update dependency @vueuse/core to v10.9.0 ([60b9d21](https://github.com/cailloumajor/factory-frontend/commit/60b9d217132176856ea05c4bd78c78d45ef1a3d0))
+* **deps:** update dependency centrifuge to v5.1.1 ([0ccc29a](https://github.com/cailloumajor/factory-frontend/commit/0ccc29a630ccd25c9c4fc52c42e3f314191c9754))
+* **deps:** update dependency centrifuge to v5.1.1 ([56bf9d8](https://github.com/cailloumajor/factory-frontend/commit/56bf9d8db80e5a9b74824d2abf834c6146c94153))
+* **deps:** update dependency mande to v2.0.9 ([cddf925](https://github.com/cailloumajor/factory-frontend/commit/cddf92598d065aa54bfd497dfb766aa0f2e7f07e))
+* **deps:** update dependency mande to v2.0.9 ([eb5a0fa](https://github.com/cailloumajor/factory-frontend/commit/eb5a0fa7bd1b0b2af426fae7e1c04214d00450a7))
+* **deps:** update dependency vue to v3.4.27 ([eefd53c](https://github.com/cailloumajor/factory-frontend/commit/eefd53c688a9c5a29783a005979dcd1bc13804f4))
+* **deps:** update dependency vue to v3.4.27 ([ec2ee15](https://github.com/cailloumajor/factory-frontend/commit/ec2ee1579281a92991773ab15123e6d400326b62))
+* **deps:** update dependency vue-i18n to v9.14.0 ([69923df](https://github.com/cailloumajor/factory-frontend/commit/69923dfa3e2ac1492c35947f882e018d3ecd33cc))
+* **deps:** update dependency vue-i18n to v9.14.0 ([5a21d29](https://github.com/cailloumajor/factory-frontend/commit/5a21d299413ed3d4d304515fc0b111c955a3d61f))
+* **deps:** update dependency vue-router to v4.3.2 ([7835edb](https://github.com/cailloumajor/factory-frontend/commit/7835edb64a69e0462e8d2d8b634e21052fe89577))
+* **deps:** update dependency vue-router to v4.3.2 ([ca0edc4](https://github.com/cailloumajor/factory-frontend/commit/ca0edc4a95f41a4190bc8f6c5efc21724462217b))
+* **deps:** update dependency zod to v3.23.8 ([576c951](https://github.com/cailloumajor/factory-frontend/commit/576c951c423131b93ce90dcd5d81b15214f7c840))
+* **deps:** update dependency zod to v3.23.8 ([b124b76](https://github.com/cailloumajor/factory-frontend/commit/b124b76c8bac03052e7f66dbe498cbe3fc04ce73))
+* update API mocks according to msw v2 ([371dde6](https://github.com/cailloumajor/factory-frontend/commit/371dde6e96eb70f2e19e5852de584c931adae0bc))
+
 ## [2.4.3](https://github.com/cailloumajor/factory-frontend/compare/v2.4.2...v2.4.3) (2023-10-19)
 
 
