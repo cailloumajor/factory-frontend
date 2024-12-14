@@ -5921,10 +5921,10 @@ qs@6.13.0:
   dependencies:
     side-channel "^1.0.6"
 
-quasar@2.13.0:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/quasar/-/quasar-2.13.0.tgz#2b156770137537f87fa2c23df7fbd4858d9db2ed"
-  integrity sha512-VPxbDy4vsobROUqGfet415SAvthj03fbm06pHSOYH5TeixWKHiLBIbwV9/LmWsDqwEsmMpADkHNZhmBZ40ha2w==
+quasar@2.17.5:
+  version "2.17.5"
+  resolved "https://registry.yarnpkg.com/quasar/-/quasar-2.17.5.tgz#548b5a9ff15fa0400609d04243af7f69db69dee3"
+  integrity sha512-gMpJm4T7dXo7NleeRhkU+phytw5cgjpiB90/Jpmi39p/ll64Xh7NpQNtvAhAvQAtqct0Z+DV0paKrfuGwZ0Ksw==
 
 querystringify@^2.1.1:
   version "2.2.0"
