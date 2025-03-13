@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": ["config:recommended"],
   "hostRules": [
     {
       "matchHost": "npm.pkg.github.com",
@@ -16,8 +16,8 @@
   },
   "packageRules": [
     {
-      "matchPackagePrefixes": ["@vueuse/"],
-      "groupName": "VueUse"
+      "groupName": "VueUse",
+      "matchPackageNames": ["@vueuse/{/,}**"]
     },
     {
       "matchPackageNames": ["busybox"],
