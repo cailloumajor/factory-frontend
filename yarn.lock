@@ -457,10 +457,10 @@
     "@intlify/message-compiler" "9.14.1"
     "@intlify/shared" "9.14.1"
 
-"@intlify/eslint-plugin-vue-i18n@3.1.0":
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/@intlify/eslint-plugin-vue-i18n/-/eslint-plugin-vue-i18n-3.1.0.tgz#8e465afd2526789278d86faa9bc7c07ec2aff028"
-  integrity sha512-X9EhEu7KHFUsbTteVYQn0BCPCh0udrC/KEukn5LWkkiZGY5jGtdLrxwUNIZudKGoXJOOxDfdEBPBnstm4QWVaQ==
+"@intlify/eslint-plugin-vue-i18n@3.2.0":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@intlify/eslint-plugin-vue-i18n/-/eslint-plugin-vue-i18n-3.2.0.tgz#5213e9eda3c4b1391630ee31b654f9ff705918fb"
+  integrity sha512-TOIrD4tJE48WMyVIB8bNeQJJPYo1Prpqnm9Xpn1UZmcqlELhm8hmP8QyJnkgesfbG7hyiX/kvo63W7ClEQmhpg==
   dependencies:
     "@eslint/eslintrc" "^3.0.0"
     "@intlify/core-base" "^9.12.0"
