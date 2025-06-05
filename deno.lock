@@ -2,30 +2,40 @@
   "version": "5",
   "specifiers": {
     "jsr:@fresh/core@2.0.0-alpha.34": "2.0.0-alpha.34",
+    "jsr:@fresh/core@^2.0.0-alpha.33": "2.0.0-alpha.34",
     "jsr:@luca/esbuild-deno-loader@0.11": "0.11.1",
     "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1": "2.0.0-alpha.1",
     "jsr:@std/bytes@^1.0.2": "1.0.6",
+    "jsr:@std/cli@^1.0.18": "1.0.19",
     "jsr:@std/crypto@1": "1.0.5",
     "jsr:@std/datetime@~0.225.2": "0.225.5",
     "jsr:@std/encoding@1": "1.0.10",
+    "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/encoding@^1.0.5": "1.0.10",
     "jsr:@std/fmt@1": "1.0.8",
+    "jsr:@std/fmt@^1.0.8": "1.0.8",
     "jsr:@std/fs@1": "1.0.18",
     "jsr:@std/html@1": "1.0.4",
+    "jsr:@std/html@^1.0.4": "1.0.4",
+    "jsr:@std/http@1.0.17": "1.0.17",
     "jsr:@std/http@^1.0.15": "1.0.17",
     "jsr:@std/json@^1.0.2": "1.0.2",
     "jsr:@std/jsonc@1": "1.0.2",
     "jsr:@std/media-types@1": "1.1.0",
+    "jsr:@std/media-types@^1.1.0": "1.1.0",
+    "jsr:@std/net@^1.0.4": "1.0.4",
     "jsr:@std/path@1": "1.1.0",
     "jsr:@std/path@^1.0.6": "1.1.0",
     "jsr:@std/path@^1.1.0": "1.1.0",
     "jsr:@std/semver@1": "1.0.5",
+    "jsr:@std/streams@^1.0.9": "1.0.9",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
     "npm:@preact/signals@2.2.0": "2.2.0_preact@10.26.8",
     "npm:@preact/signals@^2.0.4": "2.2.0_preact@10.26.8",
     "npm:@tailwindcss/postcss@^4.1.7": "4.1.8",
     "npm:esbuild-wasm@0.23.1": "0.23.1",
     "npm:esbuild@0.23.1": "0.23.1",
+    "npm:i18next@25.2.1": "25.2.1",
     "npm:postcss@^8.5.3": "8.5.4",
     "npm:preact-render-to-string@^6.5.11": "6.5.13_preact@10.26.8",
     "npm:preact@10.26.8": "10.26.8",
@@ -40,12 +50,12 @@
         "jsr:@std/crypto",
         "jsr:@std/datetime",
         "jsr:@std/encoding@1",
-        "jsr:@std/fmt",
+        "jsr:@std/fmt@1",
         "jsr:@std/fs",
-        "jsr:@std/html",
-        "jsr:@std/http",
+        "jsr:@std/html@1",
+        "jsr:@std/http@^1.0.15",
         "jsr:@std/jsonc",
-        "jsr:@std/media-types",
+        "jsr:@std/media-types@1",
         "jsr:@std/path@1",
         "jsr:@std/semver",
         "npm:@opentelemetry/api",
@@ -67,12 +77,16 @@
     "@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1": {
       "integrity": "63cdf8c0694a0074c4b1ec689334de2420c58afc4ad1952c36ebb0bbd3767e8e",
       "dependencies": [
+        "jsr:@fresh/core@^2.0.0-alpha.33",
         "npm:@tailwindcss/postcss",
         "npm:postcss"
       ]
     },
     "@std/bytes@1.0.6": {
       "integrity": "f6ac6adbd8ccd99314045f5703e23af0a68d7f7e58364b47d2c7f408aeb5820a"
+    },
+    "@std/cli@1.0.19": {
+      "integrity": "b3601a54891f89f3f738023af11960c4e6f7a45dc76cde39a6861124cba79e88"
     },
     "@std/crypto@1.0.5": {
       "integrity": "0dcfbb319fe0bba1bd3af904ceb4f948cde1b92979ec1614528380ed308a3b40"
@@ -96,7 +110,17 @@
       "integrity": "eff3497c08164e6ada49b7f81a28b5108087033823153d065e3f89467dd3d50e"
     },
     "@std/http@1.0.17": {
-      "integrity": "98aec8ab4080d95c21f731e3008f69c29c5012d12f1b4e553f85935db601569f"
+      "integrity": "98aec8ab4080d95c21f731e3008f69c29c5012d12f1b4e553f85935db601569f",
+      "dependencies": [
+        "jsr:@std/cli",
+        "jsr:@std/encoding@^1.0.10",
+        "jsr:@std/fmt@^1.0.8",
+        "jsr:@std/html@^1.0.4",
+        "jsr:@std/media-types@^1.1.0",
+        "jsr:@std/net",
+        "jsr:@std/path@^1.1.0",
+        "jsr:@std/streams"
+      ]
     },
     "@std/json@1.0.2": {
       "integrity": "d9e5497801c15fb679f55a2c01c7794ad7a5dfda4dd1bebab5e409cb5e0d34d4"
@@ -110,11 +134,17 @@
     "@std/media-types@1.1.0": {
       "integrity": "c9d093f0c05c3512932b330e3cc1fe1d627b301db33a4c2c2185c02471d6eaa4"
     },
+    "@std/net@1.0.4": {
+      "integrity": "2f403b455ebbccf83d8a027d29c5a9e3a2452fea39bb2da7f2c04af09c8bc852"
+    },
     "@std/path@1.1.0": {
       "integrity": "ddc94f8e3c275627281cbc23341df6b8bcc874d70374f75fec2533521e3d6886"
     },
     "@std/semver@1.0.5": {
       "integrity": "529f79e83705714c105ad0ba55bec0f9da0f24d2f726b6cc1c15e505cc2c0624"
+    },
+    "@std/streams@1.0.9": {
+      "integrity": "a9d26b1988cdd7aa7b1f4b51e1c36c1557f3f252880fa6cc5b9f37078b1a5035"
     }
   },
   "npm": {
@@ -127,6 +157,9 @@
         "@jridgewell/gen-mapping",
         "@jridgewell/trace-mapping"
       ]
+    },
+    "@babel/runtime@7.27.6": {
+      "integrity": "sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q=="
     },
     "@emnapi/core@1.4.3": {
       "integrity": "sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==",
@@ -308,9 +341,6 @@
     "@opentelemetry/api@1.9.0": {
       "integrity": "sha512-3giAOQvZiH5F9bMlMiv8+GSPMeqg0dbaeo58/0SlA9sxSqZhnUtxzX9/2FzyhS9sWQf5S0GJE0AKBrFqjpeYcg=="
     },
-    "@pkgjs/parseargs@0.11.0": {
-      "integrity": "sha512-+1VkjdD0QBLPodGrJUeqarH8VAIvQODIbwh9XpP5Syisf7YoQgsJKPNFoqqLQlu+VQ/tVSshMR6loPMn8U+dPg=="
-    },
     "@preact/signals-core@1.9.0": {
       "integrity": "sha512-uUgFHJLWxb33rfCtb1g+1e3Rg7Jl5EALhGTHlQ5Y0w37OF+fdidYdYEE6crbpUOYDOjlmelIWf0ulXr1ggfUkg=="
     },
@@ -486,13 +516,14 @@
       "scripts": true,
       "bin": true
     },
-    "fsevents@2.3.3": {
-      "integrity": "sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==",
-      "os": ["darwin"],
-      "scripts": true
-    },
     "graceful-fs@4.2.11": {
       "integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
+    },
+    "i18next@25.2.1": {
+      "integrity": "sha512-+UoXK5wh+VlE1Zy5p6MjcvctHXAhRwQKCxiJD8noKZzIXmnAX8gdHX5fLPA3MEVxEN4vbZkQFy8N0LyD9tUqPw==",
+      "dependencies": [
+        "@babel/runtime"
+      ]
     },
     "jiti@2.4.2": {
       "integrity": "sha512-rg9zJN+G4n2nfJl5MW3BMygZX56zKPNVEYYqq7adpmMh4Jn2QNEwhvQlFy6jPVdcod7txZtKHWnyZiA3a0zP7A==",
@@ -640,7 +671,9 @@
     "dependencies": [
       "jsr:@fresh/core@2.0.0-alpha.34",
       "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1",
+      "jsr:@std/http@1.0.17",
       "npm:@preact/signals@2.2.0",
+      "npm:i18next@25.2.1",
       "npm:preact@10.26.8",
       "npm:tailwindcss@4.1.8"
     ]

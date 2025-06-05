@@ -1,24 +1,20 @@
 import { App, fsRoutes, staticFiles } from "fresh"
-import { define, type State } from "./utils.ts"
+
+import { i18n } from "./i18n.ts"
+import type { State } from "./utils.ts"
 
 export const app = new App<State>()
-
-app.use(staticFiles())
-
-// this is the same as the /api/:name route defined via a file. feel free to delete this!
-app.get("/api2/:name", (ctx) => {
-  const name = ctx.params.name
-  return new Response(
-    `Hello, ${name.charAt(0).toUpperCase() + name.slice(1)}!`,
-  )
-})
-
-// this can also be defined via a file. feel free to delete this!
-const exampleLoggerMiddleware = define.middleware((ctx) => {
-  console.log(`${ctx.req.method} ${ctx.req.url}`)
-  return ctx.next()
-})
-app.use(exampleLoggerMiddleware)
+  .use(async (ctx) => {
+    if (ctx.config.mode === "development") {
+      const resp = await ctx.next()
+      // deno-lint-ignore no-console -- console is used by purpose.
+      console.log(`${ctx.req.method} ${ctx.req.url} ${resp.status}`)
+      return resp
+    }
+    return ctx.next()
+  })
+  .use(staticFiles())
+  .use(await i18n())
 
 await fsRoutes(app, {
   loadIsland: (path) => import(`./islands/${path}`),

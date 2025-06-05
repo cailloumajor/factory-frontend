@@ -1,6 +1,9 @@
 import { createDefine } from "fresh"
 
-// deno-lint-ignore no-empty-interface
-export interface State {}
+import type { getTranslateFn } from "./i18n.ts"
+
+export interface State {
+  t: ReturnType<typeof getTranslateFn>
+}
 
 export const define = createDefine<State>()

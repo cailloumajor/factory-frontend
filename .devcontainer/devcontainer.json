@@ -34,9 +34,12 @@
                         "strings": "on"
                     }
                 },
-                "css.customData": [
-                    ".vscode/tailwind.json"
-                ]
+                "[typescriptreact]": {
+                    "editor.autoClosingBrackets": "always"
+                },
+                "files.associations": {
+                    "*.css": "tailwindcss"
+                }
             }
         }
     },

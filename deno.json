@@ -6,26 +6,44 @@
     "start": "deno run -A main.ts",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
-  "fmt": {
-    "lineWidth": 100,
-    "semiColons": false
-  },
   "lint": {
     "rules": {
       "tags": [
         "fresh",
         "recommended"
+      ],
+      "include": [
+        "camelcase",
+        "no-await-in-loop",
+        "no-eval",
+        "no-external-import",
+        "no-implicit-declare-namespace-export",
+        "no-inferrable-types",
+        "no-self-compare",
+        "no-sparse-arrays",
+        "no-throw-literal",
+        "no-useless-rename",
+        "prefer-ascii",
+        "triple-slash-reference",
+        "verbatim-module-syntax"
       ]
     }
   },
+  "fmt": {
+    "lineWidth": 100,
+    "semiColons": false
+  },
   "exclude": [
     "**/_fresh/*",
+    "node_modules/",
     ".devcontainer"
   ],
   "imports": {
     "@pakornv/fresh-plugin-tailwindcss": "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1",
     "@preact/signals": "npm:@preact/signals@2.2.0",
+    "@std/http": "jsr:@std/http@1.0.17",
     "fresh": "jsr:@fresh/core@2.0.0-alpha.34",
+    "i18next": "npm:i18next@25.2.1",
     "preact": "npm:preact@10.26.8",
     "tailwindcss": "npm:tailwindcss@4.1.8"
   },
