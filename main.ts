@@ -2,6 +2,7 @@ import { App, fsRoutes, staticFiles } from "fresh"
 
 import { i18n } from "./i18n.ts"
 import type { State } from "./utils.ts"
+import { fonts } from "./style.ts"
 
 export const app = new App<State>()
   .use(async (ctx) => {
@@ -13,6 +14,7 @@ export const app = new App<State>()
     }
     return ctx.next()
   })
+  .use(fonts())
   .use(staticFiles())
   .use(await i18n())
 

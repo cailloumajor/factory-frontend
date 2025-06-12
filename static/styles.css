@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@import "@fontsource-variable/roboto";
+@import "@fontsource-variable/roboto-mono";
+@import "@fontsource-variable/roboto-slab";
+
+@theme {
+  --font-sans: "Roboto Variable";
+  --font-serif: "Roboto Slab Variable";
+  --font-mono: "Roboto Mono Variable";
+}
+
 .fresh-gradient {
   background-color: rgb(134, 239, 172);
   background-image: linear-gradient(

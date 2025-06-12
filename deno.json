@@ -15,6 +15,7 @@
       "include": [
         "camelcase",
         "no-await-in-loop",
+        "no-console",
         "no-eval",
         "no-external-import",
         "no-implicit-declare-namespace-export",
@@ -39,11 +40,16 @@
     ".devcontainer"
   ],
   "imports": {
-    "@pakornv/fresh-plugin-tailwindcss": "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1",
+    "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.5",
+    "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.6",
+    "@fontsource-variable/roboto-slab": "npm:@fontsource-variable/roboto-slab@5.2.5",
     "@preact/signals": "npm:@preact/signals@2.2.0",
     "@std/http": "jsr:@std/http@1.0.17",
+    "@std/path": "jsr:@std/path@1.1.0",
+    "@tailwindcss/postcss": "npm:@tailwindcss/postcss@4.1.8",
     "fresh": "jsr:@fresh/core@2.0.0-alpha.34",
     "i18next": "npm:i18next@25.2.1",
+    "postcss": "npm:postcss@8.5.4",
     "preact": "npm:preact@10.26.8",
     "tailwindcss": "npm:tailwindcss@4.1.8"
   },

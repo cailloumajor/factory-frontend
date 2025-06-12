@@ -4,7 +4,6 @@
     "jsr:@fresh/core@2.0.0-alpha.34": "2.0.0-alpha.34",
     "jsr:@fresh/core@^2.0.0-alpha.33": "2.0.0-alpha.34",
     "jsr:@luca/esbuild-deno-loader@0.11": "0.11.1",
-    "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1": "2.0.0-alpha.1",
     "jsr:@std/bytes@^1.0.2": "1.0.6",
     "jsr:@std/cli@^1.0.18": "1.0.19",
     "jsr:@std/crypto@1": "1.0.5",
@@ -25,18 +24,22 @@
     "jsr:@std/media-types@^1.1.0": "1.1.0",
     "jsr:@std/net@^1.0.4": "1.0.4",
     "jsr:@std/path@1": "1.1.0",
+    "jsr:@std/path@1.1.0": "1.1.0",
     "jsr:@std/path@^1.0.6": "1.1.0",
     "jsr:@std/path@^1.1.0": "1.1.0",
     "jsr:@std/semver@1": "1.0.5",
     "jsr:@std/streams@^1.0.9": "1.0.9",
+    "npm:@fontsource-variable/roboto-mono@5.2.6": "5.2.6",
+    "npm:@fontsource-variable/roboto-slab@5.2.5": "5.2.5",
+    "npm:@fontsource-variable/roboto@5.2.5": "5.2.5",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
     "npm:@preact/signals@2.2.0": "2.2.0_preact@10.26.8",
     "npm:@preact/signals@^2.0.4": "2.2.0_preact@10.26.8",
-    "npm:@tailwindcss/postcss@^4.1.7": "4.1.8",
+    "npm:@tailwindcss/postcss@4.1.8": "4.1.8",
     "npm:esbuild-wasm@0.23.1": "0.23.1",
     "npm:esbuild@0.23.1": "0.23.1",
     "npm:i18next@25.2.1": "25.2.1",
-    "npm:postcss@^8.5.3": "8.5.4",
+    "npm:postcss@8.5.4": "8.5.4",
     "npm:preact-render-to-string@^6.5.11": "6.5.13_preact@10.26.8",
     "npm:preact@10.26.8": "10.26.8",
     "npm:preact@^10.26.6": "10.26.8",
@@ -72,14 +75,6 @@
         "jsr:@std/bytes",
         "jsr:@std/encoding@^1.0.5",
         "jsr:@std/path@^1.0.6"
-      ]
-    },
-    "@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1": {
-      "integrity": "63cdf8c0694a0074c4b1ec689334de2420c58afc4ad1952c36ebb0bbd3767e8e",
-      "dependencies": [
-        "jsr:@fresh/core@^2.0.0-alpha.33",
-        "npm:@tailwindcss/postcss",
-        "npm:postcss"
       ]
     },
     "@std/bytes@1.0.6": {
@@ -299,6 +294,15 @@
       "integrity": "sha512-BHpFFeslkWrXWyUPnbKm+xYYVYruCinGcftSBaa8zoF9hZO4BcSCFUvHVTtzpIY6YzUnYtuEhZ+C9iEXjxnasg==",
       "os": ["win32"],
       "cpu": ["x64"]
+    },
+    "@fontsource-variable/roboto-mono@5.2.6": {
+      "integrity": "sha512-U9iAWyACe0BkE8CpzBvvQnGSoFKXwuVmwC2zT3u66xe5EXfGsWmKtem+4xQHgvXazC6wq/m3hPJ5jjqgIkkTUQ=="
+    },
+    "@fontsource-variable/roboto-slab@5.2.5": {
+      "integrity": "sha512-q8dTQbL6/OMoMpWv2HCPfVZCkl6qWWS0z78k7HaJgNfL3ywwCg6np8Le50Nad2eWQO20t6zWkRZ/KJuJ2FaDAA=="
+    },
+    "@fontsource-variable/roboto@5.2.5": {
+      "integrity": "sha512-csqBSOWXv0h5IbPhEqYJua6/nxl7dSNZbBOMeXSO9aqzgPw3GpfgC9kL5M6ULFLRaoDoBD4U9QctoDLKMaTyMg=="
     },
     "@isaacs/fs-minipass@4.0.1": {
       "integrity": "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==",
@@ -670,10 +674,15 @@
   "workspace": {
     "dependencies": [
       "jsr:@fresh/core@2.0.0-alpha.34",
-      "jsr:@pakornv/fresh-plugin-tailwindcss@2.0.0-alpha.1",
       "jsr:@std/http@1.0.17",
+      "jsr:@std/path@1.1.0",
+      "npm:@fontsource-variable/roboto-mono@5.2.6",
+      "npm:@fontsource-variable/roboto-slab@5.2.5",
+      "npm:@fontsource-variable/roboto@5.2.5",
       "npm:@preact/signals@2.2.0",
+      "npm:@tailwindcss/postcss@4.1.8",
       "npm:i18next@25.2.1",
+      "npm:postcss@8.5.4",
       "npm:preact@10.26.8",
       "npm:tailwindcss@4.1.8"
     ]
