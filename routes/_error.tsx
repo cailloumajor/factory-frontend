@@ -1,7 +1,7 @@
 import { HttpError } from "fresh"
 
-import { getTranslateFn } from "../i18n.ts"
-import { define } from "../utils.ts"
+import { getTranslateFn } from "../utils/i18n.ts"
+import { define } from "../utils/state.ts"
 
 export default define.page(function ErrorPage({ state, error, req }) {
   // FIXME: https://github.com/denoland/fresh/issues/2843

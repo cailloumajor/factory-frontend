@@ -1,8 +1,8 @@
 import { App, fsRoutes, staticFiles } from "fresh"
 
-import { i18n } from "./i18n.ts"
-import type { State } from "./utils.ts"
-import { fonts } from "./style.ts"
+import { i18n } from "./utils/i18n.ts"
+import type { State } from "./utils/state.ts"
+import { fonts } from "./utils/style.ts"
 
 export const app = new App<State>()
   .use(async (ctx) => {
