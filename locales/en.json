@@ -1,3 +1,8 @@
 {
+  "error": {
+    "404": "Page not found.",
+    "other": "Something went wrong."
+  },
+  "goHome": "Go Home",
   "welcomeFresh": "Welcome to Fresh"
 }

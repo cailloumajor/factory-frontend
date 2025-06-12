@@ -1,3 +1,8 @@
 {
+  "error": {
+    "404": "Page introuvable.",
+    "other": "Quelque chose s'est mal passé."
+  },
+  "goHome": "Retour à l'accueil",
   "welcomeFresh": "Bienvenue dans Fresh"
 }
