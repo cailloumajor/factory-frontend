@@ -1,21 +1,9 @@
-@import "tailwindcss";
+/* This is a dummy file to allow triggering CSS processing. */
 
-@import "@fontsource-variable/roboto";
-@import "@fontsource-variable/roboto-mono";
-@import "@fontsource-variable/roboto-slab";
-
-@theme {
-  --font-sans: "Roboto Variable";
-  --font-serif: "Roboto Slab Variable";
-  --font-mono: "Roboto Mono Variable";
+body * {
+  display: none;
 }
 
-.fresh-gradient {
-  background-color: rgb(134, 239, 172);
-  background-image: linear-gradient(
-    to right bottom,
-    rgb(219, 234, 254),
-    rgb(187, 247, 208),
-    rgb(254, 249, 195)
-  );
+body::before {
+  content: "Something went wrong with styles pre-processing!";
 }

@@ -1,7 +1,7 @@
 {
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check **/*.ts && deno check **/*.tsx",
-    "dev": "deno run -A --watch=static/,routes/ dev.ts",
+    "dev": "deno run -A --watch=assets/,static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "start": "deno run -A main.ts",
     "update": "deno run -A -r jsr:@fresh/update ."
@@ -42,16 +42,17 @@
   "imports": {
     "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.5",
     "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.6",
-    "@fontsource-variable/roboto-slab": "npm:@fontsource-variable/roboto-slab@5.2.5",
     "@preact/signals": "npm:@preact/signals@2.2.0",
+    "@std/fs": "jsr:@std/fs@1.0.18",
     "@std/http": "jsr:@std/http@1.0.17",
     "@std/path": "jsr:@std/path@1.1.0",
-    "@tailwindcss/postcss": "npm:@tailwindcss/postcss@4.1.8",
+    "browserslist": "npm:browserslist@4.25.0",
+    "bulma": "npm:bulma@1.0.4",
     "fresh": "jsr:@fresh/core@2.0.0-alpha.34",
     "i18next": "npm:i18next@25.2.1",
-    "postcss": "npm:postcss@8.5.4",
+    "lightningcss": "npm:lightningcss@1.30.1",
     "preact": "npm:preact@10.26.8",
-    "tailwindcss": "npm:tailwindcss@4.1.8"
+    "sass": "npm:sass@1.89.2"
   },
   "compilerOptions": {
     "lib": [

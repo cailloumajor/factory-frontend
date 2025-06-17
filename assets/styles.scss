@@ -1,0 +1,26 @@
+@use "bulma/sass/utilities" with (
+  $family-sans-serif: "Roboto Variable",
+  $family-monospace: "Roboto Mono Variable",
+);
+
+@use "bulma/sass/base";
+@use "bulma/sass/helpers";
+@use "bulma/sass/elements/button";
+@use "bulma/sass/elements/title";
+@use "bulma/sass/layout/container";
+@use "bulma/sass/layout/hero";
+
+@use "bulma/sass/themes";
+
+@use "@fontsource-variable/roboto";
+@use "@fontsource-variable/roboto-mono";
+
+.fresh-gradient {
+  background-color: rgb(134, 239, 172);
+  background-image: linear-gradient(
+    to right bottom,
+    rgb(219, 234, 254),
+    rgb(187, 247, 208),
+    rgb(254, 249, 195)
+  );
+}

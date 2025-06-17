@@ -1,62 +1,84 @@
+import { expandGlob } from "@std/fs"
+import { serveFile } from "@std/http"
 import * as path from "@std/path"
-import tailwindPlugin from "@tailwindcss/postcss"
-import type { MiddlewareFn } from "fresh"
+import browserslist from "browserslist"
+import { HttpError, type MiddlewareFn } from "fresh"
 import type { FreshBuilder } from "fresh/dev"
-import { serveDir } from "@std/http"
-import postcss from "postcss"
+import { browserslistToTargets, transform } from "lightningcss"
+import { compile } from "sass"
 
-const urlRegex = /(url\(\s*['"]?)([^"')]+)(["']?\s*\).*)$/
-const fontBasePath = "/node_modules/@fontsource-variable/"
-const fontBaseUrl = "/fonts/fontsource/"
+const hostedFontUrlPrefix = "/hosted-fonts/"
 
-export function styleTransformPlugin<T>(builder: FreshBuilder, minify: boolean) {
-  const cssProcessor = postcss([
-    tailwindPlugin({ optimize: { minify } }),
-
-    // Rewrite URLs in CSS for self-hosted fonts from fontsource.
-    (root, _result) => {
-      root.walkAtRules("font-face", (rule) => {
-        rule.walkDecls("src", (decl) => {
-          const urlMatch = urlRegex.exec(decl.value)
-          const url = urlMatch && urlMatch.at(2)
-          if (url == null) {
-            return
-          }
-          const subStringPos = url.indexOf(fontBasePath)
-          if (subStringPos <= 0) {
-            return
-          }
-          const pathEnd = url.slice(subStringPos + fontBasePath.length)
-          decl.value = decl.value.replace(url, `${fontBaseUrl}${pathEnd}`)
-        })
-      })
-    },
-  ])
+export function styleTransformPlugin(builder: FreshBuilder, rootPath: string) {
+  const nodeModulesDir = path.join(rootPath, "node_modules")
 
   builder.onTransformStaticFile(
-    { pluginName: "postcss", filter: /\.css$/ },
-    async (args) => {
-      const result = await cssProcessor.process(args.text, { from: args.path })
+    { pluginName: "styles", filter: /styles\.css$/ },
+    (args) => {
+      const compiled = compile(
+        path.join(rootPath, "assets", "styles.scss"),
+        {
+          charset: false, // Bulma already includes @charset directives
+          loadPaths: [nodeModulesDir],
+        },
+      )
+
+      const targets = browserslistToTargets(browserslist(browserslist.defaults))
+      const transformed = transform({
+        code: new TextEncoder().encode(compiled.css),
+        filename: path.basename(args.path),
+        minify: args.mode === "production",
+        targets,
+        visitor: {
+          Rule: {
+            "font-face"(rule) {
+              for (const prop of rule.value.properties) {
+                if (prop.type !== "source") {
+                  continue
+                }
+                for (const src of prop.value) {
+                  const pathPrefix = "./files/"
+                  if (src.type !== "url" || !src.value.url.url.startsWith(pathPrefix)) {
+                    continue
+                  }
+                  src.value.url.url = src.value.url.url.replace(pathPrefix, hostedFontUrlPrefix)
+                }
+              }
+              return rule
+            },
+          },
+        },
+      })
+
       return {
-        content: result.content,
-        map: result.map?.toString(),
+        content: transformed.code,
       }
     },
   )
 }
 
-export function fonts<T>(): MiddlewareFn<T> {
+export async function hostedFonts<T>(rootPath: string): Promise<MiddlewareFn<T>> {
+  const fontFiles = await Array.fromAsync(
+    expandGlob(
+      "@fontsource*/*/files/*",
+      {
+        followSymlinks: true,
+        root: path.join(rootPath, "node_modules"),
+      },
+    ),
+  )
+  const fontFilesMap = Object.fromEntries(fontFiles.map(({ name, path }) => [name, path]))
+
   return function fontsMiddleware(ctx) {
-    const url = URL.parse(ctx.req.url)
-    if (url?.pathname.startsWith(fontBaseUrl)) {
-      return serveDir(ctx.req, {
-        fsRoot: path.join(ctx.config.root, fontBasePath),
-        urlRoot: fontBaseUrl.slice(1),
-        showIndex: false,
-        quiet: true,
-      })
+    if (!ctx.url.pathname.startsWith(hostedFontUrlPrefix)) {
+      return ctx.next()
     }
 
-    return ctx.next()
+    const fontFilePath = fontFilesMap[ctx.url.pathname.slice(hostedFontUrlPrefix.length)]
+    if (fontFilePath === undefined) {
+      throw new HttpError(404)
+    }
+
+    return serveFile(ctx.req, fontFilePath)
   }
 }
