@@ -10,3 +10,6 @@ _fresh/
 # npm + other dependencies
 node_modules/
 vendor/
+
+# Deno configuration for tests (generated)
+deno-tests.json

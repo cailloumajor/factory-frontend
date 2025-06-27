@@ -23,7 +23,8 @@
         "vscode": {
             "extensions": [
                 "denoland.vscode-deno",
-                "EditorConfig.EditorConfig"
+                "EditorConfig.EditorConfig",
+                "lukas-tr.materialdesignicons-intellisense"
             ],
             "settings": {
                 "[css][json][jsonc][scss][typescript][typescriptreact]": {
