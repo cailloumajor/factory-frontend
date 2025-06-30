@@ -1,4 +1,4 @@
-import { computed, type Signal } from "@preact/signals"
+import { type Signal, useComputed } from "@preact/signals"
 import classNames from "classnames"
 
 import { Icon } from "../components/Icon.tsx"
@@ -24,8 +24,8 @@ interface DashboardMetricProps {
 
 export function DashboardMetric(props: DashboardMetricProps) {
   const unitText = props.unit ? ` (${props.unit})` : ""
-  const disabledOrNaN = computed(() => props.disabled.value || Number.isNaN(props.value.value))
-  const valueClass = computed(() =>
+  const disabledOrNaN = useComputed(() => props.disabled.value || Number.isNaN(props.value.value))
+  const valueClass = useComputed(() =>
     classNames(
       "content",
       "is-size-1",
@@ -36,7 +36,7 @@ export function DashboardMetric(props: DashboardMetricProps) {
   const valueStyle = {
     "--bulma-skeleton-block-min-height": "1em",
   }
-  const metricValue = computed(() => disabledOrNaN.value ? "---" : props.value.value)
+  const metricValue = useComputed(() => disabledOrNaN.value ? "---" : props.value.value)
 
   return (
     <div class="card">
