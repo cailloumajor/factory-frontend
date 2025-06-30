@@ -44,7 +44,7 @@ export function DashboardMetric(props: DashboardMetricProps) {
         <span class="card-header-icon">
           <Icon iconSvg={props.icon}></Icon>
         </span>
-        <p class="card-header-title" data-testid="metric-title">{props.title + unitText}</p>
+        <p class="card-header-title">{props.title + unitText}</p>
       </header>
       <div class="card-content is-flex is-justify-content-center">
         <strong class={valueClass} style={valueStyle} data-testid="metric-value">
