@@ -51,6 +51,7 @@
     "@std/http": "jsr:@std/http@1.0.17",
     "@std/path": "jsr:@std/path@1.1.0",
     "@std/testing": "jsr:@std/testing@1.0.14",
+    "@std/text": "jsr:@std/text@1.0.14",
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4",
     "browserslist": "npm:browserslist@4.25.0",
     "bulma": "npm:bulma@1.0.4",

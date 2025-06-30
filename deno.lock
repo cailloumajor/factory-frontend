@@ -37,6 +37,7 @@
     "jsr:@std/semver@1": "1.0.5",
     "jsr:@std/streams@^1.0.9": "1.0.10",
     "jsr:@std/testing@1.0.14": "1.0.14",
+    "jsr:@std/text@1.0.14": "1.0.14",
     "npm:@fontsource-variable/roboto-mono@5.2.6": "5.2.6",
     "npm:@fontsource-variable/roboto@5.2.5": "5.2.5",
     "npm:@mdi/js@7.4.47": "7.4.47",
@@ -179,6 +180,9 @@
         "jsr:@std/internal@^1.0.8",
         "jsr:@std/path@^1.1.0"
       ]
+    },
+    "@std/text@1.0.14": {
+      "integrity": "1a810108482414d19112b8b506ad0b7cba826000cd13f74274ffda6dd83d273f"
     }
   },
   "npm": {
@@ -1203,6 +1207,7 @@
       "jsr:@std/http@1.0.17",
       "jsr:@std/path@1.1.0",
       "jsr:@std/testing@1.0.14",
+      "jsr:@std/text@1.0.14",
       "npm:@fontsource-variable/roboto-mono@5.2.6",
       "npm:@fontsource-variable/roboto@5.2.5",
       "npm:@mdi/js@7.4.47",
