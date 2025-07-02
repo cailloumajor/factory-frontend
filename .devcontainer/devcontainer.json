@@ -2,7 +2,7 @@
 {
     "name": "Deno",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "denoland/deno:2.3.6",
+    "image": "denoland/deno:2.4.0",
 
     "containerEnv": {
         "DENO_DIR": "/home/vscode/.cache/deno"
