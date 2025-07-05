@@ -4,7 +4,7 @@ import { styleTransformPlugin } from "./utils/style.ts"
 
 const builder = new Builder()
 
-styleTransformPlugin(builder, app.config.root)
+styleTransformPlugin(builder)
 
 if (Deno.args.includes("build")) {
   await builder.build(app)

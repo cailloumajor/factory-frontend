@@ -1,9 +1,10 @@
-/* This is a dummy file to allow triggering CSS processing. */
+@import "tailwindcss";
+@plugin "daisyui";
 
-body * {
-  display: none;
-}
+@import "@fontsource-variable/roboto";
+@import "@fontsource-variable/roboto-mono";
 
-body::before {
-  content: "Something went wrong with styles pre-processing!";
+@theme {
+  --font-sans: "Roboto Variable";
+  --font-mono: "Roboto Mono Variable";
 }

@@ -1,34 +1,27 @@
 import { expandGlob } from "@std/fs"
 import { serveFile } from "@std/http"
 import * as path from "@std/path"
-import browserslist from "browserslist"
+import tailwindPlugin from "@tailwindcss/postcss"
 import { HttpError, type MiddlewareFn } from "fresh"
 import type { FreshBuilder } from "fresh/dev"
-import { browserslistToTargets, transform } from "lightningcss"
-import { compile } from "sass"
+import { transform } from "lightningcss"
+import postcss from "postcss"
 
 const hostedFontUrlPrefix = "/hosted-fonts/"
 
-export function styleTransformPlugin(builder: FreshBuilder, rootPath: string) {
-  const nodeModulesDir = path.join(rootPath, "node_modules")
+export function styleTransformPlugin(builder: FreshBuilder) {
+  const hostedFontUrlRegex = /\/node_modules\/@fontsource[^/]*\/[^/]+\/files\/([^/]+)$/
+  const processor = postcss([tailwindPlugin()])
 
   builder.onTransformStaticFile(
     { pluginName: "styles", filter: /styles\.css$/ },
-    (args) => {
-      const compiled = compile(
-        path.join(rootPath, "assets", "styles.scss"),
-        {
-          charset: false, // Bulma already includes @charset directives
-          loadPaths: [nodeModulesDir],
-        },
-      )
+    async (args) => {
+      const processed = await processor.process(args.text, { from: args.path })
 
-      const targets = browserslistToTargets(browserslist(browserslist.defaults))
       const transformed = transform({
-        code: new TextEncoder().encode(compiled.css),
+        code: new TextEncoder().encode(processed.css),
         filename: path.basename(args.path),
         minify: args.mode === "production",
-        targets,
         visitor: {
           Rule: {
             "font-face"(rule) {
@@ -37,11 +30,13 @@ export function styleTransformPlugin(builder: FreshBuilder, rootPath: string) {
                   continue
                 }
                 for (const src of prop.value) {
-                  const pathPrefix = "./files/"
-                  if (src.type !== "url" || !src.value.url.url.startsWith(pathPrefix)) {
+                  if (src.type !== "url") {
                     continue
                   }
-                  src.value.url.url = src.value.url.url.replace(pathPrefix, hostedFontUrlPrefix)
+                  const match = hostedFontUrlRegex.exec(src.value.url.url)
+                  if (match != null) {
+                    src.value.url.url = hostedFontUrlPrefix + match[1]
+                  }
                 }
               }
               return rule

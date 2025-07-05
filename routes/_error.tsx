@@ -10,19 +10,15 @@ export default define.page(function ErrorPage({ state, error, req }) {
   const status = error instanceof HttpError ? error.status : 500
 
   return (
-    <main class="hero is-fullheight">
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <h1 class="title is-spaced" style={{ "--bulma-title-size": "8rem" }}>{status}</h1>
-          <h2 class="subtitle is-1">
-            {
-              // @ts-ignore: template literal cannot be typed
-              t([`error.${status}`, "error.other"])
-            }
-          </h2>
-          {status === 404 && <a class="button mt-5" href="/">{t("goHome")}</a>}
-        </div>
-      </div>
+    <main class="fixed top-0 bottom-0 left-0 right-0 flex flex-col justify-center text-center">
+      <h1 class="text-9xl/normal text-error">{status}</h1>
+      <h2 class="text-6xl opacity-40">
+        {
+          // @ts-ignore: template literal cannot be typed
+          t([`error.${status}`, "error.other"])
+        }
+      </h2>
+      {status === 404 && <a class="btn mt-8 mx-auto" href="/">{t("goHome")}</a>}
     </main>
   )
 })

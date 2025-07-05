@@ -22,12 +22,13 @@
     "customizations": {
         "vscode": {
             "extensions": [
+                "bradlc.vscode-tailwindcss",
                 "denoland.vscode-deno",
                 "EditorConfig.EditorConfig",
                 "lukas-tr.materialdesignicons-intellisense"
             ],
             "settings": {
-                "[css][json][jsonc][scss][typescript][typescriptreact]": {
+                "[css][json][jsonc][typescript][typescriptreact]": {
                     "editor.formatOnSave": true,
                     "editor.defaultFormatter": "denoland.vscode-deno",
                     "editor.quickSuggestions": {
@@ -36,6 +37,9 @@
                 },
                 "[typescriptreact]": {
                     "editor.autoClosingBrackets": "always"
+                },
+                "files.associations": {
+                    "*.css": "tailwindcss"
                 }
             }
         }

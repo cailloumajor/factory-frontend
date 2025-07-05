@@ -7,5 +7,5 @@ export interface ButtonProps {
 }
 
 export function Button(props: ButtonProps) {
-  return <button {...props} class="button" />
+  return <button {...props} class="btn" />
 }
