@@ -1,18 +1,13 @@
-import { afterEach, beforeEach } from "@std/testing/bdd"
 import { cleanup } from "@testing-library/preact"
-import { Window as VirtualDomWindow } from "happy-dom"
+import { GlobalRegistrator } from "@happy-dom/global-registrator"
 
-export function setupComponentTesting() {
-  let win: VirtualDomWindow | null = null
+export function componentTesting() {
+  GlobalRegistrator.register()
 
-  beforeEach(() => {
-    win = new VirtualDomWindow()
-    globalThis.document = win.document as unknown as Document
-  })
-
-  afterEach(async () => {
-    cleanup()
-    await win?.happyDOM.abort()
-    win?.close()
-  })
+  return {
+    async [Symbol.asyncDispose]() {
+      cleanup()
+      await GlobalRegistrator.unregister()
+    },
+  }
 }

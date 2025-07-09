@@ -40,6 +40,7 @@
     "jsr:@std/uuid@^1.0.7": "1.0.9",
     "npm:@fontsource-variable/roboto-mono@5.2.6": "5.2.6",
     "npm:@fontsource-variable/roboto@5.2.5": "5.2.5",
+    "npm:@happy-dom/global-registrator@^18.0.1": "18.0.1",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
     "npm:@preact/signals@2.2.1": "2.2.1_preact@10.26.9",
@@ -51,7 +52,6 @@
     "npm:daisyui@5.0.43": "5.0.43",
     "npm:esbuild-wasm@~0.25.5": "0.25.5",
     "npm:esbuild@~0.25.5": "0.25.5",
-    "npm:happy-dom@18.0.1": "18.0.1",
     "npm:i18next@25.2.1": "25.2.1",
     "npm:lightningcss@1.30.1": "1.30.1",
     "npm:postcss@8.5.6": "8.5.6",
@@ -370,6 +370,13 @@
     },
     "@fontsource-variable/roboto@5.2.5": {
       "integrity": "sha512-csqBSOWXv0h5IbPhEqYJua6/nxl7dSNZbBOMeXSO9aqzgPw3GpfgC9kL5M6ULFLRaoDoBD4U9QctoDLKMaTyMg=="
+    },
+    "@happy-dom/global-registrator@18.0.1": {
+      "integrity": "sha512-xCy/cpEP8xyJ6u0eokYgaQxeUmcKqHx/+aC3R0DLa7/S38efhZAVDQqLJ5zzTguLFS0gvAzZHP40NGaLwRyapQ==",
+      "dependencies": [
+        "@types/node@20.19.4",
+        "happy-dom"
+      ]
     },
     "@isaacs/fs-minipass@4.0.1": {
       "integrity": "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w==",
@@ -1286,13 +1293,13 @@
       "jsr:@std/text@1.0.14",
       "npm:@fontsource-variable/roboto-mono@5.2.6",
       "npm:@fontsource-variable/roboto@5.2.5",
+      "npm:@happy-dom/global-registrator@^18.0.1",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.2.1",
       "npm:@tailwindcss/postcss@4.1.11",
       "npm:@testing-library/preact@3.2.4",
       "npm:classnames@2.5.1",
       "npm:daisyui@5.0.43",
-      "npm:happy-dom@18.0.1",
       "npm:i18next@25.2.1",
       "npm:lightningcss@1.30.1",
       "npm:postcss@8.5.6",
