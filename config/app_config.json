@@ -1,1 +1,10 @@
-{}
+{
+  "computeApi": {
+    "baseUrl": "/dev-compute-api/"
+  },
+  "dashboard": {
+    "timeline": {
+      "refreshSecs": 10
+    }
+  }
+}

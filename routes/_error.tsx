@@ -1,7 +1,19 @@
-import { HttpError } from "fresh"
+import { HttpError, page } from "fresh"
 
 import { getTranslateFn } from "../utils/i18n.ts"
 import { define } from "../utils/state.ts"
+
+export const handler = define.handlers((ctx) => {
+  const isApiReq = [ctx.state.appConfig.computeApi.baseUrl].some(
+    (baseUrl) => ctx.url.pathname.startsWith(baseUrl),
+  )
+
+  if (isApiReq) {
+    return ctx.next()
+  }
+
+  return page()
+})
 
 export default define.page(function ErrorPage({ state, error, req }) {
   // FIXME: https://github.com/denoland/fresh/issues/2843

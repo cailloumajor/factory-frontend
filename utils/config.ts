@@ -48,7 +48,7 @@ export function envOverridden<T extends Record<string, unknown>>(obj: T, keyPref
 }
 
 export function appConfig(): MiddlewareFn<State> {
-  const appConfig = envOverridden(configJson)
+  const appConfig = envOverridden(configJson) as AppConfig
 
   return function configMiddleware(ctx) {
     ctx.state.appConfig = appConfig

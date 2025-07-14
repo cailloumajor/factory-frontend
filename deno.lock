@@ -1,11 +1,13 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@cailloumajor/frontend-utils-wasm@5.1.0": "5.1.0",
     "jsr:@deno/esbuild-plugin@^1.0.1": "1.0.1",
     "jsr:@deno/loader@~0.1.2": "0.1.3",
     "jsr:@fresh/core@2.0.0-alpha.37": "2.0.0-alpha.37",
     "jsr:@std/assert@1.0.13": "1.0.13",
     "jsr:@std/assert@^1.0.13": "1.0.13",
+    "jsr:@std/async@1.0.13": "1.0.13",
     "jsr:@std/async@^1.0.13": "1.0.13",
     "jsr:@std/bytes@^1.0.6": "1.0.6",
     "jsr:@std/cli@^1.0.18": "1.0.20",
@@ -61,6 +63,9 @@
     "npm:tailwindcss@^4.1.11": "4.1.11"
   },
   "jsr": {
+    "@cailloumajor/frontend-utils-wasm@5.1.0": {
+      "integrity": "178ad043c35006c6cd4cfc299082b23dd4ac3a8a42c86321753322afae1d52fb"
+    },
     "@deno/esbuild-plugin@1.0.1": {
       "integrity": "84b455e28b8750b943d30f09a585c8783d92ad7ecfd872267ade6f8695cd5c36",
       "dependencies": [
@@ -179,7 +184,7 @@
       "integrity": "144b3737105b9071cb50c957681f58a1b8ec0f3e5b19ad830f401c5fa931e8f0",
       "dependencies": [
         "jsr:@std/assert@^1.0.13",
-        "jsr:@std/async",
+        "jsr:@std/async@^1.0.13",
         "jsr:@std/data-structures",
         "jsr:@std/fs@^1.0.18",
         "jsr:@std/internal@^1.0.8",
@@ -1284,8 +1289,10 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@cailloumajor/frontend-utils-wasm@5.1.0",
       "jsr:@fresh/core@2.0.0-alpha.37",
       "jsr:@std/assert@1.0.13",
+      "jsr:@std/async@1.0.13",
       "jsr:@std/fs@1.0.18",
       "jsr:@std/http@1.0.17",
       "jsr:@std/path@1.1.0",
