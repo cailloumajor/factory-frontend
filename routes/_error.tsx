@@ -4,7 +4,7 @@ import { getTranslateFn } from "../utils/i18n.ts"
 import { define } from "../utils/state.ts"
 
 export const handler = define.handlers((ctx) => {
-  const isApiReq = [ctx.state.appConfig.computeApi.baseUrl].some(
+  const isApiReq = Object.values(ctx.state.appConfig.apiBaseUrl).some(
     (baseUrl) => ctx.url.pathname.startsWith(baseUrl),
   )
 

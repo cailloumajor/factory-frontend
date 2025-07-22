@@ -1,6 +1,6 @@
 {
-  "computeApi": {
-    "baseUrl": "/dev-compute-api/"
+  "apiBaseUrl": {
+    "computeApi": "/dev-compute-api/"
   },
   "dashboard": {
     "timeline": {
