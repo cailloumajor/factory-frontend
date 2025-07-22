@@ -34,7 +34,10 @@
   },
   "fmt": {
     "lineWidth": 100,
-    "semiColons": false
+    "semiColons": false,
+    "exclude": [
+      "static/logo.svg"
+    ]
   },
   "exclude": [
     "**/_fresh/*",
