@@ -8,9 +8,9 @@ const builder = new Builder()
 styleTransformPlugin(builder)
 
 if (Deno.args.includes("build")) {
-  await builder.build(app)
+  await builder.build()
 } else {
   devRoutes(app)
 
-  await builder.listen(app)
+  await builder.listen(() => import("./main.ts"))
 }

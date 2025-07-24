@@ -3,13 +3,13 @@ import { serveFile } from "@std/http"
 import * as path from "@std/path"
 import tailwindPlugin from "@tailwindcss/postcss"
 import { HttpError, type MiddlewareFn } from "fresh"
-import type { FreshBuilder } from "fresh/dev"
+import type { Builder } from "fresh/dev"
 import { transform } from "lightningcss"
 import postcss from "postcss"
 
 const hostedFontUrlPrefix = "/hosted-fonts/"
 
-export function styleTransformPlugin(builder: FreshBuilder) {
+export function styleTransformPlugin(builder: Builder) {
   const hostedFontUrlRegex = /\/node_modules\/@fontsource[^/]*\/[^/]+\/files\/([^/]+)$/
   const processor = postcss([tailwindPlugin()])
 

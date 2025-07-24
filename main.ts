@@ -1,4 +1,4 @@
-import { App, fsRoutes, staticFiles } from "fresh"
+import { App, staticFiles } from "fresh"
 
 import { i18n } from "./utils/i18n.ts"
 import type { State } from "./utils/state.ts"
@@ -21,12 +21,4 @@ app
   .use(await hostedFonts(app.config.root))
   .use(staticFiles())
   .use(await i18n())
-
-await fsRoutes(app, {
-  loadIsland: (path) => import(`./islands/${path}`),
-  loadRoute: (path) => import(`./routes/${path}`),
-})
-
-if (import.meta.main) {
-  await app.listen()
-}
+  .fsRoutes()
