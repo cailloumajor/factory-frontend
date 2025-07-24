@@ -1,13 +1,16 @@
 {
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check **/*.ts && deno check **/*.tsx",
-    "dev": "deno run -A --unstable-raw-imports --watch=assets/,static/,routes/,routes-dev/ dev.ts",
+    "dev": "deno run -A --watch=assets/,static/,routes/,routes-dev/ dev.ts",
     "test-config": "deno run -RW test-utils/generate-config.ts",
     "test": "deno task test-config && deno test -E -c deno-tests.json",
-    "build": "deno run -A --unstable-raw-imports dev.ts build",
+    "build": "deno run -A dev.ts build",
     "start": "deno serve -A _fresh/server.js",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
+  "unstable": [
+    "raw-imports"
+  ],
   "lint": {
     "rules": {
       "tags": [
