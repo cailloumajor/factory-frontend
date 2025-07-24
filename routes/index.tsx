@@ -3,7 +3,7 @@ import { useSignal } from "@preact/signals"
 import Counter from "../islands/Counter.tsx"
 import { define } from "../utils/state.ts"
 
-export default define.page(function Home({ state }) {
+export default define.page(({ state }) => {
   const count = useSignal(3)
 
   return (

@@ -15,7 +15,7 @@ export const handler = define.handlers((ctx) => {
   return page()
 })
 
-export default define.page(function ErrorPage({ state, error, req }) {
+export default define.page(({ state, error, req }) => {
   // FIXME: https://github.com/denoland/fresh/issues/2843
   const t = state.t ?? getTranslateFn(req)
 

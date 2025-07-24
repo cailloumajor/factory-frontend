@@ -1,6 +1,6 @@
 import { define } from "../utils/state.ts"
 
-export default define.page(function App({ Component }) {
+export default define.page(({ Component }) => {
   return (
     <html>
       <head>
