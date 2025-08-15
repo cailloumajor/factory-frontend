@@ -1,5 +1,5 @@
 import { acceptsLanguages } from "@std/http"
-import type { MiddlewareFn } from "fresh"
+import type { Middleware } from "fresh"
 import { getFixedT, init } from "i18next"
 
 import type { State } from "../utils/state.ts"
@@ -40,7 +40,7 @@ export function getTranslateFn(req: Request) {
   return getFixedT(lang)
 }
 
-export async function i18n(): Promise<MiddlewareFn<State>> {
+export async function i18n(): Promise<Middleware<State>> {
   await init({
     fallbackLng: defaultLanguage,
     resources,

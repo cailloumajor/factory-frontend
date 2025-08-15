@@ -1,5 +1,5 @@
 import { toSnakeCase } from "@std/text"
-import type { MiddlewareFn } from "fresh"
+import type { Middleware } from "fresh"
 
 import type { State } from "./state.ts"
 
@@ -51,7 +51,7 @@ export function getAppConfig() {
   return envOverridden(configJson) as AppConfig
 }
 
-export function appConfig(): MiddlewareFn<State> {
+export function appConfig(): Middleware<State> {
   const appConfig = getAppConfig()
 
   return function configMiddleware(ctx) {

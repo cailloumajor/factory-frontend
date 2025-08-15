@@ -2,7 +2,7 @@ import { expandGlob } from "@std/fs"
 import { serveFile } from "@std/http"
 import * as path from "@std/path"
 import tailwindPlugin from "@tailwindcss/postcss"
-import { HttpError, type MiddlewareFn } from "fresh"
+import { HttpError, type Middleware } from "fresh"
 import type { Builder } from "fresh/dev"
 import { transform } from "lightningcss"
 import postcss from "postcss"
@@ -52,7 +52,7 @@ export function styleTransformPlugin(builder: Builder) {
   )
 }
 
-export async function hostedFonts<T>(rootPath: string): Promise<MiddlewareFn<T>> {
+export async function hostedFonts<T>(rootPath: string): Promise<Middleware<T>> {
   const fontFiles = await Array.fromAsync(
     expandGlob(
       "@fontsource*/*/files/*",
