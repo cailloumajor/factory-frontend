@@ -16,7 +16,7 @@
     "test:component:ci": "cross-env NODE_ENV=test TZ=UTC cypress run --component"
   },
   "dependencies": {
-    "@cailloumajor/frontend-utils-wasm": "3.0.2",
+    "@cailloumajor/frontend-utils-wasm": "3.0.3",
     "@quasar/extras": "1.16.15",
     "@vueuse/core": "10.11.1",
     "centrifuge": "5.2.2",
