@@ -248,10 +248,10 @@
     "@types/tough-cookie" "^4.0.5"
     tough-cookie "^4.1.4"
 
-"@cailloumajor/frontend-utils-wasm@3.0.2":
-  version "3.0.2"
-  resolved "https://npm.pkg.github.com/download/@cailloumajor/frontend-utils-wasm/3.0.2/b99e2778e8aaa3a3c15be9629bc4c89f85eb0545#b99e2778e8aaa3a3c15be9629bc4c89f85eb0545"
-  integrity sha512-XcLEWtGgaHoOZ3W9UR7wIBgn59BixeDhgfxiNkQpWIvySE9ryxvXzWk5X0xhGfhXUvvxgCOS75GktgrGz7vRzw==
+"@cailloumajor/frontend-utils-wasm@3.0.3":
+  version "3.0.3"
+  resolved "https://npm.pkg.github.com/download/@cailloumajor/frontend-utils-wasm/3.0.3/81ce0d3eb3a98c5e1f1ee70112c17375bad00fec#81ce0d3eb3a98c5e1f1ee70112c17375bad00fec"
+  integrity sha512-yRsYxbDOXdnvtuVBH3TCGHSKYC9PW0Bw0jncTOTtrRUf3V9+WT2pMKPZFZgnwhWun952rCOaxbKnEQ5JyLUyhw==
 
 "@colors/colors@1.5.0":
   version "1.5.0"
