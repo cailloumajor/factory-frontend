@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.4.5](https://github.com/cailloumajor/factory-frontend/compare/v2.4.4...v2.4.5) (2025-08-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @cailloumajor/frontend-utils-wasm to v3.0.3 ([87d5907](https://github.com/cailloumajor/factory-frontend/commit/87d59078aecff20b597a0f5c07e2f669b01badea))
+* **deps:** update dependency vue to v3.5.18 ([b3220c8](https://github.com/cailloumajor/factory-frontend/commit/b3220c89a2d8e0d867684d283a899e608537ff73))
+* **deps:** update dependency vue-i18n to v9.14.5 ([9d71f26](https://github.com/cailloumajor/factory-frontend/commit/9d71f2671159b09b1996af82d3a4844e409ae5e7))
+
 ## [2.4.4](https://github.com/cailloumajor/factory-frontend/compare/v2.4.3...v2.4.4) (2025-08-14)
 
 
