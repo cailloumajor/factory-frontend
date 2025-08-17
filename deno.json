@@ -29,7 +29,6 @@
         "no-sparse-arrays",
         "no-throw-literal",
         "no-useless-rename",
-        "prefer-ascii",
         "triple-slash-reference",
         "verbatim-module-syntax"
       ]
