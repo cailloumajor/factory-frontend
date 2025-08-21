@@ -38,86 +38,83 @@ export function TimelineDisplay(props: TimelineProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const legendRefs = useRef<(HTMLElement | null)[]>([])
 
-  useEffect(
-    () => {
-      if (canvasRef.current == null) {
-        throw new Error("Unexpected null canvas element ref")
+  useEffect(() => {
+    if (canvasRef.current == null) {
+      throw new Error("Unexpected null canvas element ref")
+    }
+    const fontFamily = getComputedStyle(canvasRef.current).fontFamily
+    const palette = legendRefs.current.map((el) => {
+      if (el == null) {
+        throw new Error("Unexpected null legend element ref")
       }
-      const fontFamily = getComputedStyle(canvasRef.current).fontFamily
-      const palette = legendRefs.current.map((el) => {
-        if (el == null) {
-          throw new Error("Unexpected null legend element ref")
+      return getComputedStyle(el).backgroundColor
+    })
+    const { xIntervalMinutes, xOffsetMinutes, emphasisLabels } = props
+    const timeline = moduleUtils.newTimeline(
+      canvasRef.current,
+      {
+        fontFamily,
+        palette,
+        opacity: 0.7,
+        xIntervalMinutes,
+        xOffsetMinutes,
+        emphasisLabels,
+      },
+    )
+
+    canvasRef.current.addEventListener("drawed", () => {
+      error.value = null
+    })
+
+    function drawTimeline() {
+      fetch(props.apiUrl)
+        .then((resp) => {
+          if (!resp.ok) {
+            throw new Error(`HTTP error, status: ${resp.status} ${resp.statusText}`)
+          }
+          return resp.arrayBuffer()
+        })
+        .then((buf) => timeline.draw(new Uint8Array(buf)))
+        .catch((err) => {
+          error.value = String(err)
+        })
+    }
+
+    const onResize = debounce(
+      (width: number) => {
+        if (width === 0 || canvasSize.value.width === width) {
+          return
         }
-        return getComputedStyle(el).backgroundColor
-      })
-      const { xIntervalMinutes, xOffsetMinutes, emphasisLabels } = props
-      const timeline = moduleUtils.newTimeline(
-        canvasRef.current,
-        {
-          fontFamily,
-          palette,
-          opacity: 0.7,
-          xIntervalMinutes,
-          xOffsetMinutes,
-          emphasisLabels,
-        },
-      )
-
-      canvasRef.current.addEventListener("drawed", () => {
-        error.value = null
-      })
-
-      function drawTimeline() {
-        fetch(props.apiUrl)
-          .then((resp) => {
-            if (!resp.ok) {
-              throw new Error(`HTTP error, status: ${resp.status} ${resp.statusText}`)
-            }
-            return resp.arrayBuffer()
-          })
-          .then((buf) => timeline.draw(new Uint8Array(buf)))
-          .catch((err) => {
-            error.value = String(err)
-          })
-      }
-
-      const onResize = debounce(
-        (width: number) => {
-          if (width === 0 || canvasSize.value.width === width) {
-            return
-          }
-          canvasSize.value = {
-            height: Math.floor(width / 12),
-            width,
-          }
-          setTimeout(drawTimeline, 500)
-        },
-        200,
-      )
-
-      const resizeObserver = new ResizeObserver((entries) => {
-        for (const { contentBoxSize } of entries) {
-          if (contentBoxSize.length) {
-            onResize(contentBoxSize[0].inlineSize)
-          }
+        canvasSize.value = {
+          height: Math.floor(width / 12),
+          width,
         }
-      })
+        setTimeout(drawTimeline, 500)
+      },
+      200,
+    )
 
-      if (canvasRef.current.parentElement == null) {
-        throw new Error("Unexpected null canvas parent element")
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const { contentBoxSize } of entries) {
+        if (contentBoxSize.length) {
+          onResize(contentBoxSize[0].inlineSize)
+        }
       }
-      resizeObserver.observe(canvasRef.current.parentElement)
+    })
 
-      const intervalHandle = setInterval(drawTimeline, props.refreshMillis)
+    if (canvasRef.current.parentElement == null) {
+      throw new Error("Unexpected null canvas parent element")
+    }
+    resizeObserver.observe(canvasRef.current.parentElement)
 
-      return () => {
-        resizeObserver.disconnect()
-        clearInterval(intervalHandle)
-        timeline.free()
-      }
-    },
-    [],
-  )
+    const intervalHandle = setInterval(drawTimeline, props.refreshMillis)
+
+    return () => {
+      resizeObserver.disconnect()
+      clearInterval(intervalHandle)
+      timeline.free()
+    }
+  }, [])
 
   return (
     <div
