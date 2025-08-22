@@ -48,7 +48,7 @@
     "connect-history-api-fallback": "2.0.0",
     "cypress": "13.1.0",
     "dotenv": "16.4.7",
-    "eslint": "8.57.1",
+    "eslint": "9.34.0",
     "eslint-plugin-cypress": "4.1.0",
     "eslint-plugin-import": "2.31.0",
     "eslint-plugin-vue": "9.33.0",
