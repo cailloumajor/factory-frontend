@@ -9,6 +9,7 @@ import fr from "../locales/fr.json" with { type: "json" }
 
 declare module "i18next" {
   export interface CustomTypeOptions {
+    enableSelector: true
     resources: {
       translation: typeof en
     }
