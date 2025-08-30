@@ -2,9 +2,9 @@ import { signal, useSignal } from "@preact/signals"
 import { assert, assertEquals } from "@std/assert"
 import { fireEvent, render } from "@testing-library/preact"
 
-import { componentTesting } from "../test-utils/utils.ts"
+import { componentTesting } from "../utils.ts"
 
-import { DashboardMetric } from "./DashboardMetric.tsx"
+import { DashboardMetric } from "../../islands/DashboardMetric.tsx"
 
 function assertSkeleton(el: HTMLElement, expected: boolean) {
   const msg = `${expected ? "Missing" : "Unexpected"} skeleton classes.`

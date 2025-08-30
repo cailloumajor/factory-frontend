@@ -1,10 +1,10 @@
 {
   "tasks": {
     "check": "deno fmt --check . && deno lint . && deno check **/*.ts && deno check **/*.tsx",
-    "dev": "deno run -A --watch=assets/,static/,routes/,routes-dev/ dev.ts",
-    "test-config": "deno run -RW test-utils/generate-config.ts",
+    "dev": "vite",
+    "test-config": "deno run -RW tests/generate-config.ts",
     "test": "deno task test-config && deno test -E -c deno-tests.json",
-    "build": "deno run -A dev.ts build",
+    "build": "vite build",
     "start": "deno serve -A _fresh/server.js",
     "update": "deno run -A -r jsr:@fresh/update ."
   },
@@ -48,6 +48,7 @@
   ],
   "imports": {
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@5.1.1",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@0.9.6",
     "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.6",
     "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.6",
     "@happy-dom/global-registrator": "npm:@happy-dom/global-registrator@^18.0.1",
@@ -55,21 +56,21 @@
     "@preact/signals": "npm:@preact/signals@2.3.1",
     "@std/assert": "jsr:@std/assert@1.0.14",
     "@std/async": "jsr:@std/async@1.0.14",
-    "@std/fs": "jsr:@std/fs@1.0.19",
     "@std/http": "jsr:@std/http@1.0.20",
     "@std/path": "jsr:@std/path@1.1.2",
     "@std/testing": "jsr:@std/testing@1.0.15",
     "@std/text": "jsr:@std/text@1.0.16",
-    "@tailwindcss/postcss": "npm:@tailwindcss/postcss@4.1.12",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@4.1.12",
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4",
+    "@types/morgan": "npm:@types/morgan@1.9.10",
     "classnames": "npm:classnames@2.5.1",
-    "daisyui": "npm:daisyui@5.0.50",
-    "fresh": "jsr:@fresh/core@2.0.0-alpha.60",
-    "i18next": "npm:i18next@25.4.0",
-    "lightningcss": "npm:lightningcss@1.30.1",
-    "postcss": "npm:postcss@8.5.6",
+    "daisyui": "npm:daisyui@5.0.54",
+    "fresh": "jsr:@fresh/core@2.0.0-beta.1",
+    "i18next": "npm:i18next@25.4.2",
+    "morgan": "npm:morgan@1.10.1",
     "preact": "npm:preact@10.27.1",
-    "tailwindcss": "npm:tailwindcss@^4.1.12"
+    "tailwindcss": "npm:tailwindcss@4.1.12",
+    "vite": "npm:vite@7.1.3"
   },
   "compilerOptions": {
     "lib": [
@@ -86,7 +87,15 @@
       "source",
       "body",
       "html",
-      "head"
+      "head",
+      "title",
+      "meta",
+      "script",
+      "link",
+      "style",
+      "base",
+      "noscript",
+      "template"
     ]
   },
   "nodeModulesDir": "auto"

@@ -3,9 +3,9 @@ import { assertSpyCallArg, assertSpyCallArgs, assertSpyCalls, spy, stub } from "
 import { FakeTime } from "@std/testing/time"
 import { fireEvent, render, waitFor } from "@testing-library/preact"
 
-import { componentTesting } from "../test-utils/utils.ts"
+import { componentTesting } from "../utils.ts"
 
-import { moduleUtils, TimelineDisplay } from "./TimelineDisplay.tsx"
+import { moduleUtils, TimelineDisplay } from "../../islands/TimelineDisplay.tsx"
 
 function Wrapper() {
   return (
