@@ -1,10 +1,10 @@
 {
   "apiBaseUrl": {
-    "computeApi": "/dev-compute-api/"
+    "computeApi": "/dev-compute-api/",
+    "configApi": "/dev-config-api/config/"
   },
   "dashboard": {
-    "timeline": {
-      "refreshSecs": 10
-    }
+    "configRefreshMillis": 10000,
+    "timelineRefreshMillis": 10000
   }
 }

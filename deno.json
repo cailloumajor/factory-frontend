@@ -96,6 +96,9 @@
       "base",
       "noscript",
       "template"
+    ],
+    "types": [
+      "vite/client"
     ]
   },
   "nodeModulesDir": "auto"
