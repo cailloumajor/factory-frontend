@@ -1,7 +1,7 @@
 import { Timeline, type TimelineConfig } from "@cailloumajor/frontend-utils-wasm"
 import { useComputed, useSignal } from "@preact/signals"
 import { debounce } from "@std/async"
-import classNames from "classnames"
+import { clsx } from "clsx/lite"
 import { useEffect, useRef } from "preact/hooks"
 
 /** Utilities used by this module, exported to allow mocking for tests. */
@@ -131,7 +131,7 @@ export function TimelineDisplay(props: TimelineProps) {
           <code>canvas</code> element is not supported.
         </canvas>
         <div
-          class={classNames("flex", "justify-around", hasError.value && "invisible")}
+          class={clsx("flex", "justify-around", hasError.value && "invisible")}
           data-testid="timeline-legend"
         >
           {props.legendItems.map(({ colorClass, text }, idx) => (
@@ -148,7 +148,7 @@ export function TimelineDisplay(props: TimelineProps) {
           ))}
         </div>
         <div
-          class={classNames(
+          class={clsx(
             "absolute",
             "top-1/2",
             "left-1/2",

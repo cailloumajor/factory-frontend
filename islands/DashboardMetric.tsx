@@ -1,5 +1,5 @@
 import type { Signal } from "@preact/signals"
-import classNames from "classnames"
+import { clsx } from "clsx/lite"
 
 import { Icon } from "../components/Icon.tsx"
 
@@ -31,7 +31,7 @@ export function DashboardMetric(props: DashboardMetricProps) {
           {props.title}
         </h2>
         <p
-          class={classNames("text-5xl", disabledClasses, colorClass)}
+          class={clsx("text-5xl", disabledClasses, colorClass)}
           data-testid="metric-value"
         >
           {isNaNValue ? "000" : props.value}
