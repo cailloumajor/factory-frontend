@@ -48,7 +48,7 @@
   ],
   "imports": {
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@5.1.1",
-    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@0.9.6",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@0.9.7",
     "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.6",
     "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.6",
     "@happy-dom/global-registrator": "npm:@happy-dom/global-registrator@^18.0.1",
@@ -65,12 +65,12 @@
     "@types/morgan": "npm:@types/morgan@1.9.10",
     "clsx": "npm:clsx@2.1.1",
     "daisyui": "npm:daisyui@5.0.54",
-    "fresh": "jsr:@fresh/core@2.0.0-beta.1",
+    "fresh": "jsr:@fresh/core@2.0.0-beta.2",
     "i18next": "npm:i18next@25.4.2",
     "morgan": "npm:morgan@1.10.1",
     "preact": "npm:preact@10.27.1",
     "tailwindcss": "npm:tailwindcss@4.1.12",
-    "vite": "npm:vite@7.1.3"
+    "vite": "npm:vite@7.1.4"
   },
   "compilerOptions": {
     "lib": [
