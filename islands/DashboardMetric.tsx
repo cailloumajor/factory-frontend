@@ -1,5 +1,5 @@
 import type { Signal } from "@preact/signals"
-import { clsx } from "clsx/lite"
+import { clsx } from "clsx"
 
 import { Icon } from "../components/Icon.tsx"
 

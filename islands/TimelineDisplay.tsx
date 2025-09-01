@@ -1,7 +1,7 @@
 import { Timeline, type TimelineConfig } from "@cailloumajor/frontend-utils-wasm"
 import { useComputed, useSignal } from "@preact/signals"
 import { debounce } from "@std/async"
-import { clsx } from "clsx/lite"
+import { clsx } from "clsx"
 import { useEffect, useRef } from "preact/hooks"
 
 /** Utilities used by this module, exported to allow mocking for tests. */
