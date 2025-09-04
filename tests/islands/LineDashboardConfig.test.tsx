@@ -5,14 +5,14 @@ import { fireEvent, render, waitFor, within } from "@testing-library/preact"
 
 import { componentTesting } from "../utils.ts"
 
-import { dashboardConfig, LineDashboardConfig } from "../../islands/LineDashboardConfig.tsx"
+import { createDashboardConfig, LineDashboardConfig } from "../../islands/LineDashboardConfig.tsx"
 
 function Wrapper() {
+  const dashboardConfig = createDashboardConfig()
+
   function resetTitle() {
     dashboardConfig.title.value = "initial title"
   }
-
-  resetTitle()
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import { mdiAlertCircle } from "@mdi/js"
-import { signal, useSignal } from "@preact/signals"
+import { type Signal, signal, useSignal } from "@preact/signals"
 import { clsx } from "clsx"
 import type { JSX } from "preact"
 import { useEffect } from "preact/hooks"
@@ -7,15 +7,21 @@ import * as z from "zod"
 
 import { Icon } from "../components/Icon.tsx"
 
-export const dashboardConfig = {
-  title: signal("⏳"),
-  targetCycleTime: signal(1),
-  targetEfficiency: signal(1),
+interface DashboardConfig {
+  title: Signal<string>
+  targetCycleTime: Signal<number>
+  targetEfficiency: Signal<number>
 }
 
-type DashboardConfig = typeof dashboardConfig
+export function createDashboardConfig(): DashboardConfig {
+  return {
+    title: signal("⏳"),
+    targetCycleTime: signal(1),
+    targetEfficiency: signal(1),
+  }
+}
 
-const configKeys = Object.keys(dashboardConfig) as (keyof DashboardConfig)[]
+const configKeys = Object.keys(createDashboardConfig()) as (keyof DashboardConfig)[]
 
 const configSchema = z.object({
   title: z.string(),
