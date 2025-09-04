@@ -1,6 +1,5 @@
 import { Timeline, type TimelineConfig } from "@cailloumajor/frontend-utils-wasm"
 import { useComputed, useSignal } from "@preact/signals"
-import { debounce } from "@std/async"
 import { clsx } from "clsx"
 import { useEffect, useRef } from "preact/hooks"
 
@@ -80,27 +79,32 @@ export function TimelineDisplay(props: TimelineProps) {
         })
     }
 
-    const onResize = debounce(
-      (width: number) => {
-        if (width === 0 || canvasSize.value.width === width) {
-          return
-        }
-        canvasSize.value = {
-          height: Math.floor(width / 12),
-          width,
-        }
-        setTimeout(drawTimeline, 500)
-      },
-      200,
-    )
+    function onResize(fn: (entries: ResizeObserverEntry[]) => void): ResizeObserverCallback {
+      let timer: number
 
-    const resizeObserver = new ResizeObserver((entries) => {
+      return function (entries: ResizeObserverEntry[]) {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          fn(entries)
+        }, 200)
+      }
+    }
+
+    const resizeObserver = new ResizeObserver(onResize((entries) => {
       for (const { contentBoxSize } of entries) {
         if (contentBoxSize.length) {
-          onResize(contentBoxSize[0].inlineSize)
+          const width = contentBoxSize[0].inlineSize
+          if (width === 0 || canvasSize.value.width === width) {
+            return
+          }
+          canvasSize.value = {
+            height: Math.floor(width / 12),
+            width,
+          }
+          drawTimeline()
         }
       }
-    })
+    }))
 
     if (canvasRef.current.parentElement == null) {
       throw new Error("Unexpected null canvas parent element")
