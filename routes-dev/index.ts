@@ -1,10 +1,11 @@
+import { decodeBase64 } from "@std/encoding"
 import * as posix from "@std/path/posix"
 import type { App } from "fresh"
 
 import { getAppConfig } from "../utils/config.ts"
 import type { State } from "../utils/state.ts"
 
-import timelineDataPath from "./timeline_data.bin?url"
+import timelineData from "./timeline_data.bin?url&inline"
 
 export function devRoutes(app: App<State>) {
   const requestCount = {
@@ -18,8 +19,7 @@ export function devRoutes(app: App<State>) {
   const timelineUrl = posix.join(apiBaseUrl.computeApi, "timeline", ":id")
 
   app.get(configUrl, ({ params }) => {
-    requestCount.config += 1
-    if (requestCount.config % 2 === 0) {
+    if (requestCount.config++ % 2 === 0) {
       return Response.json(false)
     }
     return Response.json({
@@ -29,14 +29,15 @@ export function devRoutes(app: App<State>) {
     })
   })
 
-  app.get(timelineUrl, async ({ url }) => {
-    requestCount.timeline += 1
-    if (requestCount.timeline % 2 === 0) {
-      return new Response(null, { status: 403 })
+  app.get(timelineUrl, () => {
+    if (requestCount.timeline++ % 2 === 0) {
+      return new Response(new Uint8Array([0x90]))
     }
-    const timelineDataUrl = new URL(url)
-    timelineDataUrl.pathname = timelineDataPath
-    const timelineData = await fetch(timelineDataUrl).then((resp) => resp.arrayBuffer())
-    return new Response(timelineData)
+
+    const dataUrlPrefix = "data:application/octet-stream;base64,"
+    const base64Data = timelineData.slice(dataUrlPrefix.length)
+    const data = decodeBase64(base64Data)
+
+    return new Response(data)
   })
 }

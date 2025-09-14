@@ -19,6 +19,7 @@
     "jsr:@std/data-structures@^1.0.9": "1.0.9",
     "jsr:@std/dotenv@~0.225.5": "0.225.5",
     "jsr:@std/encoding@1": "1.0.10",
+    "jsr:@std/encoding@1.0.10": "1.0.10",
     "jsr:@std/encoding@^1.0.10": "1.0.10",
     "jsr:@std/fmt@^1.0.7": "1.0.8",
     "jsr:@std/fmt@^1.0.8": "1.0.8",
@@ -62,7 +63,7 @@
     "npm:daisyui@5.1.10": "5.1.10",
     "npm:esbuild-wasm@0.25.7": "0.25.7",
     "npm:esbuild@0.25.7": "0.25.7",
-    "npm:esbuild@~0.25.5": "0.25.7",
+    "npm:esbuild@~0.25.5": "0.25.9",
     "npm:i18next@25.5.2": "25.5.2",
     "npm:morgan@1.10.1": "1.10.1",
     "npm:preact-render-to-string@^6.5.11": "6.6.1_preact@10.27.1",
@@ -696,7 +697,7 @@
     "@happy-dom/global-registrator@18.0.1": {
       "integrity": "sha512-xCy/cpEP8xyJ6u0eokYgaQxeUmcKqHx/+aC3R0DLa7/S38efhZAVDQqLJ5zzTguLFS0gvAzZHP40NGaLwRyapQ==",
       "dependencies": [
-        "@types/node@20.19.12",
+        "@types/node@20.19.14",
         "happy-dom"
       ]
     },
@@ -1043,8 +1044,8 @@
         "@types/node@24.2.0"
       ]
     },
-    "@types/node@20.19.12": {
-      "integrity": "sha512-lSOjyS6vdO2G2g2CWrETTV3Jz2zlCXHpu1rcubLKpz9oj+z/1CceHlj+yq53W+9zgb98nSov/wjEKYDNauD+Hw==",
+    "@types/node@20.19.14": {
+      "integrity": "sha512-gqiKWld3YIkmtrrg9zDvg9jfksZCcPywXVN7IauUGhilwGV/yOyeUsvpR796m/Jye0zUzMXPKe8Ct1B79A7N5Q==",
       "dependencies": [
         "undici-types@6.21.0"
       ]
@@ -1089,8 +1090,8 @@
         "possible-typed-array-names"
       ]
     },
-    "baseline-browser-mapping@2.8.2": {
-      "integrity": "sha512-NvcIedLxrs9llVpX7wI+Jz4Hn9vJQkCPKrTaHIE0sW/Rj1iq6Fzby4NbyTZjQJNoypBXNaG7tEHkTgONZpwgxQ==",
+    "baseline-browser-mapping@2.8.3": {
+      "integrity": "sha512-mcE+Wr2CAhHNWxXN/DdTI+n4gsPc5QpXpWnyCQWiQYIYZX+ZMJ8juXZgjRa/0/YPJo/NSsgW15/YgmI4nbysYw==",
       "bin": true
     },
     "basic-auth@2.0.1": {
@@ -1407,7 +1408,7 @@
     "happy-dom@18.0.1": {
       "integrity": "sha512-qn+rKOW7KWpVTtgIUi6RVmTBZJSe2k0Db0vh1f7CWrWclkkc7/Q+FrOfkZIb2eiErLyqu5AXEzE7XthO9JVxRA==",
       "dependencies": [
-        "@types/node@20.19.12",
+        "@types/node@20.19.14",
         "@types/whatwg-mimetype",
         "whatwg-mimetype"
       ]
@@ -2011,6 +2012,7 @@
       "jsr:@fresh/plugin-vite@1.0.2",
       "jsr:@std/assert@1.0.14",
       "jsr:@std/async@1.0.14",
+      "jsr:@std/encoding@1.0.10",
       "jsr:@std/http@1.0.20",
       "jsr:@std/path@1.1.2",
       "jsr:@std/testing@1.0.15",
