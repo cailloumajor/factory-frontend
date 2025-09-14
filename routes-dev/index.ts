@@ -1,4 +1,5 @@
 import { decodeBase64 } from "@std/encoding"
+import { serveDir } from "@std/http"
 import * as posix from "@std/path/posix"
 import type { App } from "fresh"
 
@@ -8,6 +9,11 @@ import type { State } from "../utils/state.ts"
 import timelineData from "./timeline_data.bin?url&inline"
 
 export function devRoutes(app: App<State>) {
+  // TODO: remove this hack if https://github.com/denoland/fresh/issues/3424 gets fixed.
+  app.get("/node_modules/.deno/@fontsource-variable*", ({ req }) => {
+    return serveDir(req, { showDotfiles: true, quiet: true })
+  })
+
   const requestCount = {
     config: 0,
     timeline: 0,
