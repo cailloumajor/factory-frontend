@@ -1,7 +1,7 @@
 import { assert, assertEquals, assertFalse, assertStrictEquals } from "@std/assert"
 import { assertSpyCallArg, assertSpyCallArgs, assertSpyCalls, spy, stub } from "@std/testing/mock"
 import { FakeTime } from "@std/testing/time"
-import { fireEvent, render, waitFor } from "@testing-library/preact"
+import { render, waitFor } from "@testing-library/preact"
 
 import { componentTesting } from "../utils.ts"
 
@@ -40,9 +40,8 @@ Deno.test("instanciates the timeline object", async () => {
   )
   using fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
-      draw() {
-        return Promise.resolve()
-      },
+      setData() {},
+      draw() {},
       free() {},
     }
   })
@@ -67,7 +66,7 @@ Deno.test("instanciates the timeline object", async () => {
 Deno.test("shows fetch error", async () => {
   await using _ctHandle = componentTesting()
 
-  using fakeTime = new FakeTime()
+  using _fakeTime = new FakeTime()
   using _fakeFetch = stub(
     globalThis,
     "fetch",
@@ -75,16 +74,13 @@ Deno.test("shows fetch error", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
-      draw() {
-        return Promise.resolve()
-      },
+      setData() {},
+      draw() {},
       free() {},
     }
   })
 
   const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
-
-  fakeTime.tick(11000)
 
   await waitFor(() => {
     getByText(/fetch error for tests/)
@@ -96,7 +92,7 @@ Deno.test("shows fetch error", async () => {
 Deno.test("shows HTTP error", async () => {
   await using _ctHandle = componentTesting()
 
-  using fakeTime = new FakeTime()
+  using _fakeTime = new FakeTime()
   using _fakeFetch = stub(
     globalThis,
     "fetch",
@@ -104,16 +100,13 @@ Deno.test("shows HTTP error", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
-      draw() {
-        return Promise.resolve()
-      },
+      setData() {},
+      draw() {},
       free() {},
     }
   })
 
   const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
-
-  fakeTime.tick(11000)
 
   await waitFor(() => {
     getByText(/HTTP error, status: 500/)
@@ -122,10 +115,41 @@ Deno.test("shows HTTP error", async () => {
   assert(getByTestId("timeline-legend").classList.contains("invisible"))
 })
 
+Deno.test("shows setData error", async () => {
+  await using _ctHandle = componentTesting()
+
+  using _fakeTime = new FakeTime()
+  using _fakeFetch = stub(
+    globalThis,
+    "fetch",
+    () => Promise.resolve(new Response()),
+  )
+  const fakeDraw = spy()
+  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
+    return {
+      setData() {
+        throw new Error("setData error for tests")
+      },
+      draw: fakeDraw,
+      free() {},
+    }
+  })
+
+  const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
+
+  await waitFor(() => {
+    getByText(/setData error for tests/)
+  })
+  assert(getByLabelText("status timeline").classList.contains("invisible"))
+  assert(getByTestId("timeline-legend").classList.contains("invisible"))
+  // Check that draw method is not called if we have a setData error.
+  assertSpyCalls(fakeDraw, 0)
+})
+
 Deno.test("shows draw error", async () => {
   await using _ctHandle = componentTesting()
 
-  using fakeTime = new FakeTime()
+  using _fakeTime = new FakeTime()
   using _fakeFetch = stub(
     globalThis,
     "fetch",
@@ -133,16 +157,15 @@ Deno.test("shows draw error", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      setData() {},
       draw() {
-        return Promise.reject("draw error for tests")
+        throw new Error("draw error for tests")
       },
       free() {},
     }
   })
 
   const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
-
-  fakeTime.tick(11000)
 
   await waitFor(() => {
     getByText(/draw error for tests/)
@@ -162,9 +185,11 @@ Deno.test("calls draw function periodically", async () => {
     "fetch",
     () => Promise.resolve(new Response(body)),
   )
-  const fakeDraw = spy(() => Promise.resolve())
+  const fakeSetData = spy()
+  const fakeDraw = spy()
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      setData: fakeSetData,
       draw: fakeDraw,
       free() {},
     }
@@ -172,17 +197,30 @@ Deno.test("calls draw function periodically", async () => {
 
   render(<Wrapper />)
 
-  fakeTime.tick(61000)
-
+  fakeTime.tick(10001)
   await waitFor(() => {
-    assertSpyCalls(fakeDraw, 6)
+    assertSpyCalls(fakeSetData, 1)
+    assertSpyCallArgs(fakeSetData, 0, [body])
+    assertSpyCalls(fakeDraw, 1)
   })
-  assertSpyCallArgs(fakeDraw, 0, [body])
-  assertSpyCallArgs(fakeDraw, 1, [body])
-  assertSpyCallArgs(fakeDraw, 2, [body])
-  assertSpyCallArgs(fakeDraw, 3, [body])
-  assertSpyCallArgs(fakeDraw, 4, [body])
-  assertSpyCallArgs(fakeDraw, 5, [body])
+  fakeTime.tick(10001)
+  await waitFor(() => {
+    assertSpyCalls(fakeSetData, 2)
+    assertSpyCallArgs(fakeSetData, 1, [body])
+    assertSpyCalls(fakeDraw, 2)
+  })
+  fakeTime.tick(10001)
+  await waitFor(() => {
+    assertSpyCalls(fakeSetData, 3)
+    assertSpyCallArgs(fakeSetData, 2, [body])
+    assertSpyCalls(fakeDraw, 3)
+  })
+  fakeTime.tick(10001)
+  await waitFor(() => {
+    assertSpyCalls(fakeSetData, 4)
+    assertSpyCallArgs(fakeSetData, 3, [body])
+    assertSpyCalls(fakeDraw, 4)
+  })
 })
 
 Deno.test("clears error upon successful draw", async () => {
@@ -194,10 +232,15 @@ Deno.test("clears error upon successful draw", async () => {
     "fetch",
     () => Promise.resolve(new Response()),
   )
+  let failDraw = true
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      setData() {},
       draw() {
-        return Promise.reject("an error")
+        if (failDraw) {
+          failDraw = false
+          throw new Error("an error")
+        }
       },
       free() {},
     }
@@ -205,12 +248,10 @@ Deno.test("clears error upon successful draw", async () => {
 
   const { findByText, getByLabelText, getByTestId } = render(<Wrapper />)
 
-  fakeTime.tick(11000)
-
   const errorDisplay = await findByText(/an error/)
   assertFalse(errorDisplay.classList.contains("hidden"))
 
-  fireEvent(getByLabelText("status timeline"), new CustomEvent("drawed"))
+  fakeTime.tick(10001)
 
   await waitFor(() => {
     assert(errorDisplay.classList.contains("hidden"))
@@ -254,9 +295,8 @@ Deno.test("resizes canvas when its parent resizes", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
-      draw() {
-        return Promise.resolve()
-      },
+      setData() {},
+      draw() {},
       free() {},
     }
   })
@@ -289,15 +329,16 @@ Deno.test("displays the legend", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
-      draw() {
-        return Promise.resolve()
-      },
+      setData() {},
+      draw() {},
       free() {},
     }
   })
 
-  const { findAllByText } = render(<Wrapper />)
+  const { findAllByText, findByRole } = render(<Wrapper />)
 
+  const errorDisplay = await findByRole("alert")
+  assert(errorDisplay.classList.contains("hidden"))
   const legendTexts = await findAllByText(/(First|Second) color/)
   assertEquals(legendTexts.length, 2)
   assert(legendTexts[0].previousElementSibling?.classList.contains("firstColor"))

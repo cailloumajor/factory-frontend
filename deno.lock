@@ -1,7 +1,7 @@
 {
   "version": "5",
   "specifiers": {
-    "jsr:@cailloumajor/frontend-utils-wasm@5.1.1": "5.1.1",
+    "jsr:@cailloumajor/frontend-utils-wasm@6.0.0": "6.0.0",
     "jsr:@deno/esbuild-plugin@^1.2.0": "1.2.0",
     "jsr:@deno/loader@~0.3.2": "0.3.5",
     "jsr:@deno/loader@~0.3.3": "0.3.5",
@@ -76,8 +76,8 @@
     "npm:zod@4.1.8": "4.1.8"
   },
   "jsr": {
-    "@cailloumajor/frontend-utils-wasm@5.1.1": {
-      "integrity": "998cba9300f8524aed5328f544f2608035889b0ef13cedc639518b4208dd656b"
+    "@cailloumajor/frontend-utils-wasm@6.0.0": {
+      "integrity": "386b5ed1df2133b9fdef3dc5538e7800abd70019aded713c88135c4f4e1a76fc"
     },
     "@deno/esbuild-plugin@1.2.0": {
       "integrity": "04ddd0fca9416d8a2866263928a53b9d5ed08dfca064d64504a0aaf9800c709e",
@@ -2007,7 +2007,7 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@cailloumajor/frontend-utils-wasm@5.1.1",
+      "jsr:@cailloumajor/frontend-utils-wasm@6.0.0",
       "jsr:@fresh/core@2.0.2",
       "jsr:@fresh/plugin-vite@1.0.2",
       "jsr:@std/assert@1.0.14",

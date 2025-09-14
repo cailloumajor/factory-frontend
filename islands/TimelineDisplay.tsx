@@ -31,9 +31,10 @@ interface TimelineProps extends Omit<TimelineConfig, OmittedOptions> {
 
 export function TimelineDisplay(props: TimelineProps) {
   const canvasSize = useSignal({ height: 150, width: 300 })
-  const error = useSignal<string | null>(null)
+  const setDataError = useSignal("")
+  const drawError = useSignal("")
 
-  const hasError = useComputed(() => error.value != null)
+  const errorText = useComputed(() => setDataError.value || drawError.value)
 
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const legendRefs = useRef<(HTMLElement | null)[]>([])
@@ -62,22 +63,43 @@ export function TimelineDisplay(props: TimelineProps) {
       },
     )
 
-    canvasRef.current.addEventListener("drawed", () => {
-      error.value = null
-    })
+    const abort = new AbortController()
+    let timeoutHandle: number
 
-    function drawTimeline() {
-      fetch(props.apiUrl)
+    function fetchTimelineData() {
+      fetch(props.apiUrl, { signal: abort.signal })
         .then((resp) => {
           if (!resp.ok) {
             throw new Error(`HTTP error, status: ${resp.status} ${resp.statusText}`)
           }
           return resp.arrayBuffer()
         })
-        .then((buf) => timeline.draw(new Uint8Array(buf)))
-        .catch((err) => {
-          error.value = String(err)
+        .then((buf) => {
+          timeline.setData(new Uint8Array(buf))
+          setDataError.value = ""
+          drawTimeline()
         })
+        .catch((err) => {
+          setDataError.value = String(err)
+        })
+        .finally(() => {
+          timeoutHandle = setTimeout(fetchTimelineData, props.refreshMillis)
+        })
+    }
+
+    fetchTimelineData()
+
+    function drawTimeline() {
+      if (setDataError.value) {
+        return
+      }
+
+      try {
+        timeline.draw()
+        drawError.value = ""
+      } catch (err) {
+        drawError.value = String(err)
+      }
     }
 
     const onResize = debounce((width: number) => {
@@ -104,11 +126,11 @@ export function TimelineDisplay(props: TimelineProps) {
     }
     resizeObserver.observe(canvasRef.current.parentElement)
 
-    const intervalHandle = setInterval(drawTimeline, props.refreshMillis)
-
     return () => {
       resizeObserver.disconnect()
-      clearInterval(intervalHandle)
+      onResize.clear()
+      clearTimeout(timeoutHandle)
+      abort.abort()
       timeline.free()
     }
   }, [])
@@ -121,14 +143,14 @@ export function TimelineDisplay(props: TimelineProps) {
       <div class="card-body">
         <canvas
           {...canvasSize.value}
-          class={hasError.value ? "invisible" : undefined}
+          class={errorText.value ? "invisible" : undefined}
           aria-label="status timeline"
           ref={canvasRef}
         >
           <code>canvas</code> element is not supported.
         </canvas>
         <div
-          class={clsx("flex", "justify-around", hasError.value && "invisible")}
+          class={clsx("flex", "justify-around", errorText.value && "invisible")}
           data-testid="timeline-legend"
         >
           {props.legendItems.map(({ colorClass, text }, idx) => (
@@ -152,12 +174,12 @@ export function TimelineDisplay(props: TimelineProps) {
             "-translate-1/2",
             "text-xl",
             "text-error",
-            !hasError.value && "hidden",
+            !errorText.value && "hidden",
           )}
           role="alert"
           data-testid="timeline-error"
         >
-          {error.value}
+          {errorText.value}
         </div>
       </div>
     </div>
