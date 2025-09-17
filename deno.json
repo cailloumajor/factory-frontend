@@ -48,9 +48,9 @@
   ],
   "imports": {
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.0",
-    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.0.2",
-    "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.6",
-    "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.6",
+    "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.0.3",
+    "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.8",
+    "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.8",
     "@happy-dom/global-registrator": "npm:@happy-dom/global-registrator@^18.0.1",
     "@mdi/js": "npm:@mdi/js@7.4.47",
     "@preact/signals": "npm:@preact/signals@2.3.1",
@@ -65,14 +65,14 @@
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4",
     "@types/morgan": "npm:@types/morgan@1.9.10",
     "clsx": "npm:clsx@2.1.1",
-    "daisyui": "npm:daisyui@5.1.10",
-    "fresh": "jsr:@fresh/core@2.0.2",
+    "daisyui": "npm:daisyui@5.1.13",
+    "fresh": "jsr:@fresh/core@2.1.0",
     "i18next": "npm:i18next@25.5.2",
     "morgan": "npm:morgan@1.10.1",
-    "preact": "npm:preact@10.27.1",
+    "preact": "npm:preact@10.27.2",
     "tailwindcss": "npm:tailwindcss@4.1.13",
     "vite": "npm:vite@7.1.5",
-    "zod": "npm:zod@4.1.8"
+    "zod": "npm:zod@4.1.9"
   },
   "compilerOptions": {
     "lib": [
