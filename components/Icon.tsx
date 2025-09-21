@@ -1,6 +1,6 @@
-import type { JSX } from "preact"
+import type { HTMLAttributes } from "preact"
 
-interface IconProps extends JSX.HTMLAttributes<SVGElement> {
+interface IconProps extends HTMLAttributes<SVGElement> {
   /** The SVG contents of the icon (e.g. from `@mdi/js`). */
   iconSvg: string
 }

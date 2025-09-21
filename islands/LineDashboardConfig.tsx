@@ -1,7 +1,7 @@
 import { mdiAlertCircle } from "@mdi/js"
 import { type Signal, signal, useSignal } from "@preact/signals"
 import { clsx } from "clsx"
-import type { JSX } from "preact"
+import type { HTMLAttributes } from "preact"
 import { useEffect } from "preact/hooks"
 import * as z from "zod"
 
@@ -29,7 +29,7 @@ const configSchema = z.object({
   targetEfficiency: z.number().positive(),
 })
 
-interface LineDashboardConfigProps extends JSX.HTMLAttributes<Element> {
+interface LineDashboardConfigProps extends HTMLAttributes<Element> {
   /** The URL of the API to fetch for data. */
   apiUrl: string
   /** The interval in milliseconds at which the config should be re-fetched. */
