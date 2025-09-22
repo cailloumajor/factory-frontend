@@ -1,11 +1,8 @@
 import { toSnakeCase } from "@std/text"
-import type { Middleware } from "fresh"
-
-import type { State } from "./state.ts"
 
 import configJson from "../config/app_config.json" with { type: "json" }
 
-export type AppConfig = typeof configJson
+type AppConfig = typeof configJson
 
 export function envOverridden<T extends Record<string, unknown>>(obj: T, keyPrefix?: string) {
   const out: Record<string, unknown> = {}
@@ -47,16 +44,4 @@ export function envOverridden<T extends Record<string, unknown>>(obj: T, keyPref
   return out
 }
 
-export function getAppConfig() {
-  return envOverridden(configJson) as AppConfig
-}
-
-export function appConfig(): Middleware<State> {
-  const appConfig = getAppConfig()
-
-  return function configMiddleware(ctx) {
-    ctx.state.appConfig = appConfig
-
-    return ctx.next()
-  }
-}
+export const appConfig = envOverridden(configJson) as AppConfig

@@ -3,7 +3,7 @@ import { serveDir } from "@std/http"
 import * as posix from "@std/path/posix"
 import type { App } from "fresh"
 
-import { getAppConfig } from "../utils/config.ts"
+import { appConfig } from "../utils/config.ts"
 import type { State } from "../utils/state.ts"
 
 import timelineData from "./timeline_data.bin?url&inline"
@@ -19,10 +19,8 @@ export function devRoutes(app: App<State>) {
     timeline: 0,
   }
 
-  const { apiBaseUrl } = getAppConfig()
-
-  const configUrl = posix.join(apiBaseUrl.configApi, "line_dashboard", ":id")
-  const timelineUrl = posix.join(apiBaseUrl.computeApi, "timeline", ":id")
+  const configUrl = posix.join(appConfig.apiBaseUrl.configApi, "line_dashboard", ":id")
+  const timelineUrl = posix.join(appConfig.apiBaseUrl.computeApi, "timeline", ":id")
 
   app.get(configUrl, ({ params }) => {
     if (requestCount.config++ % 2 === 0) {
