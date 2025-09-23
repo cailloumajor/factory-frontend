@@ -65,13 +65,13 @@
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4",
     "@types/morgan": "npm:@types/morgan@1.9.10",
     "clsx": "npm:clsx@2.1.1",
-    "daisyui": "npm:daisyui@5.1.13",
+    "daisyui": "npm:daisyui@5.1.14",
     "fresh": "jsr:@fresh/core@2.1.1",
     "i18next": "npm:i18next@25.5.2",
     "morgan": "npm:morgan@1.10.1",
     "preact": "npm:preact@10.27.2",
     "tailwindcss": "npm:tailwindcss@4.1.13",
-    "vite": "npm:vite@7.1.6",
+    "vite": "npm:vite@7.1.7",
     "zod": "npm:zod@4.1.11"
   },
   "compilerOptions": {
