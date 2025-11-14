@@ -3,7 +3,7 @@ import { assertSpyCallArg, assertSpyCallArgs, assertSpyCalls, spy, stub } from "
 import { FakeTime } from "@std/testing/time"
 import { render, waitFor } from "@testing-library/preact"
 
-import { componentTesting } from "../tests/utils.ts"
+import { componentTesting } from "@/tests/utils.ts"
 
 import { moduleUtils, TimelineDisplay } from "./TimelineDisplay.tsx"
 

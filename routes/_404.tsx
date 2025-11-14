@@ -1,7 +1,7 @@
 import { page } from "fresh"
 
-import { appConfig } from "../utils/config.ts"
-import { define } from "../utils/state.ts"
+import { appConfig } from "@/utils/config.ts"
+import { define } from "@/utils/state.ts"
 
 export const handler = define.handlers((ctx) => {
   const isApiReq = Object.values(appConfig.apiBaseUrl).some(

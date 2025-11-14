@@ -3,8 +3,8 @@ import { serveDir } from "@std/http"
 import * as posix from "@std/path/posix"
 import type { App } from "fresh"
 
-import { appConfig } from "../utils/config.ts"
-import type { State } from "../utils/state.ts"
+import { appConfig } from "@/utils/config.ts"
+import type { State } from "@/utils/state.ts"
 
 import timelineData from "./timeline_data.bin?url&inline"
 

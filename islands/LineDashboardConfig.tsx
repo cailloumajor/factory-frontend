@@ -5,7 +5,7 @@ import type { HTMLAttributes } from "preact"
 import { useEffect } from "preact/hooks"
 import * as z from "zod"
 
-import { Icon } from "../components/Icon.tsx"
+import { Icon } from "@/components/Icon.tsx"
 
 interface DashboardConfig {
   title: Signal<string>

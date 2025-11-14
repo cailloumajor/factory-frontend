@@ -47,6 +47,7 @@
     ".devcontainer"
   ],
   "imports": {
+    "@/": "./",
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.0",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.0.7",
     "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.8",

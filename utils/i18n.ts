@@ -2,10 +2,10 @@ import { acceptsLanguages } from "@std/http"
 import type { Middleware } from "fresh"
 import { getFixedT, init } from "i18next"
 
-import type { State } from "../utils/state.ts"
+import type { State } from "@/utils/state.ts"
 
-import en from "../locales/en.json" with { type: "json" }
-import fr from "../locales/fr.json" with { type: "json" }
+import en from "@/locales/en.json" with { type: "json" }
+import fr from "@/locales/fr.json" with { type: "json" }
 
 declare module "i18next" {
   export interface CustomTypeOptions {

@@ -1,7 +1,7 @@
 import type { Signal } from "@preact/signals"
 import { clsx } from "clsx"
 
-import { Icon } from "../components/Icon.tsx"
+import { Icon } from "@/components/Icon.tsx"
 
 interface DashboardMetricProps {
   /** The icon SVG path  (e.g. from `@mdi/js`). */

@@ -2,7 +2,7 @@ import { signal, useSignal } from "@preact/signals"
 import { assert, assertEquals } from "@std/assert"
 import { fireEvent, render } from "@testing-library/preact"
 
-import { componentTesting } from "../tests/utils.ts"
+import { componentTesting } from "@/tests/utils.ts"
 
 import { DashboardMetric } from "./DashboardMetric.tsx"
 

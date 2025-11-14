@@ -1,4 +1,4 @@
-import { define } from "../utils/state.ts"
+import { define } from "@/utils/state.ts"
 
 export default define.page(({ Component }) => {
   return (

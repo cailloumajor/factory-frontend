@@ -1,14 +1,14 @@
 import { useSignal } from "@preact/signals"
 
-import Counter from "../islands/Counter.tsx"
-import { define } from "../utils/state.ts"
+import Counter from "@/islands/Counter.tsx"
+import { define } from "@/utils/state.ts"
 
 export default define.page(({ state }) => {
   const count = useSignal(3)
 
   return (
     <div class="px-4 py-8 mx-auto">
-      <div class="max-w-screen-md mx-auto flex flex-col items-center justify-center">
+      <div class="max-w-3xl mx-auto flex flex-col items-center justify-center">
         <img
           class="my-6"
           src="/logo.svg"

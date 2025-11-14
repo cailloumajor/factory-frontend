@@ -1,7 +1,7 @@
 import * as path from "@std/path"
 
 // deno-lint-ignore verbatim-module-syntax
-import denoJson from "../deno.json" with { type: "json" }
+import denoJson from "@/deno.json" with { type: "json" }
 
 type DenoJson = typeof denoJson
 

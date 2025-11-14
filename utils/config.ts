@@ -1,6 +1,6 @@
 import { toSnakeCase } from "@std/text"
 
-import configJson from "../config/app_config.json" with { type: "json" }
+import configJson from "@/config/app_config.json" with { type: "json" }
 
 type AppConfig = typeof configJson
 
