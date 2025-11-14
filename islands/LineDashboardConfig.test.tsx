@@ -3,9 +3,9 @@ import { resolvesNext, stub } from "@std/testing/mock"
 import { FakeTime } from "@std/testing/time"
 import { fireEvent, render, waitFor, within } from "@testing-library/preact"
 
-import { componentTesting } from "../utils.ts"
+import { componentTesting } from "../tests/utils.ts"
 
-import { createDashboardConfig, LineDashboardConfig } from "../../islands/LineDashboardConfig.tsx"
+import { createDashboardConfig, LineDashboardConfig } from "./LineDashboardConfig.tsx"
 
 function Wrapper() {
   const dashboardConfig = createDashboardConfig()
