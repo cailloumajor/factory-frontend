@@ -1,10 +1,9 @@
 import { page } from "fresh"
 
-import { appConfig } from "@/utils/config.ts"
 import { define } from "@/utils/state.ts"
 
 export const handler = define.handlers((ctx) => {
-  const isApiReq = Object.values(appConfig.apiBaseUrl).some(
+  const isApiReq = Object.values(ctx.state.appConfig.apiBaseUrl).some(
     (baseUrl) => ctx.url.pathname.startsWith(baseUrl),
   )
 
