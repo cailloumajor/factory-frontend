@@ -40,6 +40,7 @@ Deno.test("instanciates the timeline object", async () => {
   )
   using fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {},
       draw() {},
       free() {},
@@ -74,6 +75,7 @@ Deno.test("shows fetch error", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {},
       draw() {},
       free() {},
@@ -100,6 +102,7 @@ Deno.test("shows HTTP error", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {},
       draw() {},
       free() {},
@@ -127,6 +130,7 @@ Deno.test("shows setData error", async () => {
   const fakeDraw = spy()
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {
         throw new Error("setData error for tests")
       },
@@ -157,6 +161,7 @@ Deno.test("shows draw error", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {},
       draw() {
         throw new Error("draw error for tests")
@@ -189,6 +194,7 @@ Deno.test("calls draw function periodically", async () => {
   const fakeDraw = spy()
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData: fakeSetData,
       draw: fakeDraw,
       free() {},
@@ -235,6 +241,7 @@ Deno.test("clears error upon successful draw", async () => {
   let failDraw = true
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {},
       draw() {
         if (failDraw) {
@@ -295,6 +302,7 @@ Deno.test("resizes canvas when its parent resizes", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {},
       draw() {},
       free() {},
@@ -329,6 +337,7 @@ Deno.test("displays the legend", async () => {
   )
   using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
     return {
+      [Symbol.dispose]() {},
       setData() {},
       draw() {},
       free() {},

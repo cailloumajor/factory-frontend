@@ -24,12 +24,12 @@ export function devRoutes(app: App<State>) {
   const configUrl = posix.join(apiBaseUrl.configApi, "line_dashboard", ":id")
   const timelineUrl = posix.join(apiBaseUrl.computeApi, "timeline", ":id")
 
-  app.get(configUrl, ({ params }) => {
+  app.get(configUrl, (ctx) => {
     if (requestCount.config++ % 2 === 0) {
-      return Response.json(false)
+      return ctx.json(false)
     }
-    return Response.json({
-      title: `dev title (${params.id})`,
+    return ctx.json({
+      title: `dev title (${ctx.params.id})`,
       targetCycleTime: 60,
       targetEfficiency: 1,
     })
