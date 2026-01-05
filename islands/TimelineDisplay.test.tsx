@@ -353,3 +353,35 @@ Deno.test("displays the legend", async () => {
   assert(legendTexts[0].previousElementSibling?.classList.contains("firstColor"))
   assert(legendTexts[1].previousElementSibling?.classList.contains("secondColor"))
 })
+
+Deno.test("frees the timeline resources when unmounted", async () => {
+  await using _ctHandle = componentTesting()
+
+  using _fakeTime = new FakeTime()
+  using _fakeFetch = stub(
+    globalThis,
+    "fetch",
+    () => Promise.resolve(new Response()),
+  )
+  const fakeFree = spy()
+  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
+    return {
+      [Symbol.dispose]() {},
+      setData() {},
+      draw() {},
+      free: fakeFree,
+    }
+  })
+
+  const { unmount } = render(<Wrapper />)
+
+  await waitFor(() => {
+    assertSpyCalls(fakeFree, 0)
+  })
+
+  unmount()
+
+  await waitFor(() => {
+    assertSpyCalls(fakeFree, 1)
+  })
+})
