@@ -67,7 +67,7 @@ export function LineDashboardConfig(props: LineDashboardConfigProps) {
           }
         })
         .catch(({ message }) => {
-          props.errorText.value = `Dashboard config: ${message}`
+          props.errorText.value = String(message)
         })
         .finally(() => {
           timeoutHandle = setTimeout(updateConfig, props.refreshMillis)

@@ -6,6 +6,8 @@ import type { Signal } from "@preact/signals"
 import { Icon } from "@/components/Icon.tsx"
 
 interface AlertProps extends HTMLAttributes<HTMLDivElement> {
+  /** The error message context. */
+  context: string
   /** The error text that should be displayed. If empty, the alert will be hidden. */
   errorText: Signal<string>
 }
@@ -18,6 +20,7 @@ export function Alert(props: AlertProps) {
       class={clsx("alert", "alert-error", !props.errorText.value && "hidden", props.class)}
     >
       <Icon class="size-5" iconSvg={mdiAlertCircle}></Icon>
+      <span class="font-medium">{props.context}</span>
       <span>{props.errorText}</span>
     </div>
   )
