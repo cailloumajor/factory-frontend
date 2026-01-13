@@ -1,7 +1,8 @@
-import { assert, assertFalse } from "@std/assert"
+import { useSignal } from "@preact/signals"
+import { assertEquals, assertNotEquals } from "@std/assert"
 import { resolvesNext, stub } from "@std/testing/mock"
 import { FakeTime } from "@std/testing/time"
-import { fireEvent, render, waitFor, within } from "@testing-library/preact"
+import { fireEvent, render, waitFor } from "@testing-library/preact"
 
 import { componentTesting } from "@/tests/utils.ts"
 
@@ -9,6 +10,7 @@ import { createDashboardConfig, LineDashboardConfig } from "./LineDashboardConfi
 
 function Wrapper() {
   const dashboardConfig = createDashboardConfig()
+  const errorText = useSignal("")
 
   function resetTitle() {
     dashboardConfig.title.value = "initial title"
@@ -18,7 +20,13 @@ function Wrapper() {
     <div>
       <button type="button" data-testid="reset-title-btn" onClick={resetTitle}></button>
       <div>{dashboardConfig.title}</div>
-      <LineDashboardConfig apiUrl="/fake-api-url" refreshMillis={10000} config={dashboardConfig} />
+      <div data-testid="error-text">{errorText}</div>
+      <LineDashboardConfig
+        apiUrl="/fake-api-url"
+        refreshMillis={10000}
+        config={dashboardConfig}
+        errorText={errorText}
+      />
     </div>
   )
 }
@@ -33,12 +41,10 @@ Deno.test("shows fetch error", async () => {
     () => Promise.reject(new Error("fetch error for tests")),
   )
 
-  const { getByRole } = render(<Wrapper />)
+  const { getByTestId } = render(<Wrapper />)
 
   await waitFor(() => {
-    const alert = getByRole("alert")
-    assertFalse(alert.classList.contains("hidden"))
-    within(alert).getByText("Dashboard config: fetch error for tests")
+    assertEquals(getByTestId("error-text").innerText, "fetch error for tests")
   })
 })
 
@@ -52,12 +58,10 @@ Deno.test("shows HTTP status error", async () => {
     () => Promise.resolve(new Response(null, { status: 464, statusText: "dummy status" })),
   )
 
-  const { getByRole } = render(<Wrapper />)
+  const { getByTestId } = render(<Wrapper />)
 
   await waitFor(() => {
-    const alert = getByRole("alert")
-    assertFalse(alert.classList.contains("hidden"))
-    within(alert).getByText("Dashboard config: HTTP error, status: 464 dummy status")
+    assertEquals(getByTestId("error-text").innerText, "HTTP error, status: 464 dummy status")
   })
 })
 
@@ -71,12 +75,10 @@ Deno.test("shows schema error", async () => {
     () => Promise.resolve(Response.json("invalid")),
   )
 
-  const { getByRole } = render(<Wrapper />)
+  const { getByTestId } = render(<Wrapper />)
 
   await waitFor(() => {
-    const alert = getByRole("alert")
-    assertFalse(alert.classList.contains("hidden"))
-    within(alert).getByText("Dashboard config: Configuration format error (see console)")
+    assertEquals(getByTestId("error-text").innerText, "Configuration format error (see console)")
   })
 })
 
@@ -153,16 +155,16 @@ Deno.test("clears error upon successful config update", async () => {
     ]),
   )
 
-  const { getByRole } = render(<Wrapper />)
+  const { getByTestId } = render(<Wrapper />)
 
-  const alert = getByRole("alert")
+  const errorText = getByTestId("error-text")
   await waitFor(() => {
-    assertFalse(alert.classList.contains("hidden"))
+    assertNotEquals(errorText.innerText, "")
   })
 
   fakeTime.tick(10001)
 
   await waitFor(() => {
-    assert(alert.classList.contains("hidden"))
+    assertEquals(errorText.innerText, "")
   })
 })
