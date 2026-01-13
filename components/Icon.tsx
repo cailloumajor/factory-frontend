@@ -1,14 +1,14 @@
 import type { HTMLAttributes } from "preact"
 
-interface IconProps extends HTMLAttributes<SVGElement> {
+interface IconProps extends HTMLAttributes<SVGSVGElement> {
   /** The SVG contents of the icon (e.g. from `@mdi/js`). */
   iconSvg: string
 }
 
-export function Icon(props: IconProps) {
+export function Icon({ iconSvg, ...rest }: IconProps) {
   return (
-    <svg class={props.class} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-      <path d={props.iconSvg} />
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" {...rest}>
+      <path d={iconSvg} />
     </svg>
   )
 }
