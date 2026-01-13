@@ -1,11 +1,6 @@
-import { mdiAlertCircle } from "@mdi/js"
-import { type Signal, signal, useSignal } from "@preact/signals"
-import { clsx } from "clsx"
-import type { HTMLAttributes } from "preact"
+import { type Signal, signal } from "@preact/signals"
 import { useEffect } from "preact/hooks"
 import * as z from "zod"
-
-import { Icon } from "@/components/Icon.tsx"
 
 interface DashboardConfig {
   title: Signal<string>
@@ -29,13 +24,15 @@ const configSchema = z.object({
   targetEfficiency: z.number().positive(),
 })
 
-interface LineDashboardConfigProps extends HTMLAttributes<Element> {
+interface LineDashboardConfigProps {
   /** The URL of the API to fetch for data. */
   apiUrl: string
   /** The interval in milliseconds at which the config should be re-fetched. */
   refreshMillis: number
   /** The configuration object of reactive values. */
   config: DashboardConfig
+  /** The error text to be displayed, if any. */
+  errorText: Signal<string>
 }
 
 /**
@@ -44,8 +41,6 @@ interface LineDashboardConfigProps extends HTMLAttributes<Element> {
  * If an error occurs, renders an alert.
  */
 export function LineDashboardConfig(props: LineDashboardConfigProps) {
-  const errorText = useSignal("")
-
   useEffect(() => {
     const abort = new AbortController()
     let timeoutHandle: number
@@ -64,7 +59,7 @@ export function LineDashboardConfig(props: LineDashboardConfigProps) {
             for (const k of configKeys) {
               props.config[k].value = result.data[k]
             }
-            errorText.value = ""
+            props.errorText.value = ""
           } else {
             // deno-lint-ignore no-console -- console is used by purpose
             console.error(z.prettifyError(result.error))
@@ -72,7 +67,7 @@ export function LineDashboardConfig(props: LineDashboardConfigProps) {
           }
         })
         .catch(({ message }) => {
-          errorText.value = `Dashboard config: ${message}`
+          props.errorText.value = `Dashboard config: ${message}`
         })
         .finally(() => {
           timeoutHandle = setTimeout(updateConfig, props.refreshMillis)
@@ -87,13 +82,5 @@ export function LineDashboardConfig(props: LineDashboardConfigProps) {
     }
   }, [])
 
-  return (
-    <div
-      role="alert"
-      class={clsx("alert", "alert-error", !errorText.value && "hidden", props.class)}
-    >
-      <Icon class="size-5" iconSvg={mdiAlertCircle}></Icon>
-      <span>{errorText}</span>
-    </div>
-  )
+  return null
 }
