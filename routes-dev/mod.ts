@@ -3,7 +3,6 @@ import { serveDir } from "@std/http"
 import * as posix from "@std/path/posix"
 import type { App } from "fresh"
 
-import { getAppConfig } from "@/utils/config.ts"
 import type { State } from "@/utils/state.ts"
 
 import timelineData from "./timeline_data.bin?url&inline"
@@ -19,23 +18,32 @@ export function devRoutes(app: App<State>) {
     timeline: 0,
   }
 
-  const { apiBaseUrl } = getAppConfig()
+  app.use((ctx) => {
+    const configPath = posix.join(ctx.state.appConfig.apiBaseUrl.configApi, "line_dashboard", ":id")
+    const pattern = new URLPattern({ pathname: configPath })
+    const match = pattern.exec(ctx.url)
+    if (match == null) {
+      return ctx.next()
+    }
 
-  const configUrl = posix.join(apiBaseUrl.configApi, "line_dashboard", ":id")
-  const timelineUrl = posix.join(apiBaseUrl.computeApi, "timeline", ":id")
-
-  app.get(configUrl, (ctx) => {
     if (requestCount.config++ % 2 === 0) {
       return ctx.json(false)
     }
     return ctx.json({
-      title: `dev title (${ctx.params.id})`,
+      title: `dev title (${match.pathname.groups.id})`,
       targetCycleTime: 60,
       targetEfficiency: 1,
     })
   })
 
-  app.get(timelineUrl, () => {
+  app.use((ctx) => {
+    const timelinePath = posix.join(ctx.state.appConfig.apiBaseUrl.computeApi, "timeline", ":id")
+    const pattern = new URLPattern({ pathname: timelinePath })
+    const match = pattern.exec(ctx.url)
+    if (match == null) {
+      return ctx.next()
+    }
+
     if (requestCount.timeline++ % 2 === 0) {
       return new Response(new Uint8Array([0x90]))
     }
