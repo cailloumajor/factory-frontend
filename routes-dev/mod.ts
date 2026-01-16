@@ -1,6 +1,5 @@
 import { decodeBase64 } from "@std/encoding"
 import { serveDir } from "@std/http"
-import * as posix from "@std/path/posix"
 import type { App } from "fresh"
 
 import type { State } from "@/utils/state.ts"
@@ -18,32 +17,18 @@ export function devRoutes(app: App<State>) {
     timeline: 0,
   }
 
-  app.use((ctx) => {
-    const configPath = posix.join(ctx.state.appConfig.apiBaseUrl.configApi, "line_dashboard", ":id")
-    const pattern = new URLPattern({ pathname: configPath })
-    const match = pattern.exec(ctx.url)
-    if (match == null) {
-      return ctx.next()
-    }
-
+  app.get("/dev-config-api/config/line_dashboard/:id", ({ json, params }) => {
     if (requestCount.config++ % 2 === 0) {
-      return ctx.json(false)
+      return json(false)
     }
-    return ctx.json({
-      title: `dev title (${match.pathname.groups.id})`,
+    return json({
+      title: `dev title (${params.id})`,
       targetCycleTime: 60,
       targetEfficiency: 1,
     })
   })
 
-  app.use((ctx) => {
-    const timelinePath = posix.join(ctx.state.appConfig.apiBaseUrl.computeApi, "timeline", ":id")
-    const pattern = new URLPattern({ pathname: timelinePath })
-    const match = pattern.exec(ctx.url)
-    if (match == null) {
-      return ctx.next()
-    }
-
+  app.get("/dev-compute-api/timeline/:id", () => {
     if (requestCount.timeline++ % 2 === 0) {
       return new Response(new Uint8Array([0x90]))
     }
