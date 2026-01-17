@@ -4,7 +4,7 @@ import { clsx } from "clsx"
 import { Icon } from "@/components/Icon.tsx"
 
 interface DashboardMetricProps {
-  /** The icon SVG path  (e.g. from `@mdi/js`). */
+  /** The icon SVG path (e.g. from `@mdi/js`). */
   icon: string
   /** The title of the metrics. */
   title: string
