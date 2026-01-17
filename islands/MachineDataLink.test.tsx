@@ -13,7 +13,7 @@ import { createMachineData, LinkStatus, MachineDataLink, moduleUtils } from "./M
 function Wrapper() {
   const machineData = createMachineData()
   const errorText = useSignal("")
-  const dataValid = useComputed(() => machineData.dataValid.value ? "yes" : "no")
+  const dataValid = useComputed(() => machineData.invalid.value ? "no" : "yes")
 
   return (
     <div>

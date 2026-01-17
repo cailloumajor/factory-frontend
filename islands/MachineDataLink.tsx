@@ -26,7 +26,7 @@ export interface MachineDataValues {
 }
 
 interface MachineData {
-  dataValid: Signal<boolean>
+  invalid: Signal<boolean>
   val: {
     [K in keyof MachineDataValues]: Signal<MachineDataValues[K]>
   }
@@ -45,7 +45,7 @@ type MachineDataTsEntry = {
 
 export function createMachineData(): MachineData {
   return {
-    dataValid: signal(false),
+    invalid: signal(true),
     val: {
       goodParts: signal(0),
       scrapParts: signal(0),
@@ -146,8 +146,10 @@ export function MachineDataLink(props: MachineDataLinkProps) {
   const centrifugoTransport = useSignal("")
 
   useSignalEffect(() => {
-    props.machineData.dataValid.value = centrifugoLinkStatus.value === LinkStatus.Up &&
+    props.machineData.invalid.value = !(
+      centrifugoLinkStatus.value === LinkStatus.Up &&
       plcRawStatus.value === LinkStatus.Up
+    )
   })
 
   let updateTimeoutHandle: number
