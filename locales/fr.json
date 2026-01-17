@@ -1,5 +1,8 @@
 {
-  "notFound": "Page introuvable.",
+  "httpError": {
+    "unspecific": "Quelque chose s'est mal passé.",
+    "404": "Page introuvable."
+  },
   "goHome": "Retour à l'accueil",
   "welcomeFresh": "Bienvenue dans Fresh"
 }

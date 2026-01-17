@@ -1,5 +1,8 @@
 {
-  "notFound": "Page not found.",
+  "httpError": {
+    "unspecific": "Something went wrong.",
+    "404": "Page not found."
+  },
   "goHome": "Go Home",
   "welcomeFresh": "Welcome to Fresh"
 }
