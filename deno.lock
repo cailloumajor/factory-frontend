@@ -48,7 +48,7 @@
     "npm:@faker-js/faker@10.2.0": "10.2.0",
     "npm:@fontsource-variable/roboto-mono@5.2.8": "5.2.8",
     "npm:@fontsource-variable/roboto@5.2.9": "5.2.9",
-    "npm:@happy-dom/global-registrator@20.1.0": "20.1.0",
+    "npm:@happy-dom/global-registrator@20.3.1": "20.3.1",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@mjackson/node-fetch-server@0.7": "0.7.0",
     "npm:@opentelemetry/api@^1.9.0": "1.9.0",
@@ -74,7 +74,7 @@
     "npm:rollup@^4.50.0": "4.55.1",
     "npm:sinon@21.0.1": "21.0.1",
     "npm:tailwindcss@4.1.18": "4.1.18",
-    "npm:vite@^7.1.4": "7.3.1_picomatch@4.0.3",
+    "npm:vite@^7.3.1": "7.3.1_picomatch@4.0.3",
     "npm:zod@4.3.5": "4.3.5"
   },
   "jsr": {
@@ -135,8 +135,7 @@
         "npm:@babel/preset-react",
         "npm:@mjackson/node-fetch-server",
         "npm:@prefresh/vite",
-        "npm:rollup",
-        "npm:vite"
+        "npm:rollup"
       ]
     },
     "@std/assert@1.0.16": {
@@ -830,8 +829,8 @@
     "@fontsource-variable/roboto@5.2.9": {
       "integrity": "sha512-uH58g1An9Z4Efiviu0YuN8lvYf22TXidCx2++ZPpEegviaPaYQUwNbQZyr5lO2ae3pM07AolUabngLrlYtuzfA=="
     },
-    "@happy-dom/global-registrator@20.1.0": {
-      "integrity": "sha512-8c2dSLe7/Rdiq5mAZ8G6hZhx+mp3QzUp1sQD6dmTilLf4bz5X0AAHvBW3AcpcUYGBiTamB4EFuXXtWi5ZVqtRg==",
+    "@happy-dom/global-registrator@20.3.1": {
+      "integrity": "sha512-EQMUfxC0NYvUXKO5EE/iNhyHZONBGKAbcK6RsbfwJ63ACCPq0JuokrYGne7VZsmnPnN9VNQNiiBIUEd5X4gymA==",
       "dependencies": [
         "@types/node",
         "happy-dom"
@@ -1634,8 +1633,8 @@
     "graceful-fs@4.2.11": {
       "integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
     },
-    "happy-dom@20.1.0": {
-      "integrity": "sha512-ebvqjBqzenBk2LjzNEAzoj7yhw7rW/R2/wVevMu6Mrq3MXtcI/RUz4+ozpcOcqVLEWPqLfg2v9EAU7fFXZUUJw==",
+    "happy-dom@20.3.1": {
+      "integrity": "sha512-tLvsizNno05Hij0PoB0QN/S8xf0YU2AGvO11/JlJDw5McA/gzyn0Ni1RwbTI1/zteUbOekJH0t6q8HFvjbxsGg==",
       "dependencies": [
         "@types/node",
         "@types/whatwg-mimetype",
@@ -2252,7 +2251,7 @@
       "npm:@faker-js/faker@10.2.0",
       "npm:@fontsource-variable/roboto-mono@5.2.8",
       "npm:@fontsource-variable/roboto@5.2.9",
-      "npm:@happy-dom/global-registrator@20.1.0",
+      "npm:@happy-dom/global-registrator@20.3.1",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.5.1",
       "npm:@tailwindcss/vite@4.1.18",
@@ -2267,7 +2266,7 @@
       "npm:preact@10.28.2",
       "npm:sinon@21.0.1",
       "npm:tailwindcss@4.1.18",
-      "npm:vite@^7.1.4",
+      "npm:vite@^7.3.1",
       "npm:zod@4.3.5"
     ]
   }
