@@ -1,5 +1,5 @@
 import { mdiHelp, mdiLinkOff, mdiSwapHorizontal } from "@mdi/js"
-import { type Signal, signal, useComputed, useSignal } from "@preact/signals"
+import { type Signal, signal, useComputed, useSignal, useSignalEffect } from "@preact/signals"
 import * as posix from "@std/path/posix"
 import {
   Centrifuge,
@@ -144,6 +144,11 @@ export function MachineDataLink(props: MachineDataLinkProps) {
   )
 
   const centrifugoTransport = useSignal("")
+
+  useSignalEffect(() => {
+    props.machineData.dataValid.value = centrifugoLinkStatus.value === LinkStatus.Up &&
+      plcRawStatus.value === LinkStatus.Up
+  })
 
   let updateTimeoutHandle: number
 

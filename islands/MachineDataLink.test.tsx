@@ -1,5 +1,5 @@
 import { mdiHelp, mdiLinkOff, mdiSwapHorizontal } from "@mdi/js"
-import { useSignal } from "@preact/signals"
+import { useComputed, useSignal } from "@preact/signals"
 import { assert, assertEquals } from "@std/assert"
 import { FakeTime } from "@std/testing/time"
 import { render, waitFor } from "@testing-library/preact"
@@ -13,10 +13,11 @@ import { createMachineData, LinkStatus, MachineDataLink, moduleUtils } from "./M
 function Wrapper() {
   const machineData = createMachineData()
   const errorText = useSignal("")
+  const dataValid = useComputed(() => machineData.dataValid.value ? "yes" : "no")
 
   return (
     <div>
-      <div data-testid="data-valid">{machineData.dataValid}</div>
+      <div data-testid="data-valid">{dataValid}</div>
       {Object.entries(machineData.val).map(([k, v]) => (
         <span data-testid={"val-" + k} key={k}>{v}</span>
       ))}
@@ -230,12 +231,12 @@ Deno.test("updates the data upon successfull subscription", async () => {
   })
   sinon.stub(moduleUtils, "newCentrifuge").returns(fakeCentrifugo)
 
-  const { findByTestId } = render(<Wrapper />)
+  const { getByTestId } = render(<Wrapper />)
 
-  const scrapPartsVal = await findByTestId("val-scrapParts")
-  const partRefVal = await findByTestId("val-partRef")
-  const scrapPartsTs = await findByTestId("ts-scrapParts")
-  const partRefTs = await findByTestId("ts-partRef")
+  const scrapPartsVal = getByTestId("val-scrapParts")
+  const partRefVal = getByTestId("val-partRef")
+  const scrapPartsTs = getByTestId("ts-scrapParts")
+  const partRefTs = getByTestId("ts-partRef")
 
   await waitFor(() => {
     assertEquals(scrapPartsVal.innerText, "0")
@@ -293,7 +294,7 @@ Deno.test("sets an error message on subscription error", async () => {
   })
 })
 
-Deno.test("changes PLC link status according to events", async () => {
+Deno.test("changes PLC link status and data link signal according to events", async () => {
   await using _ctHandle = componentTesting()
 
   using fakeTime = new FakeTime()
@@ -307,14 +308,16 @@ Deno.test("changes PLC link status according to events", async () => {
   const onDisconnected = fakeCentrifugo.on.withArgs("disconnected")
   sinon.stub(moduleUtils, "newCentrifuge").returns(fakeCentrifugo)
 
-  const { findByTestId } = render(<Wrapper />)
+  const { getByTestId } = render(<Wrapper />)
 
-  const plcStatus = await findByTestId("plc-status-icon")
+  const plcStatus = getByTestId("plc-status-icon")
+  const dataValid = getByTestId("data-valid")
 
   onConnected.callArgWith(1, { transport: "" })
 
   await waitFor(() => {
     assertStatusIcon(plcStatus, LinkStatus.Down)
+    assertEquals(dataValid.innerText, "no")
   })
 
   onPublication.callArgWith(1, {
@@ -327,17 +330,65 @@ Deno.test("changes PLC link status according to events", async () => {
 
   await waitFor(() => {
     assertStatusIcon(plcStatus, LinkStatus.Up)
+    assertEquals(dataValid.innerText, "yes")
   })
 
   fakeTime.tick(50001)
 
   await waitFor(() => {
     assertStatusIcon(plcStatus, LinkStatus.Down)
+    assertEquals(dataValid.innerText, "no")
   })
 
   onDisconnected.callArg(1)
 
   await waitFor(() => {
     assertStatusIcon(plcStatus, LinkStatus.Unknown)
+    assertEquals(dataValid.innerText, "no")
+  })
+})
+
+Deno.test("updates the data upon Centrifugo publication", async () => {
+  await using _ctHandle = componentTesting()
+
+  const fakeSubscription = sinon.createStubInstance(Subscription)
+  const onPublication = fakeSubscription.on.withArgs("publication")
+  const fakeCentrifugo = sinon.createStubInstance(Centrifuge, {
+    newSubscription: fakeSubscription,
+  })
+  sinon.stub(moduleUtils, "newCentrifuge").returns(fakeCentrifugo)
+
+  const { getByTestId } = render(<Wrapper />)
+
+  const scrapPartsVal = getByTestId("val-scrapParts")
+  const partRefVal = getByTestId("val-partRef")
+  const scrapPartsTs = getByTestId("ts-scrapParts")
+  const partRefTs = getByTestId("ts-partRef")
+
+  await waitFor(() => {
+    assertEquals(scrapPartsVal.innerText, "0")
+    assertEquals(partRefVal.innerText, "?")
+    assertEquals(scrapPartsTs.innerText, "")
+    assertEquals(partRefTs.innerText, "")
+  })
+
+  onPublication.callArgWith(1, {
+    data: {
+      val: {
+        scrapParts: 651,
+        partRef: "somepart",
+      },
+      ts: {
+        scrapParts: "long-ago",
+        partRef: "soon",
+      },
+    },
+  })
+
+  await waitFor(() => {
+    assertEquals(scrapPartsVal.innerText, "651")
+    assertEquals(partRefVal.innerText, "somepart")
+    assertEquals(scrapPartsTs.innerText, "long-ago")
+    assertEquals(partRefTs.innerText, "soon")
   })
 })
