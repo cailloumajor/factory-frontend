@@ -143,21 +143,7 @@ export function MachineDataLink(props: MachineDataLinkProps) {
     centrifugoLinkStatus.value === LinkStatus.Up ? plcRawStatus.value : LinkStatus.Unknown
   )
 
-  const centrifugoDisplay = {
-    color: useComputed(() => statusColor(centrifugoLinkStatus.value)),
-    icon: useComputed(() => statusIcon(centrifugoLinkStatus.value)),
-  }
-  const plcDisplay = {
-    color: useComputed(() => statusColor(plcShownStatus.value)),
-    icon: useComputed(() => statusIcon(plcShownStatus.value)),
-  }
-
   const centrifugoTransport = useSignal("")
-
-  const transportDisplay = {
-    text: useComputed(() => transportText(centrifugoTransport.value)),
-    color: useComputed(() => transportColor(centrifugoTransport.value)),
-  }
 
   let updateTimeoutHandle: number
 
@@ -252,20 +238,20 @@ export function MachineDataLink(props: MachineDataLinkProps) {
       <span>Centrifugo</span>
       <b
         data-testid="centrifugo-transport"
-        class={clsx("ml-0.5", "opacity-50", transportDisplay.color.value)}
+        class={clsx("ml-0.5", "opacity-50", transportColor(centrifugoTransport.value))}
       >
-        {transportDisplay.text}
+        {transportText(centrifugoTransport.value)}
       </b>
       <Icon
         data-testid="centrifugo-status-icon"
-        class={clsx("ml-1", "size-4", centrifugoDisplay.color.value)}
-        iconSvg={centrifugoDisplay.icon.value}
+        class={clsx("ml-1", "size-4", statusColor(centrifugoLinkStatus.value))}
+        iconSvg={statusIcon(centrifugoLinkStatus.value)}
       />
       <span class="ml-3">PLC</span>
       <Icon
         data-testid="plc-status-icon"
-        class={clsx("ml-1", "size-4", plcDisplay.color.value)}
-        iconSvg={plcDisplay.icon.value}
+        class={clsx("ml-1", "size-4", statusColor(plcShownStatus.value))}
+        iconSvg={statusIcon(plcShownStatus.value)}
       />
     </span>
   )
