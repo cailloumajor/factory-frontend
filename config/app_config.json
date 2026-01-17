@@ -1,10 +1,15 @@
 {
-  "apiBaseUrl": {
-    "computeApi": "/dev-compute-api/",
-    "configApi": "/dev-config-api/config/"
+  "dashboardConfig": {
+    "baseApiPath": "/dev-config-api/config/line_dashboard",
+    "refreshMillis": 10000
   },
-  "dashboard": {
-    "configRefreshMillis": 10000,
-    "timelineRefreshMillis": 10000
+  "timeline": {
+    "baseComputeApiPath": "/dev-compute-api/timeline",
+    "refreshMillis": 10000
+  },
+  "centrifugoBasePath": "/dev-centrifugo/",
+  "machineData": {
+    "centrifugoNamespace": "opcua.data",
+    "plcTimeoutMillis": 8000
   }
 }

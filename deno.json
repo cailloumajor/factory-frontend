@@ -49,6 +49,7 @@
   "imports": {
     "@/": "./",
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.1",
+    "@faker-js/faker": "npm:@faker-js/faker@10.2.0",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.0.8",
     "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.9",
     "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.8",
@@ -65,13 +66,17 @@
     "@tailwindcss/vite": "npm:@tailwindcss/vite@4.1.18",
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4",
     "@types/morgan": "npm:@types/morgan@1.9.10",
+    "@types/sinon": "npm:@types/sinon@21.0.0",
+    "centrifuge": "npm:centrifuge@5.5.3",
     "clsx": "npm:clsx@2.1.1",
     "daisyui": "npm:daisyui@5.5.14",
     "fresh": "jsr:@fresh/core@2.2.0",
     "i18next": "npm:i18next@25.7.4",
     "morgan": "npm:morgan@1.10.1",
     "preact": "npm:preact@10.28.2",
+    "sinon": "npm:sinon@21.0.1",
     "tailwindcss": "npm:tailwindcss@4.1.18",
+    "vite": "npm:vite@^7.1.4",
     "zod": "npm:zod@4.3.5"
   },
   "compilerOptions": {
