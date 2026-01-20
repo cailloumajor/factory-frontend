@@ -1,4 +1,4 @@
-import type { Signal } from "@preact/signals"
+import { type Signal, useComputed } from "@preact/signals"
 import { clsx } from "clsx"
 
 import { Icon } from "@/components/Icon.tsx"
@@ -10,18 +10,23 @@ interface DashboardMetricProps {
   title: string
   /** The optional unit to display with the title. */
   unit?: string
-  /** The metric value. NaN value will be displayed as no value. */
-  value: Signal<number>
+  /** The metric value. NaN value will be hidden. */
+  value: Signal<number | string>
   /** The optional color class to apply to the value. */
   colorClass?: Signal<string>
-  /** Whether the metric is disabled, displaying a skeleton. */
-  disabled: Signal<boolean>
+  /** Whether the metric value is temporarily unavailable, displaying a skeleton. */
+  loading: Signal<boolean>
 }
 
 export function DashboardMetric(props: DashboardMetricProps) {
-  const isNaNValue = Number.isNaN(props.value.value)
-  const disabledClasses = props.disabled.value && ["skeleton", "text-transparent", "select-none"]
-  const colorClass = isNaNValue ? "opacity-2" : props.colorClass?.value
+  const value = useComputed(() => Number.isNaN(props.value.value) ? "000" : props.value.value)
+  const valueClass = useComputed(() =>
+    props.loading.value
+      ? ["skeleton", "text-transparent", "select-none"]
+      : Number.isNaN(props.value.value)
+      ? "opacity-2"
+      : props.colorClass?.value
+  )
 
   return (
     <div class="card card-border shadow-md shadow-base-content/10">
@@ -31,10 +36,10 @@ export function DashboardMetric(props: DashboardMetricProps) {
           {props.title}
         </h2>
         <p
-          class={clsx("text-5xl", disabledClasses, colorClass)}
+          class={clsx("text-5xl", valueClass.value)}
           data-testid="metric-value"
         >
-          {isNaNValue ? "000" : props.value}
+          {value}
           <span class="ml-1 text-3xl opacity-70">{props.unit}</span>
         </p>
       </div>
