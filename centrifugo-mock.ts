@@ -2,7 +2,7 @@
 
 import { faker } from "@faker-js/faker"
 
-import type { MachineDataValues } from "@/islands/MachineDataLink.tsx"
+import type { MachineDataValues } from "@/routes/line-dashboard/(_islands)/MachineDataLink.tsx"
 
 interface Reply {
   id: number

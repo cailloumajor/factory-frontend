@@ -6,7 +6,7 @@ import { fireEvent, render, waitFor } from "@testing-library/preact"
 
 import { componentTesting } from "@/tests/utils.ts"
 
-import { createDashboardConfig, LineDashboardConfig } from "../LineDashboardConfig.tsx"
+import { ConfigSync, createDashboardConfig } from "../ConfigSync.tsx"
 
 function Wrapper() {
   const dashboardConfig = createDashboardConfig()
@@ -21,7 +21,7 @@ function Wrapper() {
       <button type="button" data-testid="reset-title-btn" onClick={resetTitle}></button>
       <div>{dashboardConfig.title}</div>
       <div data-testid="error-text">{errorText}</div>
-      <LineDashboardConfig
+      <ConfigSync
         apiUrl="/fake-api-url"
         refreshMillis={10000}
         config={dashboardConfig}

@@ -3,7 +3,7 @@ import { clsx } from "clsx"
 
 import { Icon } from "@/components/Icon.tsx"
 
-interface DashboardMetricProps {
+interface MetricProps {
   /** The icon SVG path (e.g. from `@mdi/js`). */
   icon: string
   /** The title of the metrics. */
@@ -18,7 +18,7 @@ interface DashboardMetricProps {
   loading: Signal<boolean>
 }
 
-export function DashboardMetric(props: DashboardMetricProps) {
+export function Metric(props: MetricProps) {
   const value = useComputed(() => Number.isNaN(props.value.value) ? "000" : props.value.value)
   const valueClass = useComputed(() =>
     props.loading.value

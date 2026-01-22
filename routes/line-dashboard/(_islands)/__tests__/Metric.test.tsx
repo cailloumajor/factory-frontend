@@ -4,7 +4,7 @@ import { render } from "@testing-library/preact"
 
 import { componentTesting } from "@/tests/utils.ts"
 
-import { DashboardMetric } from "../DashboardMetric.tsx"
+import { Metric } from "../Metric.tsx"
 
 function assertSkeleton(el: HTMLElement, expected: boolean) {
   const msg = `${expected ? "Missing" : "Unexpected"} skeleton classes.`
@@ -22,7 +22,7 @@ Deno.test("renders number value", async () => {
     const loading = useSignal(false)
 
     return (
-      <DashboardMetric
+      <Metric
         icon="M3,3V21H21V3"
         title="Test Metric"
         value={value}
@@ -51,7 +51,7 @@ Deno.test("renders text value", async () => {
     const loading = useSignal(false)
 
     return (
-      <DashboardMetric
+      <Metric
         icon="M3,3V21H21V3"
         title="Test Metric"
         value={value}
@@ -80,7 +80,7 @@ Deno.test("shows a skeleton if in loading state", async () => {
     const loading = useSignal(true)
 
     return (
-      <DashboardMetric
+      <Metric
         icon="M3,3V21H21V3"
         title="Test Metric"
         value={value}
@@ -108,7 +108,7 @@ Deno.test("displays NaN value accordingly", async () => {
     const loading = useSignal(false)
 
     return (
-      <DashboardMetric
+      <Metric
         icon="M3,3V21H21V3"
         title="Test Metric"
         value={value}

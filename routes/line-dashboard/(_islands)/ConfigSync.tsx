@@ -24,7 +24,7 @@ const configSchema = z.object({
   targetEfficiency: z.number().positive(),
 })
 
-interface LineDashboardConfigProps {
+interface ConfigSyncProps {
   /** The URL of the API to fetch for data. */
   apiUrl: string
   /** The interval in milliseconds at which the config should be re-fetched. */
@@ -40,7 +40,7 @@ interface LineDashboardConfigProps {
  *
  * If an error occurs, renders an alert.
  */
-export function LineDashboardConfig(props: LineDashboardConfigProps) {
+export function ConfigSync(props: ConfigSyncProps) {
   useEffect(() => {
     const abort = new AbortController()
     let timeoutHandle: number
