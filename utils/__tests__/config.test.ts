@@ -1,7 +1,7 @@
 import { assertEquals, assertThrows } from "@std/assert"
 import { stub } from "@std/testing/mock"
 
-import { envOverridden } from "./config.ts"
+import { envOverridden } from "../config.ts"
 
 const initial = {
   str: "some string",

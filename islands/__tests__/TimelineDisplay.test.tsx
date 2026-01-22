@@ -5,7 +5,7 @@ import { render, waitFor } from "@testing-library/preact"
 
 import { componentTesting } from "@/tests/utils.ts"
 
-import { moduleUtils, TimelineDisplay } from "./TimelineDisplay.tsx"
+import { moduleUtils, TimelineDisplay } from "../TimelineDisplay.tsx"
 
 function Wrapper() {
   return (

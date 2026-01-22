@@ -6,7 +6,7 @@ import { fireEvent, render, waitFor } from "@testing-library/preact"
 
 import { componentTesting } from "@/tests/utils.ts"
 
-import { createDashboardConfig, LineDashboardConfig } from "./LineDashboardConfig.tsx"
+import { createDashboardConfig, LineDashboardConfig } from "../LineDashboardConfig.tsx"
 
 function Wrapper() {
   const dashboardConfig = createDashboardConfig()

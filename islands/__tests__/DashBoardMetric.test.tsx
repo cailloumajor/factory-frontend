@@ -5,7 +5,7 @@ import type { TargetedInputEvent } from "preact"
 
 import { componentTesting } from "@/tests/utils.ts"
 
-import { DashboardMetric } from "./DashboardMetric.tsx"
+import { DashboardMetric } from "../DashboardMetric.tsx"
 
 function Wrapper() {
   const value = useSignal<string | number>(0)

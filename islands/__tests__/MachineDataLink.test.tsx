@@ -8,7 +8,7 @@ import * as sinon from "sinon"
 
 import { componentTesting } from "@/tests/utils.ts"
 
-import { createMachineData, LinkStatus, MachineDataLink, moduleUtils } from "./MachineDataLink.tsx"
+import { createMachineData, LinkStatus, MachineDataLink, moduleUtils } from "../MachineDataLink.tsx"
 
 function Wrapper() {
   const machineData = createMachineData()
