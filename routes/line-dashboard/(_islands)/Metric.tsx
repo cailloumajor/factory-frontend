@@ -8,7 +8,7 @@ interface MetricProps {
   icon: string
   /** The title of the metrics. */
   title: string
-  /** The optional unit to display with the title. */
+  /** The optional unit to display next to the value. */
   unit?: string
   /** The metric value. NaN value will be hidden. */
   value: Signal<number | string>
@@ -35,11 +35,8 @@ export function Metric(props: MetricProps) {
           <Icon class="size-6" iconSvg={props.icon} />
           {props.title}
         </h2>
-        <p
-          class={clsx("text-5xl", valueClass.value)}
-          data-testid="metric-value"
-        >
-          {value}
+        <p>
+          <span class={clsx("text-5xl", valueClass.value)} data-testid="metric-value">{value}</span>
           <span class="ml-1 text-3xl opacity-70">{props.unit}</span>
         </p>
       </div>
