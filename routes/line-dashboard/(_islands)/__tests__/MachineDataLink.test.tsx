@@ -234,12 +234,14 @@ Deno.test("updates the data upon successfull subscription", async () => {
   const { getByTestId } = render(<Wrapper />)
 
   const scrapPartsVal = getByTestId("val-scrapParts")
+  const avgCycleTimeVal = getByTestId("val-averageCycleTime")
   const partRefVal = getByTestId("val-partRef")
   const scrapPartsTs = getByTestId("ts-scrapParts")
   const partRefTs = getByTestId("ts-partRef")
 
   await waitFor(() => {
     assertEquals(scrapPartsVal.innerText, "0")
+    assertEquals(avgCycleTimeVal.innerText, "0")
     assertEquals(partRefVal.innerText, "?")
     assertEquals(scrapPartsTs.innerText, "")
     assertEquals(partRefTs.innerText, "")
@@ -249,6 +251,7 @@ Deno.test("updates the data upon successfull subscription", async () => {
     data: {
       val: {
         scrapParts: 42,
+        averageCycleTime: 375,
         partRef: "fake-ref",
       },
       ts: {
@@ -260,6 +263,7 @@ Deno.test("updates the data upon successfull subscription", async () => {
 
   await waitFor(() => {
     assertEquals(scrapPartsVal.innerText, "42")
+    assertEquals(avgCycleTimeVal.innerText, "37.5")
     assertEquals(partRefVal.innerText, "fake-ref")
     assertEquals(scrapPartsTs.innerText, "fake-scrap-ts")
     assertEquals(partRefTs.innerText, "fake-part-ts")

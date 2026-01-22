@@ -165,7 +165,12 @@ export function MachineDataLink(props: MachineDataLinkProps) {
     for (const entry of Object.entries(data.val ?? {})) {
       if (Object.prototype.hasOwnProperty.call(props.machineData.val, entry[0])) {
         const [key, val] = entry as MachineDataValEntry
-        props.machineData.val[key].value = val
+        if (key === "averageCycleTime") {
+          // Average cycle time is provided as tenth of seconds.
+          props.machineData.val.averageCycleTime.value = val / 10
+        } else {
+          props.machineData.val[key].value = val
+        }
         gotUpdate = true
       }
     }
