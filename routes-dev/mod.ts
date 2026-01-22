@@ -23,7 +23,7 @@ export function devRoutes(app: App<State>) {
     }
     return json({
       title: `dev title (${params.id})`,
-      targetCycleTime: 60,
+      targetCycleTime: 30,
       targetEfficiency: 1,
     })
   })
