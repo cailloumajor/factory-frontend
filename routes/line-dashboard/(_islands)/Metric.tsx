@@ -19,26 +19,30 @@ interface MetricProps {
 }
 
 export function Metric(props: MetricProps) {
-  const value = useComputed(() => Number.isNaN(props.value.value) ? "000" : props.value.value)
   const valueClass = useComputed(() =>
     props.loading.value
-      ? ["skeleton", "text-transparent", "select-none"]
+      ? ["inline-block", "min-w-1/3", "skeleton", "text-transparent", "select-none"]
       : Number.isNaN(props.value.value)
-      ? "opacity-2"
-      : props.colorClass?.value
+      ? "invisible"
+      : ""
   )
 
   return (
-    <div class="card card-border shadow-md shadow-base-content/10">
-      <div class="card-body">
-        <h2 class="card-title">
+    <div class="card card-border shadow-md shadow-base-content/10 min-w-2/3">
+      <div class="card-body items-center p-[1vh]">
+        <h2 class="card-title text-[2vh]">
           <Icon class="size-6" iconSvg={props.icon} />
           {props.title}
         </h2>
-        <p>
-          <span class={clsx("text-5xl", valueClass.value)} data-testid="metric-value">{value}</span>
-          <span class="ml-1 text-3xl opacity-70">{props.unit}</span>
-        </p>
+        <span
+          class={clsx("text-[5vh]", valueClass.value, props.colorClass?.value)}
+          data-testid="metric-value"
+        >
+          {props.value}
+          {!props.loading.value && (
+            <span class="ml-1 text-[3vh] text-primary-content opacity-70">{props.unit}</span>
+          )}
+        </span>
       </div>
     </div>
   )
