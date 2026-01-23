@@ -2,7 +2,7 @@
 {
     "name": "Deno",
     // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-    "image": "denoland/deno:2.6.4",
+    "image": "denoland/deno:2.6.6",
 
     "containerEnv": {
         "DENO_DIR": "/home/vscode/.cache/deno"
@@ -44,6 +44,8 @@
             }
         }
     },
+
+    "postCreateCommand": ["deno", "install", "-r"],
 
     // Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
     "remoteUser": "vscode"
