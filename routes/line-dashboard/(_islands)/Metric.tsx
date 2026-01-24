@@ -26,6 +26,7 @@ export function Metric(props: MetricProps) {
       ? "invisible"
       : ""
   )
+  const value = useComputed(() => Number.isNaN(props.value.value) ? "000" : props.value.value)
 
   return (
     <div class="card card-border shadow-md shadow-base-content/10 min-w-2/3">
@@ -38,7 +39,7 @@ export function Metric(props: MetricProps) {
           class={clsx("text-[5vh]", valueClass.value, props.colorClass?.value)}
           data-testid="metric-value"
         >
-          {props.value}
+          {value}
           {!props.loading.value && (
             <span class="ml-1 text-[3vh] text-primary-content opacity-70">{props.unit}</span>
           )}

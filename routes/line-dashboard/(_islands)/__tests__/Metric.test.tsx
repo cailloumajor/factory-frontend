@@ -128,6 +128,7 @@ Deno.test("displays NaN value accordingly", async () => {
 
   const metricValueEl = getByTestId("metric-value")
 
+  assertEquals(metricValueEl.innerText, "000")
   assertSkeleton(metricValueEl, false)
   assert(metricValueEl.classList.contains("invisible"))
 })
