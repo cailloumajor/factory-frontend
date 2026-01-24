@@ -31,17 +31,17 @@ export function Metric(props: MetricProps) {
   return (
     <div class="card card-border shadow-md shadow-base-content/10 min-w-2/3">
       <div class="card-body items-center p-[1vh]">
-        <h2 class="card-title text-[2vh]">
+        <h2 class="card-title text-2xl">
           <Icon class="size-6" iconSvg={props.icon} />
           {props.title}
         </h2>
         <span
-          class={clsx("text-[5vh]", valueClass.value, props.colorClass?.value)}
+          class={clsx("text-7xl", valueClass.value, props.colorClass?.value)}
           data-testid="metric-value"
         >
           {value}
           {!props.loading.value && (
-            <span class="ml-1 text-[3vh] text-primary-content opacity-70">{props.unit}</span>
+            <span class="ml-1 text-4xl text-primary-content opacity-70">{props.unit}</span>
           )}
         </span>
       </div>
