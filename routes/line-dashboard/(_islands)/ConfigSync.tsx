@@ -2,7 +2,7 @@ import { type Signal, signal } from "@preact/signals"
 import { useEffect } from "preact/hooks"
 import * as z from "zod"
 
-interface DashboardConfig {
+export interface DashboardConfig {
   title: Signal<string>
   targetCycleTime: Signal<number>
   targetEfficiency: Signal<number>

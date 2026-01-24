@@ -74,6 +74,7 @@
     "npm:rollup@^4.50.0": "4.55.1",
     "npm:sinon@21.0.1": "21.0.1",
     "npm:tailwindcss@4.1.18": "4.1.18",
+    "npm:vite@^7.1.4": "7.3.1_picomatch@4.0.3",
     "npm:vite@^7.3.1": "7.3.1_picomatch@4.0.3",
     "npm:zod@4.3.5": "4.3.5"
   },
@@ -135,7 +136,8 @@
         "npm:@babel/preset-react",
         "npm:@mjackson/node-fetch-server",
         "npm:@prefresh/vite",
-        "npm:rollup"
+        "npm:rollup",
+        "npm:vite@^7.1.4"
       ]
     },
     "@std/assert@1.0.16": {

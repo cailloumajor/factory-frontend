@@ -4,5 +4,18 @@
     "404": "Page not found."
   },
   "goHome": "Go Home",
+  "metrics": {
+    "goodParts": "Good parts",
+    "scrapParts": "Scrap parts",
+    "averageCycleTime": "Average cycle time",
+    "targetCycleTime": "Standard cycle time",
+    "performance": "Performance"
+  },
+  "statuses": {
+    "runAtCadence": "Running at cadence",
+    "runUnderCadence": "Running under cadence",
+    "campaignChange": "Campaign change",
+    "stopped": "Stopped"
+  },
   "welcomeFresh": "Welcome to Fresh"
 }

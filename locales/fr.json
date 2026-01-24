@@ -4,5 +4,18 @@
     "404": "Page introuvable."
   },
   "goHome": "Retour à l'accueil",
+  "metrics": {
+    "goodParts": "Pièces bonnes",
+    "scrapParts": "Pièces mauvaises",
+    "averageCycleTime": "Tps cycle moyen",
+    "targetCycleTime": "Tps cycle standard",
+    "performance": "Performance"
+  },
+  "statuses": {
+    "runAtCadence": "Marche à cadence",
+    "runUnderCadence": "Marche en sous-cadence",
+    "campaignChange": "Changement de campagne",
+    "stopped": "Arrêt"
+  },
   "welcomeFresh": "Bienvenue dans Fresh"
 }

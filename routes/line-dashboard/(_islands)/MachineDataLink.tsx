@@ -25,7 +25,7 @@ export interface MachineDataValues {
   partRef: string
 }
 
-interface MachineData {
+export interface MachineData {
   invalid: Signal<boolean>
   val: {
     [K in keyof MachineDataValues]: Signal<MachineDataValues[K]>
