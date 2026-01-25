@@ -107,7 +107,7 @@ export function TimelineDisplay(props: TimelineProps) {
         return
       }
       canvasSize.value = {
-        height: Math.floor(width / 12),
+        height: globalThis.innerHeight / 4,
         width,
       }
       setTimeout(drawTimeline, 200)

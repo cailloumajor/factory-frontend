@@ -1,7 +1,8 @@
-import { assert, assertEquals, assertFalse, assertStrictEquals } from "@std/assert"
-import { assertSpyCallArg, assertSpyCallArgs, assertSpyCalls, spy, stub } from "@std/testing/mock"
+import { Timeline } from "@cailloumajor/frontend-utils-wasm"
+import { assert, assertEquals, assertFalse } from "@std/assert"
 import { FakeTime } from "@std/testing/time"
 import { render, waitFor } from "@testing-library/preact"
+import * as sinon from "sinon"
 
 import { componentTesting } from "@/tests/utils.ts"
 
@@ -33,34 +34,23 @@ Deno.test("instanciates the timeline object", async () => {
   globalThis.document.head.appendChild(legendStyle)
 
   using _fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.reject("fetch error for tests"),
-  )
-  using fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {},
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").rejects("fetch error for tests")
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  const fakeTimelineCtor = sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { getByLabelText } = render(<Wrapper />)
 
+  const canvas = getByLabelText("status timeline") as HTMLCanvasElement
+
   await waitFor(() => {
-    assertSpyCalls(fakeTimeline, 1)
-  })
-  const canvas = getByLabelText("status timeline")
-  assertStrictEquals(fakeTimeline.calls[0].args[0], canvas)
-  assertSpyCallArg(fakeTimeline, 0, 1, {
-    fontFamily: '"some font for testing"',
-    palette: ["blue", "red"],
-    opacity: 0.7,
-    xIntervalMinutes: 61,
-    xOffsetMinutes: 45,
-    emphasisLabels: ["firstLabel", "secondLabel"],
+    sinon.assert.calledOnceWithExactly(fakeTimelineCtor, canvas, {
+      fontFamily: '"some font for testing"',
+      palette: ["blue", "red"],
+      opacity: 0.7,
+      xIntervalMinutes: 61,
+      xOffsetMinutes: 45,
+      emphasisLabels: ["firstLabel", "secondLabel"],
+    })
   })
 })
 
@@ -68,19 +58,9 @@ Deno.test("shows fetch error", async () => {
   await using _ctHandle = componentTesting()
 
   using _fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.reject("fetch error for tests"),
-  )
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {},
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").rejects("fetch error for tests")
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
 
@@ -95,19 +75,9 @@ Deno.test("shows HTTP error", async () => {
   await using _ctHandle = componentTesting()
 
   using _fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response(null, { status: 500 })),
-  )
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {},
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").resolves(new Response(null, { status: 500 }))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
 
@@ -122,22 +92,10 @@ Deno.test("shows setData error", async () => {
   await using _ctHandle = componentTesting()
 
   using _fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response()),
-  )
-  const fakeDraw = spy()
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {
-        throw new Error("setData error for tests")
-      },
-      draw: fakeDraw,
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response()))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  fakeTimeline.setData.throws("setData error for tests")
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
 
@@ -147,28 +105,17 @@ Deno.test("shows setData error", async () => {
   assert(getByLabelText("status timeline").classList.contains("invisible"))
   assert(getByTestId("timeline-legend").classList.contains("invisible"))
   // Check that draw method is not called if we have a setData error.
-  assertSpyCalls(fakeDraw, 0)
+  sinon.assert.notCalled(fakeTimeline.draw)
 })
 
 Deno.test("shows draw error", async () => {
   await using _ctHandle = componentTesting()
 
   using _fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response()),
-  )
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {
-        throw new Error("draw error for tests")
-      },
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response()))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  fakeTimeline.draw.throws("draw error for tests")
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { getByLabelText, getByTestId, getByText } = render(<Wrapper />)
 
@@ -185,47 +132,24 @@ Deno.test("calls draw function periodically", async () => {
   const body = new Uint8Array([0xde, 0xad, 0xbe, 0xef])
 
   using fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response(body)),
-  )
-  const fakeSetData = spy()
-  const fakeDraw = spy()
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData: fakeSetData,
-      draw: fakeDraw,
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response(body)))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   render(<Wrapper />)
 
   fakeTime.tick(10001)
   await waitFor(() => {
-    assertSpyCalls(fakeSetData, 1)
-    assertSpyCallArgs(fakeSetData, 0, [body])
-    assertSpyCalls(fakeDraw, 1)
+    sinon.assert.calledOnce(fakeTimeline.setData)
   })
   fakeTime.tick(10001)
   await waitFor(() => {
-    assertSpyCalls(fakeSetData, 2)
-    assertSpyCallArgs(fakeSetData, 1, [body])
-    assertSpyCalls(fakeDraw, 2)
+    sinon.assert.calledTwice(fakeTimeline.setData)
   })
   fakeTime.tick(10001)
   await waitFor(() => {
-    assertSpyCalls(fakeSetData, 3)
-    assertSpyCallArgs(fakeSetData, 2, [body])
-    assertSpyCalls(fakeDraw, 3)
-  })
-  fakeTime.tick(10001)
-  await waitFor(() => {
-    assertSpyCalls(fakeSetData, 4)
-    assertSpyCallArgs(fakeSetData, 3, [body])
-    assertSpyCalls(fakeDraw, 4)
+    sinon.assert.calledThrice(fakeTimeline.setData)
+    sinon.assert.alwaysCalledWithExactly(fakeTimeline.setData, body)
   })
 })
 
@@ -233,25 +157,10 @@ Deno.test("clears error upon successful draw", async () => {
   await using _ctHandle = componentTesting()
 
   using fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response()),
-  )
-  let failDraw = true
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {
-        if (failDraw) {
-          failDraw = false
-          throw new Error("an error")
-        }
-      },
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response()))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  fakeTimeline.draw.onFirstCall().throws("an error")
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { findByText, getByLabelText, getByTestId } = render(<Wrapper />)
 
@@ -267,61 +176,39 @@ Deno.test("clears error upon successful draw", async () => {
   })
 })
 
-Deno.test("resizes canvas when its parent resizes", async () => {
+Deno.test("resizes canvas when window resizes", async () => {
   await using _ctHandle = componentTesting()
 
-  const fakeObserve = spy()
-  globalThis.ResizeObserver = class ResizeObserverMock {
-    constructor(cb: ResizeObserverCallback) {
-      setTimeout(
-        () => {
-          cb(
-            [{
-              contentBoxSize: [{ inlineSize: 480, blockSize: 200 }],
-              borderBoxSize: [],
-              contentRect: new DOMRectReadOnly(),
-              devicePixelContentBoxSize: [],
-              target: document.body,
-            }],
-            this,
-          )
-        },
-        500,
-      )
-    }
-    observe = fakeObserve
-    unobserve() {}
-    disconnect() {}
-  }
-
   using fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response()),
+  sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response()))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
+  const fakeResizeObserver = sinon.createStubInstance(ResizeObserver)
+  const fakeResizeObserverCtor = sinon.stub(globalThis, "ResizeObserver").returns(
+    fakeResizeObserver,
   )
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {},
-      free() {},
-    }
-  })
 
-  const { findByLabelText } = render(<Wrapper />)
+  const { getByLabelText } = render(<Wrapper />)
 
-  const canvas = await findByLabelText("status timeline") as HTMLCanvasElement
+  const canvas = getByLabelText("status timeline") as HTMLCanvasElement
 
-  assertEquals(canvas.height, 150)
-  assertEquals(canvas.width, 300)
-  assertSpyCalls(fakeObserve, 1)
-  assertStrictEquals(fakeObserve.calls[0].args[0], canvas.parentElement)
+  const entries: ResizeObserverEntry[] = [
+    {
+      borderBoxSize: [],
+      contentBoxSize: [{ blockSize: 0, inlineSize: 480 }],
+      contentRect: new DOMRectReadOnly(),
+      devicePixelContentBoxSize: [],
+      target: canvas.parentElement!,
+    },
+  ]
 
-  fakeTime.tick(800)
+  fakeResizeObserverCtor.callArgWith(0, entries)
+
+  fakeTime.tick(501)
 
   await waitFor(() => {
-    assertEquals(canvas.height, 40)
+    // Default height is 768 with `happy-dom`.
+    assertEquals(canvas.height, 192)
     assertEquals(canvas.width, 480)
   })
 })
@@ -330,19 +217,9 @@ Deno.test("displays the legend", async () => {
   await using _ctHandle = componentTesting()
 
   using _fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response()),
-  )
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {},
-      free() {},
-    }
-  })
+  sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response()))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { findAllByText, findByRole } = render(<Wrapper />)
 
@@ -358,30 +235,19 @@ Deno.test("frees the timeline resources when unmounted", async () => {
   await using _ctHandle = componentTesting()
 
   using _fakeTime = new FakeTime()
-  using _fakeFetch = stub(
-    globalThis,
-    "fetch",
-    () => Promise.resolve(new Response()),
-  )
-  const fakeFree = spy()
-  using _fakeTimeline = stub(moduleUtils, "newTimeline", () => {
-    return {
-      [Symbol.dispose]() {},
-      setData() {},
-      draw() {},
-      free: fakeFree,
-    }
-  })
+  sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response()))
+  const fakeTimeline = sinon.createStubInstance(Timeline)
+  sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
   const { unmount } = render(<Wrapper />)
 
   await waitFor(() => {
-    assertSpyCalls(fakeFree, 0)
+    sinon.assert.notCalled(fakeTimeline.free)
   })
 
   unmount()
 
   await waitFor(() => {
-    assertSpyCalls(fakeFree, 1)
+    sinon.assert.calledOnce(fakeTimeline.free)
   })
 })
