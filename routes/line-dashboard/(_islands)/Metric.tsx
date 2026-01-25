@@ -21,7 +21,7 @@ interface MetricProps {
 export function Metric(props: MetricProps) {
   const valueClass = useComputed(() =>
     props.loading.value
-      ? ["inline-block", "min-w-1/3", "skeleton", "text-transparent", "select-none"]
+      ? ["inline-block", "min-w-1/2", "skeleton", "text-transparent", "select-none"]
       : Number.isNaN(props.value.value)
       ? "invisible"
       : ""
