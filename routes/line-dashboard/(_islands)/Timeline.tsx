@@ -136,7 +136,7 @@ export function TimelineDisplay(props: TimelineProps) {
   }, [])
 
   return (
-    <div class="card bg-base-content/3">
+    <div class="card bg-base-200">
       <div class="card-body p-2">
         <canvas
           {...canvasSize.value}
