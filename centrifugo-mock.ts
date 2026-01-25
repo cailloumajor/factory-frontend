@@ -60,7 +60,7 @@ function updatePublished() {
   for (const key of Object.keys(publishedData.val) as Array<Keys>) {
     if (faker.datatype.boolean(0.3)) {
       Object.assign(publishedData.val, { [key]: valGenerators[key]() })
-      Object.assign(publishedData.ts, { [key]: new Date().toISOString() })
+      Object.assign(publishedData.ts, { [key]: faker.date.recent().toISOString() })
     }
   }
 }
