@@ -7,7 +7,7 @@ import {
   type SubscribedContext,
   type TransportEndpoint,
 } from "centrifuge"
-import clsx from "clsx"
+import { clsx } from "clsx"
 import type { HTMLAttributes } from "preact"
 import { useEffect } from "preact/hooks"
 
