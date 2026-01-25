@@ -12,8 +12,9 @@ import { usePreferredLanguages } from "@/hooks/usePreferredLanguages.ts"
 import type { DashboardConfig } from "./ConfigSync.tsx"
 import type { MachineData } from "./MachineDataLink.tsx"
 import { Metric } from "./Metric.tsx"
+import { StatusCard, type StatusTexts } from "./StatusCard.tsx"
 
-enum CycleTimeStatus {
+export enum CycleTimeStatus {
   Good,
   Warn,
   Bad,
@@ -26,6 +27,8 @@ interface MetricsProps {
   titles: {
     [K in TitleKeys]: string
   }
+  /** The texts for the status card. */
+  statusTexts: StatusTexts
   /** The reactive dashboard configuration. */
   config: DashboardConfig
   /** The reactive config error. */
@@ -108,9 +111,12 @@ export function Metrics(props: MetricsProps) {
         colorClass={scrapPartsColor}
         loading={props.machineData.invalid}
       />
-      <div class="col-span-2 row-span-2">
-        {/* Keep room for status display */}
-      </div>
+      <StatusCard
+        class="col-span-2 row-span-2 bg-base-200 min-w-9/10 my-auto"
+        statuses={props.statusTexts}
+        machineData={props.machineData}
+        cycleTimeStatus={cycleTimeStatus}
+      />
       <Metric
         icon={mdiSpeedometer}
         title={props.titles.performance}

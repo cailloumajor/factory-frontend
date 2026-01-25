@@ -35,7 +35,7 @@ export default define.page(({ params, state }) => {
         </h1>
       </header>
 
-      <main class="grow relative px-[0.5vw] pt-[1vh]">
+      <main class="grow relative px-[0.5vw] pt-[1vh] has-[.is-status-stopped]:stopped-background">
         <Metrics
           titles={{
             goodParts: state.t(($) => $.metrics.goodParts),
@@ -43,6 +43,12 @@ export default define.page(({ params, state }) => {
             targetCycleTime: state.t(($) => $.metrics.targetCycleTime),
             scrapParts: state.t(($) => $.metrics.scrapParts),
             performance: state.t(($) => $.metrics.performance),
+          }}
+          statusTexts={{
+            runAtCadence: state.t(($) => $.statuses.runAtCadence),
+            runUnderCadence: state.t(($) => $.statuses.runUnderCadence),
+            campaignChange: state.t(($) => $.statuses.campaignChange),
+            stopped: state.t(($) => $.statuses.stopped),
           }}
           config={dashboardConfig}
           configError={dashboardConfigError}

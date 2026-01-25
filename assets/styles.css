@@ -8,3 +8,16 @@
   --font-sans: "Roboto Variable";
   --font-mono: "Roboto Mono Variable";
 }
+
+@utility stopped-background {
+  --first-stripe-color: color-mix(in oklab, var(--color-error) 50%, transparent);
+  --second-stripe-color: color-mix(in oklab, var(--color-error) 30%, transparent);
+
+  background: repeating-linear-gradient(
+    45deg,
+    var(--first-stripe-color),
+    var(--first-stripe-color) 1vw,
+    var(--second-stripe-color) 1vw,
+    var(--second-stripe-color) 2vw
+  );
+}
