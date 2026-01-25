@@ -176,7 +176,7 @@ Deno.test("clears error upon successful draw", async () => {
   })
 })
 
-Deno.test("resizes canvas when window resizes", async () => {
+Deno.test("resizes canvas and redraws when window resizes", async () => {
   await using _ctHandle = componentTesting()
 
   using fakeTime = new FakeTime()
@@ -202,6 +202,10 @@ Deno.test("resizes canvas when window resizes", async () => {
     },
   ]
 
+  await waitFor(() => {
+    sinon.assert.calledOnce(fakeTimeline.draw)
+  })
+
   fakeResizeObserverCtor.callArgWith(0, entries)
 
   fakeTime.tick(501)
@@ -210,6 +214,7 @@ Deno.test("resizes canvas when window resizes", async () => {
     // Default height is 768 with `happy-dom`.
     assertEquals(canvas.height, 192)
     assertEquals(canvas.width, 480)
+    sinon.assert.calledTwice(fakeTimeline.draw)
   })
 })
 
