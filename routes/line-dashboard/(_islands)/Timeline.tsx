@@ -136,11 +136,8 @@ export function TimelineDisplay(props: TimelineProps) {
   }, [])
 
   return (
-    <div
-      class="card card-border shadow-md shadow-base-content/10"
-      style={{ "--card-p": "0.5rem", "--card-fs": "1rem" }}
-    >
-      <div class="card-body">
+    <div class="card bg-base-content/3">
+      <div class="card-body p-2">
         <canvas
           {...canvasSize.value}
           class={errorText.value ? "invisible" : undefined}

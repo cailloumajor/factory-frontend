@@ -29,7 +29,7 @@ export function Metric(props: MetricProps) {
   const value = useComputed(() => Number.isNaN(props.value.value) ? "000" : props.value.value)
 
   return (
-    <div class="card card-border shadow-md shadow-base-content/10 min-w-2/3">
+    <div class="card bg-base-content/3 min-w-2/3">
       <div class="card-body items-center p-[1vh]">
         <h2 class="card-title text-2xl">
           <Icon class="size-6" iconSvg={props.icon} />
