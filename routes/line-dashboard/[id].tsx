@@ -49,6 +49,7 @@ export default define.page(({ params, state }) => {
             runUnderCadence: state.t(($) => $.statuses.runUnderCadence),
             campaignChange: state.t(($) => $.statuses.campaignChange),
             stopped: state.t(($) => $.statuses.stopped),
+            since: state.t(($) => $.statuses.since),
           }}
           config={dashboardConfig}
           configError={dashboardConfigError}

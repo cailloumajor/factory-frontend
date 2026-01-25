@@ -15,7 +15,8 @@
     "runAtCadence": "Marche à cadence",
     "runUnderCadence": "Marche en sous-cadence",
     "campaignChange": "Changement de campagne",
-    "stopped": "Arrêt"
+    "stopped": "Arrêt",
+    "since": "Depuis"
   },
   "welcomeFresh": "Bienvenue dans Fresh"
 }

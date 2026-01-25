@@ -50,6 +50,7 @@
     "@/": "./",
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.1",
     "@faker-js/faker": "npm:@faker-js/faker@10.2.0",
+    "@formatjs/intl-durationformat": "npm:@formatjs/intl-durationformat@0.10.0",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.0.8",
     "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.9",
     "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.8",

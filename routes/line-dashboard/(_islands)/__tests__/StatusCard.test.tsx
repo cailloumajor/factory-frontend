@@ -7,6 +7,7 @@ import { componentTesting } from "@/tests/utils.ts"
 import { createMachineData, type MachineData } from "../MachineDataLink.tsx"
 import { CycleTimeStatus } from "../Metrics.tsx"
 import { StatusCard } from "../StatusCard.tsx"
+import { FakeTime } from "@std/testing/time"
 
 function Wrapper(props: { machineData: MachineData; cycleTimeStatus: Signal<CycleTimeStatus> }) {
   return (
@@ -16,6 +17,7 @@ function Wrapper(props: { machineData: MachineData; cycleTimeStatus: Signal<Cycl
         runUnderCadence: "RUNNING UNDER CADENCE STATUS",
         campaignChange: "CAMPAIGN CHANGE STATUS",
         stopped: "STOPPED STATUS",
+        since: "since text",
       }}
       machineData={props.machineData}
       cycleTimeStatus={props.cycleTimeStatus}
@@ -23,11 +25,28 @@ function Wrapper(props: { machineData: MachineData; cycleTimeStatus: Signal<Cycl
   )
 }
 
+Deno.test("shows a skeleton if data is not available", async () => {
+  await using _ctHandle = componentTesting()
+
+  const machineData = createMachineData()
+
+  const { findByTestId } = render(
+    <Wrapper
+      machineData={machineData}
+      cycleTimeStatus={signal(CycleTimeStatus.Good)}
+    />,
+  )
+
+  const skeletonEl = await findByTestId("status-skeleton")
+  assert(skeletonEl.classList.contains("skeleton"))
+})
+
 Deno.test("shows running at cadence", async () => {
   await using _ctHandle = componentTesting()
 
   const machineData = createMachineData()
 
+  machineData.invalid.value = false
   machineData.val.cycle.value = true
 
   const { findByText } = render(
@@ -47,6 +66,7 @@ Deno.test("shows running under cadence when cycle time is in warning state", asy
 
   const machineData = createMachineData()
 
+  machineData.invalid.value = false
   machineData.val.cycle.value = true
 
   const { findByText } = render(
@@ -66,6 +86,7 @@ Deno.test("shows running under cadence when cycle time is in bad state", async (
 
   const machineData = createMachineData()
 
+  machineData.invalid.value = false
   machineData.val.cycle.value = true
 
   const { findByText } = render(
@@ -83,9 +104,13 @@ Deno.test("shows running under cadence when cycle time is in bad state", async (
 Deno.test("shows campaign change", async () => {
   await using _ctHandle = componentTesting()
 
+  using _fakeTime = new FakeTime("1984-12-09T00:00:00Z")
+
   const machineData = createMachineData()
 
+  machineData.invalid.value = false
   machineData.val.campChange.value = true
+  machineData.ts.campChange.value = "1984-12-07T23:43:22Z"
 
   const { findByText } = render(
     <Wrapper
@@ -97,15 +122,21 @@ Deno.test("shows campaign change", async () => {
   const statusTextEl = await findByText("CAMPAIGN CHANGE STATUS")
   assert(statusTextEl.classList.contains("text-info"))
   assertFalse(statusTextEl.classList.contains("is-status-stopped"))
+
+  await findByText("since text 24 hours, 16 minutes (12/7/1984, 11:43:22 PM)")
 })
 
 Deno.test("shows stopped when cycle time is over", async () => {
   await using _ctHandle = componentTesting()
 
+  using _fakeTime = new FakeTime("1984-12-09T00:00:00Z")
+
   const machineData = createMachineData()
 
+  machineData.invalid.value = false
   machineData.val.cycle.value = true
   machineData.val.cycleTimeOver.value = true
+  machineData.ts.goodParts.value = "1984-12-07T23:43:22Z"
 
   const { findByText } = render(
     <Wrapper
@@ -117,12 +148,19 @@ Deno.test("shows stopped when cycle time is over", async () => {
   const statusTextEl = await findByText("STOPPED STATUS")
   assert(statusTextEl.classList.contains("text-error"))
   assert(statusTextEl.classList.contains("is-status-stopped"))
+
+  await findByText("since text 24 hours, 16 minutes (12/7/1984, 11:43:22 PM)")
 })
 
 Deno.test("shows stopped when not in cycle and not in campaign change", async () => {
   await using _ctHandle = componentTesting()
 
+  using _fakeTime = new FakeTime("1984-12-09T00:00:00Z")
+
   const machineData = createMachineData()
+
+  machineData.invalid.value = false
+  machineData.ts.cycle.value = "1984-12-07T23:43:22Z"
 
   const { findByText } = render(
     <Wrapper
@@ -134,4 +172,6 @@ Deno.test("shows stopped when not in cycle and not in campaign change", async ()
   const statusTextEl = await findByText("STOPPED STATUS")
   assert(statusTextEl.classList.contains("text-error"))
   assert(statusTextEl.classList.contains("is-status-stopped"))
+
+  await findByText("since text 24 hours, 16 minutes (12/7/1984, 11:43:22 PM)")
 })
