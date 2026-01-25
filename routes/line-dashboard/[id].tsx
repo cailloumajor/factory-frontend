@@ -29,13 +29,13 @@ export default define.page(({ params, state }) => {
   return (
     // https://stackoverflow.com/questions/59812003/tailwindcss-fixed-sticky-footer-on-the-bottom#comment139529618_59865099
     <div class="flex flex-col min-h-screen line-dashboard-root">
-      <header class="navbar bg-base-300 min-h-0 shadow-md text-center">
+      <header class="navbar bg-base-300 min-h-0 shadow-md text-center text-lg">
         <h1 class="mx-auto">
           <LineDashboardTitle name={dashboardConfig.title} campaign={machineData.val.partRef} />
         </h1>
       </header>
 
-      <main class="grow relative px-[0.5vw] py-[2vh]">
+      <main class="grow relative px-[0.5vw] pt-[1vh]">
         <Metrics
           titles={{
             goodParts: state.t(($) => $.metrics.goodParts),
