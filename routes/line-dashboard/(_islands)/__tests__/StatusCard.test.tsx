@@ -104,7 +104,7 @@ Deno.test("shows running under cadence when cycle time is in bad state", async (
 Deno.test("shows campaign change", async () => {
   await using _ctHandle = componentTesting()
 
-  using _fakeTime = new FakeTime("1984-12-09T00:00:00Z")
+  using fakeTime = new FakeTime("1984-12-09T00:00:00Z")
 
   const machineData = createMachineData()
 
@@ -124,6 +124,10 @@ Deno.test("shows campaign change", async () => {
   assertFalse(statusTextEl.classList.contains("is-status-stopped"))
 
   await findByText("since text 24 hours, 16 minutes (12/7/1984, 11:43:22 PM)")
+
+  fakeTime.tick(60_000)
+
+  await findByText("since text 24 hours, 17 minutes (12/7/1984, 11:43:22 PM)")
 })
 
 Deno.test("shows stopped when cycle time is over", async () => {
