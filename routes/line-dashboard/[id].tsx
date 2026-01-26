@@ -7,10 +7,10 @@ import { define } from "@/utils/state.ts"
 import { Alert } from "@/islands/Alert.tsx"
 
 import { ConfigSync, createDashboardConfig } from "./(_islands)/ConfigSync.tsx"
+import { Metrics } from "./(_islands)/Metrics.tsx"
 import { createMachineData, MachineDataLink } from "./(_islands)/MachineDataLink.tsx"
 import { TimelineDisplay } from "./(_islands)/Timeline.tsx"
 import { LineDashboardTitle } from "./(_islands)/Title.tsx"
-import { Metrics } from "./(_islands)/Metrics.tsx"
 
 export const config: RouteConfig = {
   skipInheritedLayouts: true,
