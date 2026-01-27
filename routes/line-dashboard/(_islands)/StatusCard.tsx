@@ -50,7 +50,7 @@ export function StatusCard(props: StatusCardProps) {
     return () => {
       clearInterval(handle)
     }
-  })
+  }, [])
 
   const prodStatus = useComputed(() =>
     props.machineData.val.cycle.value
