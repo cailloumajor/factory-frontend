@@ -1,4 +1,4 @@
-import { type Signal, signal } from "@preact/signals"
+import { signal, useSignal } from "@preact/signals"
 import { assertEquals } from "@std/assert"
 import { FakeTime } from "@std/testing/time"
 import { render, waitFor } from "@testing-library/preact"
@@ -30,32 +30,36 @@ function Wrapper(
     config: DashboardConfig
     configError: string
     machineData: MachineData
-    performanceError: Signal<string>
   },
 ) {
+  const performanceError = useSignal("")
+
   return (
-    <Metrics
-      titles={{
-        goodParts: "a",
-        averageCycleTime: "b",
-        targetCycleTime: "c",
-        scrapParts: "d",
-        performance: "e",
-      }}
-      statusTexts={{
-        runAtCadence: "",
-        runUnderCadence: "",
-        campaignChange: "",
-        stopped: "",
-        since: "",
-      }}
-      config={props.config}
-      configError={signal(props.configError)}
-      machineData={props.machineData}
-      performanceApiUrl="/fake-performance-api"
-      performanceRefreshMillis={54000}
-      performanceError={props.performanceError}
-    />
+    <>
+      <Metrics
+        titles={{
+          goodParts: "a",
+          averageCycleTime: "b",
+          targetCycleTime: "c",
+          scrapParts: "d",
+          performance: "e",
+        }}
+        statusTexts={{
+          runAtCadence: "",
+          runUnderCadence: "",
+          campaignChange: "",
+          stopped: "",
+          since: "",
+        }}
+        config={props.config}
+        configError={signal(props.configError)}
+        machineData={props.machineData}
+        performanceApiUrl="/fake-performance-api"
+        performanceRefreshMillis={54000}
+        performanceError={performanceError}
+      />
+      <div data-testid="performance-error">{performanceError}</div>
+    </>
   )
 }
 
@@ -69,14 +73,12 @@ Deno.test("applies loading state to machine data metrics", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   const { getByTestId } = render(
     <Wrapper
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -102,7 +104,6 @@ Deno.test("applies loading state to config API metrics on error", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   machineData.invalid.value = false
 
@@ -111,7 +112,6 @@ Deno.test("applies loading state to config API metrics on error", async () => {
       config={config}
       configError="some error"
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -137,7 +137,6 @@ Deno.test("renders good cycle time", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   config.targetCycleTime.value = 95.5
   machineData.val.averageCycleTime.value = 95.4
@@ -147,7 +146,6 @@ Deno.test("renders good cycle time", async () => {
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -170,7 +168,6 @@ Deno.test("renders warning cycle time", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   config.targetCycleTime.value = 28.7
   machineData.val.averageCycleTime.value = 30.2
@@ -180,7 +177,6 @@ Deno.test("renders warning cycle time", async () => {
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -203,7 +199,6 @@ Deno.test("renders bad cycle time", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   config.targetCycleTime.value = 45.2
   machineData.val.averageCycleTime.value = 49.8
@@ -213,7 +208,6 @@ Deno.test("renders bad cycle time", async () => {
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -239,7 +233,6 @@ Deno.test("renders relevant metrics in localized format", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   config.targetCycleTime.value = 45.2
   machineData.val.averageCycleTime.value = 49.8
@@ -249,7 +242,6 @@ Deno.test("renders relevant metrics in localized format", async () => {
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -272,14 +264,12 @@ Deno.test("renders zero scrap part", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   const { getByTestId } = render(
     <Wrapper
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -302,7 +292,6 @@ Deno.test("renders at least one scrap parts", async () => {
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   machineData.val.scrapParts.value = 2
 
@@ -311,7 +300,6 @@ Deno.test("renders at least one scrap parts", async () => {
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
@@ -331,35 +319,47 @@ Deno.test("renders and updates the performance metric", async () => {
   const fakeFetch = sinon
     .stub(globalThis, "fetch")
     .onFirstCall()
-    .resolves(Response.json(81.2))
+    .resolves(Response.json(63.0))
     .onSecondCall()
-    .resolves(Response.json(6.1))
+    .resolves(Response.json(63.1))
+    .onThirdCall()
+    .resolves(Response.json(70.1))
   sinon.stub(indirectImports, "Metric").callsFake(MetricStub)
   sinon.stub(indirectImports, "StatusCard").callsFake(StatusCardStub)
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
+
+  config.targetEfficiency.value = 0.7
 
   const { getByTestId } = render(
     <Wrapper
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
-  const performanceMetricEl = getByTestId("metric-value-e")
+  const performanceValueEl = getByTestId("metric-value-e")
+  const performanceColorEl = getByTestId("metric-color-e")
 
   await waitFor(() => {
-    assertEquals(performanceMetricEl.innerText, "81.2")
+    assertEquals(performanceValueEl.innerText, "63.0")
+    assertEquals(performanceColorEl.innerText, "text-error")
   })
 
   fakeTime.tick(540001)
 
   await waitFor(() => {
-    assertEquals(performanceMetricEl.innerText, "6.1")
+    assertEquals(performanceValueEl.innerText, "63.1")
+    assertEquals(performanceColorEl.innerText, "text-warning")
+  })
+
+  fakeTime.tick(540001)
+
+  await waitFor(() => {
+    assertEquals(performanceValueEl.innerText, "70.1")
+    assertEquals(performanceColorEl.innerText, "text-success")
   })
 
   sinon.assert.alwaysCalledWithMatch(
@@ -384,7 +384,6 @@ Deno.test("applies loading state to performance metric on fetch error", async ()
 
   const config = createDashboardConfig()
   const machineData = createMachineData()
-  const performanceError = signal("")
 
   machineData.invalid.value = false
 
@@ -393,12 +392,11 @@ Deno.test("applies loading state to performance metric on fetch error", async ()
       config={config}
       configError=""
       machineData={machineData}
-      performanceError={performanceError}
     />,
   )
 
   await waitFor(() => {
-    assertEquals(performanceError.value, "fake error for tests")
+    assertEquals(getByTestId("performance-error").innerText, "fake error for tests")
   })
 
   assertEquals(getByTestId("metric-loading-a").innerText, "no")

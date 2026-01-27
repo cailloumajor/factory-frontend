@@ -96,6 +96,10 @@ export function Metrics(props: MetricsProps) {
 
   const performance = useSignal(NaN)
   const performanceDisplay = useComputed(() => fractionalFormatter.value.format(performance.value))
+  const performanceColor = useComputed(() => {
+    const ratio = performance.value / 100 / props.config.targetEfficiency.value
+    return ratio > 1 ? "text-success" : ratio > 0.9 ? "text-warning" : "text-error"
+  })
   const performanceLoading = useComputed(() => !!props.performanceError.value)
 
   useEffect(() => {
@@ -176,6 +180,7 @@ export function Metrics(props: MetricsProps) {
         title={props.titles.performance}
         unit="%"
         value={performanceDisplay}
+        colorClass={performanceColor}
         loading={performanceLoading}
       />
     </div>

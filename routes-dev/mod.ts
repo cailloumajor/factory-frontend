@@ -20,7 +20,7 @@ export function devRoutes(app: App<State>) {
     return json({
       title: `Factory Frontend development (${params.id})`,
       targetCycleTime: 30,
-      targetEfficiency: 1,
+      targetEfficiency: 0.78,
     })
   })
 
@@ -41,6 +41,6 @@ export function devRoutes(app: App<State>) {
       return new Response(null, { status: 500 })
     }
 
-    return Response.json(faker.number.float({ min: 70, max: 80 }))
+    return Response.json(faker.number.float({ min: 70, max: 82 }))
   })
 }
