@@ -4,7 +4,7 @@
     "refreshMillis": 10000
   },
   "timeline": {
-    "baseComputeApiPath": "/dev-compute-api/timeline",
+    "baseApiPath": "/dev-compute-api/timeline",
     "refreshMillis": 10000
   },
   "centrifugoBasePath": "/dev-centrifugo/",

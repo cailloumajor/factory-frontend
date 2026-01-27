@@ -18,7 +18,7 @@ export const config: RouteConfig = {
 
 export default define.page(({ params, state }) => {
   const configApiUrl = posix.join(state.appConfig.dashboardConfig.baseApiPath, params.id)
-  const timelineApiUrl = posix.join(state.appConfig.timeline.baseComputeApiPath, params.id)
+  const timelineApiUrl = posix.join(state.appConfig.timeline.baseApiPath, params.id)
 
   const dashboardConfig = createDashboardConfig()
   const dashboardConfigError = signal("")
