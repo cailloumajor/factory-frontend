@@ -50,6 +50,48 @@ function Wrapper(
   )
 }
 
+Deno.test("applies loading state to machine data metrics", async () => {
+  await using _ctHandle = componentTesting()
+
+  sinon.stub(indirectImports, "Metric").callsFake(MetricStub)
+  sinon.stub(indirectImports, "StatusCard").callsFake(StatusCardStub)
+
+  const config = createDashboardConfig()
+  const machineData = createMachineData()
+
+  const { getByTestId } = render(
+    <Wrapper config={config} configError="" machineData={machineData} />,
+  )
+
+  assertEquals(getByTestId("metric-loading-a").innerText, "yes")
+  assertEquals(getByTestId("metric-loading-b").innerText, "yes")
+  assertEquals(getByTestId("metric-loading-c").innerText, "no")
+  assertEquals(getByTestId("metric-loading-d").innerText, "yes")
+  assertEquals(getByTestId("metric-loading-e").innerText, "yes")
+})
+
+Deno.test("applies loading state to config API metrics on error", async () => {
+  await using _ctHandle = componentTesting()
+
+  sinon.stub(indirectImports, "Metric").callsFake(MetricStub)
+  sinon.stub(indirectImports, "StatusCard").callsFake(StatusCardStub)
+
+  const config = createDashboardConfig()
+  const machineData = createMachineData()
+
+  machineData.invalid.value = false
+
+  const { getByTestId } = render(
+    <Wrapper config={config} configError="some error" machineData={machineData} />,
+  )
+
+  assertEquals(getByTestId("metric-loading-a").innerText, "no")
+  assertEquals(getByTestId("metric-loading-b").innerText, "no")
+  assertEquals(getByTestId("metric-loading-c").innerText, "yes")
+  assertEquals(getByTestId("metric-loading-d").innerText, "no")
+  assertEquals(getByTestId("metric-loading-e").innerText, "no")
+})
+
 Deno.test("renders good cycle time", async () => {
   await using _ctHandle = componentTesting()
 
@@ -168,3 +210,13 @@ Deno.test("renders at least one scrap parts", async () => {
   assertEquals(getByTestId("metric-value-d").innerText, "2")
   assertEquals(getByTestId("metric-color-d").innerText, "text-error")
 })
+
+// Deno.test("renders and updates the performance metric", async ()=>{
+//   await using _ctHandle = componentTesting()
+
+//   sinon.stub(indirectImports, "Metric").callsFake(MetricStub)
+//   sinon.stub(indirectImports, "StatusCard").callsFake(StatusCardStub)
+
+//   const config = createDashboardConfig()
+//   const machineData = createMachineData()
+// })
