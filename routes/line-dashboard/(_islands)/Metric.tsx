@@ -19,14 +19,17 @@ interface MetricProps {
 }
 
 export function Metric(props: MetricProps) {
+  const isNaNValue = useComputed(() =>
+    Number.isNaN(props.value.value) || props.value.value === "NaN"
+  )
   const valueClass = useComputed(() =>
     props.loading.value
       ? ["inline-block", "min-w-1/2", "skeleton", "text-transparent", "select-none"]
-      : Number.isNaN(props.value.value)
+      : isNaNValue.value
       ? "invisible"
       : ""
   )
-  const value = useComputed(() => Number.isNaN(props.value.value) ? "000" : props.value.value)
+  const value = useComputed(() => isNaNValue.value ? "000" : props.value.value)
 
   return (
     <div class="card bg-base-200 min-w-2/3">

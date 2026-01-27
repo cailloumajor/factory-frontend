@@ -5,6 +5,7 @@ import {
   mdiTimerOutline,
   mdiTrashCanOutline,
 } from "@mdi/js"
+import { useEffect } from "preact/hooks"
 import { type Signal, useComputed, useSignal } from "@preact/signals"
 
 import { usePreferredLanguages } from "@/hooks/usePreferredLanguages.ts"
@@ -13,6 +14,13 @@ import type { DashboardConfig } from "./ConfigSync.tsx"
 import type { MachineData } from "./MachineDataLink.tsx"
 import { Metric } from "./Metric.tsx"
 import { StatusCard, type StatusTexts } from "./StatusCard.tsx"
+
+// Add a level of import indirection to allow stubbing in tests.
+export const indirectImports = {
+  usePreferredLanguages,
+  Metric,
+  StatusCard,
+}
 
 export enum CycleTimeStatus {
   Good,
@@ -35,10 +43,18 @@ interface MetricsProps {
   configError: Signal<string>
   /** The reactive machine data. */
   machineData: MachineData
+  /** The URL of the API to fetch for performance value. */
+  performanceApiUrl: string
+  /** The interval in milliseconds at which the performance value should be refreshed. */
+  performanceRefreshMillis: number
+  /** The reactive performance fetch error. */
+  performanceError: Signal<string>
 }
 
 /** Renders the dashboard metrics. */
 export function Metrics(props: MetricsProps) {
+  const { usePreferredLanguages, Metric, StatusCard } = indirectImports
+
   const languages = usePreferredLanguages()
 
   const fractionalFormatter = useComputed(() =>
@@ -78,8 +94,46 @@ export function Metrics(props: MetricsProps) {
     props.machineData.val.scrapParts.value > 0 ? "text-error" : "text-success"
   )
 
-  // TODO: Do real things here.
   const performance = useSignal(NaN)
+  const performanceDisplay = useComputed(() => fractionalFormatter.value.format(performance.value))
+  const performanceLoading = useComputed(() => !!props.performanceError.value)
+
+  useEffect(() => {
+    const abort = new AbortController()
+    let timeoutHandle: number
+
+    function updatePerformance() {
+      fetch(props.performanceApiUrl, {
+        headers: {
+          "Client-Timezone": Intl.DateTimeFormat().resolvedOptions().timeZone,
+        },
+        signal: AbortSignal.any([abort.signal, AbortSignal.timeout(1000)]),
+      })
+        .then((resp) => {
+          if (!resp.ok) {
+            throw new Error(`HTTP error, status: ${resp.status} ${resp.statusText}`)
+          }
+          return resp.json()
+        })
+        .then((val) => {
+          performance.value = val
+          props.performanceError.value = ""
+        })
+        .catch((err) => {
+          props.performanceError.value = String(err)
+        })
+        .finally(() => {
+          timeoutHandle = setTimeout(updatePerformance, props.performanceRefreshMillis)
+        })
+    }
+
+    updatePerformance()
+
+    return () => {
+      clearTimeout(timeoutHandle)
+      abort.abort()
+    }
+  }, [])
 
   return (
     <div class="grid grid-cols-3 gap-x-[5vw] gap-y-[3vh] pb-[2vh] justify-items-center">
@@ -121,8 +175,8 @@ export function Metrics(props: MetricsProps) {
         icon={mdiSpeedometer}
         title={props.titles.performance}
         unit="%"
-        value={performance}
-        loading={props.machineData.invalid}
+        value={performanceDisplay}
+        loading={performanceLoading}
       />
     </div>
   )

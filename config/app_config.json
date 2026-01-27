@@ -1,11 +1,15 @@
 {
   "dashboardConfig": {
     "baseApiPath": "/dev-config-api/config/line_dashboard",
-    "refreshMillis": 10000
+    "refreshMillis": 4500
   },
   "timeline": {
     "baseApiPath": "/dev-compute-api/timeline",
-    "refreshMillis": 10000
+    "refreshMillis": 5000
+  },
+  "performance": {
+    "baseApiPath": "/dev-compute-api/performance",
+    "refreshMillis": 5500
   },
   "centrifugoBasePath": "/dev-centrifugo/",
   "machineData": {

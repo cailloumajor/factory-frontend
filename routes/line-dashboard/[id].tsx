@@ -19,12 +19,15 @@ export const config: RouteConfig = {
 export default define.page(({ params, state }) => {
   const configApiUrl = posix.join(state.appConfig.dashboardConfig.baseApiPath, params.id)
   const timelineApiUrl = posix.join(state.appConfig.timeline.baseApiPath, params.id)
+  const performanceApiUrl = posix.join(state.appConfig.performance.baseApiPath, params.id)
 
   const dashboardConfig = createDashboardConfig()
   const dashboardConfigError = signal("")
 
   const machineData = createMachineData()
   const machineDataLinkError = signal("")
+
+  const performanceError = signal("")
 
   return (
     // https://stackoverflow.com/questions/59812003/tailwindcss-fixed-sticky-footer-on-the-bottom#comment139529618_59865099
@@ -54,6 +57,9 @@ export default define.page(({ params, state }) => {
           config={dashboardConfig}
           configError={dashboardConfigError}
           machineData={machineData}
+          performanceApiUrl={performanceApiUrl}
+          performanceRefreshMillis={state.appConfig.performance.refreshMillis}
+          performanceError={performanceError}
         />
 
         <TimelineDisplay
@@ -80,6 +86,7 @@ export default define.page(({ params, state }) => {
         <div class="toast bottom-10">
           <Alert context="Dasboard config" errorText={dashboardConfigError} />
           <Alert context="Machine data" errorText={machineDataLinkError} />
+          <Alert context="Performance" errorText={performanceError} />
         </div>
       </main>
 

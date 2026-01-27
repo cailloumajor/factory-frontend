@@ -5,6 +5,7 @@ import type { App } from "fresh"
 import type { State } from "@/utils/state.ts"
 
 import timelineData from "./timeline_data.bin?url&inline"
+import { faker } from "@faker-js/faker"
 
 export function devRoutes(app: App<State>) {
   // TODO: remove this hack if https://github.com/denoland/fresh/issues/3424 gets fixed.
@@ -12,24 +13,19 @@ export function devRoutes(app: App<State>) {
     return serveDir(req, { showDotfiles: true, quiet: true })
   })
 
-  const requestCount = {
-    config: 0,
-    timeline: 0,
-  }
-
   app.get("/dev-config-api/config/line_dashboard/:id", ({ json, params }) => {
-    if (requestCount.config++ % 2 === 0) {
+    if (faker.datatype.boolean(0.4)) {
       return json(false)
     }
     return json({
-      title: `dev title (${params.id})`,
+      title: `Factory Frontend development (${params.id})`,
       targetCycleTime: 30,
       targetEfficiency: 1,
     })
   })
 
   app.get("/dev-compute-api/timeline/:id", () => {
-    if (requestCount.timeline++ % 2 === 0) {
+    if (faker.datatype.boolean(0.4)) {
       return new Response(new Uint8Array([0x90]))
     }
 
@@ -38,5 +34,13 @@ export function devRoutes(app: App<State>) {
     const data = decodeBase64(base64Data)
 
     return new Response(data)
+  })
+
+  app.get("/dev-compute-api/performance/:id", () => {
+    if (faker.datatype.boolean(0.4)) {
+      return new Response(null, { status: 500 })
+    }
+
+    return Response.json(faker.number.float({ min: 70, max: 80 }))
   })
 }

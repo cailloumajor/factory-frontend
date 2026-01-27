@@ -91,11 +91,39 @@ Deno.test("shows a skeleton if in loading state", async () => {
   assertFalse(metricValueEl.classList.contains("invisible"))
 })
 
-Deno.test("displays NaN value accordingly", async () => {
+Deno.test("displays numeric NaN value accordingly", async () => {
   await using _ctHandle = componentTesting()
 
   function Wrapper() {
     const value = useSignal(NaN)
+    const colorClass = useSignal("colorclass")
+    const loading = useSignal(false)
+
+    return (
+      <Metric
+        icon="M3,3V21H21V3"
+        title="Test Metric"
+        value={value}
+        colorClass={colorClass}
+        loading={loading}
+      />
+    )
+  }
+
+  const { getByTestId } = render(<Wrapper />)
+
+  const metricValueEl = getByTestId("metric-value")
+
+  assertEquals(metricValueEl.innerText, "000")
+  assertFalse(metricValueEl.classList.contains("skeleton"))
+  assert(metricValueEl.classList.contains("invisible"))
+})
+
+Deno.test("displays textual NaN value accordingly", async () => {
+  await using _ctHandle = componentTesting()
+
+  function Wrapper() {
+    const value = useSignal("NaN")
     const colorClass = useSignal("colorclass")
     const loading = useSignal(false)
 
