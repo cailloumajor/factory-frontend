@@ -87,6 +87,7 @@ Deno.test("shows a skeleton if in loading state", async () => {
 
   const metricValueEl = getByTestId("metric-value")
 
+  assertFalse(metricValueEl.classList.contains("colorclass"))
   assert(metricValueEl.classList.contains("skeleton"))
   assertFalse(metricValueEl.classList.contains("invisible"))
 })

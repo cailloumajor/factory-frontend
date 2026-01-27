@@ -27,7 +27,7 @@ export function Metric(props: MetricProps) {
       ? ["inline-block", "min-w-1/2", "skeleton", "text-transparent", "select-none"]
       : isNaNValue.value
       ? "invisible"
-      : ""
+      : props.colorClass?.value
   )
   const value = useComputed(() => isNaNValue.value ? "000" : props.value.value)
 
@@ -39,7 +39,7 @@ export function Metric(props: MetricProps) {
           {props.title}
         </h2>
         <span
-          class={clsx("text-7xl", valueClass.value, props.colorClass?.value)}
+          class={clsx("text-7xl", valueClass.value)}
           data-testid="metric-value"
         >
           {value}
