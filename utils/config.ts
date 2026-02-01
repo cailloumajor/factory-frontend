@@ -20,8 +20,18 @@ function getEnvNumber(key: string, defaultValue: number) {
   return value
 }
 
+function getEnvStringArray(key: string, defaultValue: string[]) {
+  const raw = Deno.env.get(key)
+  if (raw === undefined) {
+    return defaultValue
+  }
+
+  return raw.split(",")
+}
+
 function getAppConfig() {
   return {
+    shiftStartTimes: getEnvStringArray("SHIFT_START_TIMES", ["04:20", "12:20", "20:20"]),
     dashboardConfig: {
       baseApiPath: getEnvString(
         "DASHBOARD_CONFIG_BASE_API_PATH",
@@ -32,6 +42,8 @@ function getAppConfig() {
     timeline: {
       baseApiPath: getEnvString("TIMELINE_BASE_API_PATH", "/dev-compute-api/timeline"),
       refreshMillis: getEnvNumber("TIMELINE_REFRESH_MILLIS", 5000),
+      intervalMinutes: getEnvNumber("TIMELINE_INTERVAL_MINUTES", 40),
+      offsetMinutes: getEnvNumber("TIMELINE_OFFSET_MINUTES", 20),
     },
     performance: {
       baseApiPath: getEnvString("PERFORMANCE_BASE_API_PATH", "/dev-compute-api/performance"),

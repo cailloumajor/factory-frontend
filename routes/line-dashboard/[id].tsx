@@ -71,9 +71,9 @@ export default define.page(({ params, state }) => {
             { colorClass: "bg-info", text: state.t(($) => $.statuses.campaignChange) },
             { colorClass: "bg-error", text: state.t(($) => $.statuses.stopped) },
           ]}
-          xIntervalMinutes={60}
-          xOffsetMinutes={30}
-          emphasisLabels={["05:30", "13:30", "21:30"]}
+          xIntervalMinutes={state.appConfig.timeline.intervalMinutes}
+          xOffsetMinutes={state.appConfig.timeline.offsetMinutes}
+          emphasisLabels={state.appConfig.shiftStartTimes}
         />
 
         <ConfigSync
