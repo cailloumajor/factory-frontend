@@ -1,57 +1,55 @@
-import { toSnakeCase } from "@std/text"
 import type { Middleware } from "fresh"
 
 import type { State } from "./state.ts"
 
-import configJson from "@/config/app_config.json" with { type: "json" }
-
-export type AppConfig = typeof configJson
-
-export function envOverridden<T extends Record<string, unknown>>(obj: T, keyPrefix?: string) {
-  const out: Record<string, unknown> = {}
-
-  for (const [key, val] of Object.entries(obj)) {
-    const prefixedKey = keyPrefix ? `${keyPrefix ?? ""}.${key}` : key
-
-    if (typeof val === "object" && val !== null) {
-      if (Array.isArray(val)) {
-        throw new Error("Arrays are not supported")
-      }
-      const inner = envOverridden(val as T, prefixedKey)
-      out[key] = inner
-      continue
-    }
-
-    const envKey = toSnakeCase(prefixedKey).toUpperCase()
-    const envVal = Deno.env.get(envKey)
-    if (envVal == null) {
-      out[key] = val
-      continue
-    }
-
-    if (typeof val === "string") {
-      out[key] = envVal
-    } else if (typeof val === "number") {
-      const newVal = parseInt(envVal)
-      if (Number.isNaN(newVal)) {
-        throw new Error(`Failed to parse the number: ${envVal}`)
-      }
-      out[key] = newVal
-    } else if (typeof val === "boolean") {
-      out[key] = envVal === "1"
-    } else {
-      throw new Error(`Unsupported value type: ${typeof val}`)
-    }
-  }
-
-  return out
+function getEnvString(key: string, defaultValue: string) {
+  return Deno.env.get(key) || defaultValue
 }
 
-export function appConfig(): Middleware<State> {
-  const appConfig = envOverridden(configJson) as AppConfig
+function getEnvNumber(key: string, defaultValue: number) {
+  const raw = Deno.env.get(key)
+  if (raw === undefined) {
+    return defaultValue
+  }
 
+  const value = Number(raw)
+  if (!Number.isFinite(value)) {
+    throw new Error(`Failed to parse a number from ${key} environment variable`)
+  }
+
+  return value
+}
+
+function getAppConfig() {
+  return {
+    dashboardConfig: {
+      baseApiPath: getEnvString(
+        "DASHBOARD_CONFIG_BASE_API_PATH",
+        "/dev-config-api/config/line_dashboard",
+      ),
+      refreshMillis: getEnvNumber("DASHBOARD_CONFIG_REFRESH_MILLIS", 4500),
+    },
+    timeline: {
+      baseApiPath: getEnvString("TIMELINE_BASE_API_PATH", "/dev-compute-api/timeline"),
+      refreshMillis: getEnvNumber("TIMELINE_REFRESH_MILLIS", 5000),
+    },
+    performance: {
+      baseApiPath: getEnvString("PERFORMANCE_BASE_API_PATH", "/dev-compute-api/performance"),
+      refreshMillis: getEnvNumber("PERFORMANCE_REFRESH_MILLIS", 5500),
+    },
+    centrifugoBasePath: getEnvString("CENTRIFUGO_BASE_PATH", "/dev-centrifugo/"),
+    machineData: {
+      centrifugoNamespace: getEnvString("MACHINE_DATA_CENTRIFUGO_NAMESPACE", "opcua.data"),
+      plcTimeoutMillis: getEnvNumber("MACHINE_DATA_REFRESH_MILLIS", 8000),
+    },
+  }
+}
+
+export type AppConfig = ReturnType<typeof getAppConfig>
+
+export function appConfig(): Middleware<State> {
   return function configMiddleware(ctx) {
-    ctx.state.appConfig = appConfig
+    ctx.state.appConfig = getAppConfig()
 
     return ctx.next()
   }
