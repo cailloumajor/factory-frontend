@@ -2,13 +2,28 @@ import type { Middleware } from "fresh"
 
 import type { State } from "./state.ts"
 
-function getEnvString(key: string, defaultValue: string) {
-  return Deno.env.get(key) || defaultValue
-}
+const defaultRefreshMillis = 10000
 
-function getEnvNumber(key: string, defaultValue: number) {
+function getEnvString(key: string, defaultValue?: string) {
   const raw = Deno.env.get(key)
   if (raw === undefined) {
+    if (defaultValue === undefined) {
+      throw new Error(`Missing required environment variable ${key}`)
+    }
+
+    return defaultValue
+  }
+
+  return raw
+}
+
+function getEnvNumber(key: string, defaultValue?: number) {
+  const raw = Deno.env.get(key)
+  if (raw === undefined) {
+    if (defaultValue === undefined) {
+      throw new Error(`Missing required environment variable ${key}`)
+    }
+
     return defaultValue
   }
 
@@ -20,9 +35,13 @@ function getEnvNumber(key: string, defaultValue: number) {
   return value
 }
 
-function getEnvStringArray(key: string, defaultValue: string[]) {
+function getEnvStringArray(key: string, defaultValue?: string[]) {
   const raw = Deno.env.get(key)
   if (raw === undefined) {
+    if (defaultValue === undefined) {
+      throw new Error(`Missing required environment variable ${key}`)
+    }
+
     return defaultValue
   }
 
@@ -31,28 +50,25 @@ function getEnvStringArray(key: string, defaultValue: string[]) {
 
 function getAppConfig() {
   return {
-    shiftStartTimes: getEnvStringArray("SHIFT_START_TIMES", ["04:20", "12:20", "20:20"]),
+    shiftStartTimes: getEnvStringArray("SHIFT_START_TIMES"),
     dashboardConfig: {
-      baseApiPath: getEnvString(
-        "DASHBOARD_CONFIG_BASE_API_PATH",
-        "/dev-config-api/config/line_dashboard",
-      ),
-      refreshMillis: getEnvNumber("DASHBOARD_CONFIG_REFRESH_MILLIS", 4500),
+      baseApiPath: getEnvString("DASHBOARD_CONFIG_BASE_API_PATH"),
+      refreshMillis: getEnvNumber("DASHBOARD_CONFIG_REFRESH_MILLIS", defaultRefreshMillis),
     },
     timeline: {
-      baseApiPath: getEnvString("TIMELINE_BASE_API_PATH", "/dev-compute-api/timeline"),
-      refreshMillis: getEnvNumber("TIMELINE_REFRESH_MILLIS", 5000),
-      intervalMinutes: getEnvNumber("TIMELINE_INTERVAL_MINUTES", 40),
-      offsetMinutes: getEnvNumber("TIMELINE_OFFSET_MINUTES", 20),
+      baseApiPath: getEnvString("TIMELINE_BASE_API_PATH"),
+      refreshMillis: getEnvNumber("TIMELINE_REFRESH_MILLIS", defaultRefreshMillis),
+      intervalMinutes: getEnvNumber("TIMELINE_INTERVAL_MINUTES", 60),
+      offsetMinutes: getEnvNumber("TIMELINE_OFFSET_MINUTES"),
     },
     performance: {
-      baseApiPath: getEnvString("PERFORMANCE_BASE_API_PATH", "/dev-compute-api/performance"),
-      refreshMillis: getEnvNumber("PERFORMANCE_REFRESH_MILLIS", 5500),
+      baseApiPath: getEnvString("PERFORMANCE_BASE_API_PATH"),
+      refreshMillis: getEnvNumber("PERFORMANCE_REFRESH_MILLIS", defaultRefreshMillis),
     },
-    centrifugoBasePath: getEnvString("CENTRIFUGO_BASE_PATH", "/dev-centrifugo/"),
+    centrifugoBasePath: getEnvString("CENTRIFUGO_BASE_PATH"),
     machineData: {
-      centrifugoNamespace: getEnvString("MACHINE_DATA_CENTRIFUGO_NAMESPACE", "opcua.data"),
-      plcTimeoutMillis: getEnvNumber("MACHINE_DATA_REFRESH_MILLIS", 8000),
+      centrifugoNamespace: getEnvString("MACHINE_DATA_CENTRIFUGO_NAMESPACE"),
+      plcTimeoutMillis: getEnvNumber("MACHINE_DATA_PLC_TIMEOUT_MILLIS"),
     },
   }
 }
@@ -60,8 +76,10 @@ function getAppConfig() {
 export type AppConfig = ReturnType<typeof getAppConfig>
 
 export function appConfig(): Middleware<State> {
+  const gotAppConfig = getAppConfig()
+
   return function configMiddleware(ctx) {
-    ctx.state.appConfig = getAppConfig()
+    ctx.state.appConfig = gotAppConfig
 
     return ctx.next()
   }
