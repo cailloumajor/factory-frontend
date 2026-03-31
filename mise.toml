@@ -3,3 +3,6 @@ deno = "2.6.7"
 node = "lts"
 "npm:@tailwindcss/language-server" = "latest"
 tombi = "latest"
+
+[env]
+DENO_NO_UPDATE_CHECK = "1"
