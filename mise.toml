@@ -1,8 +1,11 @@
 [tools]
-deno = "2.6.7"
+deno = "2.7.11"
 node = "lts"
 "npm:@tailwindcss/language-server" = "latest"
 tombi = "latest"
 
 [env]
 DENO_NO_UPDATE_CHECK = "1"
+
+[hooks]
+enter = "mise outdated --local"

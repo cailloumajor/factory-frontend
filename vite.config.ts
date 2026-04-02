@@ -15,19 +15,16 @@ const httpLogger: Plugin = {
 const centrifugoMock: Plugin = {
   name: "centrifugo-mock-server",
   configureServer() {
-    const process = new Deno.Command(Deno.execPath(), {
-      args: [
-        "serve",
-        "--host",
-        "127.0.0.1",
-        "--port",
-        `${centrifugoMockPort}`,
-        "--check",
-        "--watch",
-        "centrifugo-mock.ts",
-      ],
-    })
-    process.spawn()
+    Deno.spawn(Deno.execPath(), [
+      "serve",
+      "--host",
+      "127.0.0.1",
+      "--port",
+      `${centrifugoMockPort}`,
+      "--check",
+      "--watch",
+      "centrifugo-mock.ts",
+    ])
   },
 }
 
