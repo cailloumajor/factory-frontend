@@ -1,5 +1,5 @@
 import { Timeline } from "@cailloumajor/frontend-utils-wasm"
-import { assert, assertEquals, assertFalse } from "@std/assert"
+import { assert, assertEquals, assertFalse, assertMatch } from "@std/assert"
 import { FakeTime } from "@std/testing/time"
 import { render, waitFor } from "@testing-library/preact"
 import * as sinon from "sinon"
@@ -7,6 +7,7 @@ import * as sinon from "sinon"
 import { componentTesting } from "@/tests/utils.ts"
 
 import { moduleUtils, TimelineDisplay } from "../Timeline.tsx"
+import { assertStringIncludes } from "@std/assert/string-includes"
 
 function Wrapper() {
   return (
@@ -126,7 +127,7 @@ Deno.test("shows draw error", async () => {
   assert(getByTestId("timeline-legend").classList.contains("invisible"))
 })
 
-Deno.test("calls draw function periodically", async () => {
+Deno.test("calls setData function periodically", async () => {
   await using _ctHandle = componentTesting()
 
   const body = new Uint8Array([0xde, 0xad, 0xbe, 0xef])
@@ -134,21 +135,27 @@ Deno.test("calls draw function periodically", async () => {
   using fakeTime = new FakeTime()
   sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response(body)))
   const fakeTimeline = sinon.createStubInstance(Timeline)
+  fakeTimeline
+    .setData
+    .onFirstCall()
+    .throws("first sentinel")
+    .onSecondCall()
+    .throws("second sentinel")
+    .onThirdCall()
+    .throws("third sentinel")
   sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
 
-  render(<Wrapper />)
+  const { findByText } = render(<Wrapper />)
+
+  const errorDisplay = await findByText(/^first sentinel/)
 
   fakeTime.tick(10001)
   await waitFor(() => {
-    sinon.assert.calledOnce(fakeTimeline.setData)
+    assertMatch(errorDisplay.innerText, /^second sentinel/)
   })
   fakeTime.tick(10001)
   await waitFor(() => {
-    sinon.assert.calledTwice(fakeTimeline.setData)
-  })
-  fakeTime.tick(10001)
-  await waitFor(() => {
-    sinon.assert.calledThrice(fakeTimeline.setData)
+    assertMatch(errorDisplay.innerText, /^third sentinel/)
     sinon.assert.alwaysCalledWithExactly(fakeTimeline.setData, body)
   })
 })
@@ -182,13 +189,14 @@ Deno.test("resizes canvas and redraws when window resizes", async () => {
   using fakeTime = new FakeTime()
   sinon.stub(globalThis, "fetch").callsFake(() => Promise.resolve(new Response()))
   const fakeTimeline = sinon.createStubInstance(Timeline)
+  fakeTimeline.draw.onFirstCall().throws("draw sentinel")
   sinon.stub(moduleUtils, "newTimeline").returns(fakeTimeline)
   const fakeResizeObserver = sinon.createStubInstance(ResizeObserver)
   const fakeResizeObserverCtor = sinon.stub(globalThis, "ResizeObserver").returns(
     fakeResizeObserver,
   )
 
-  const { getByLabelText } = render(<Wrapper />)
+  const { findByText, getByLabelText } = render(<Wrapper />)
 
   const canvas = getByLabelText("status timeline") as HTMLCanvasElement
 
@@ -202,9 +210,7 @@ Deno.test("resizes canvas and redraws when window resizes", async () => {
     },
   ]
 
-  await waitFor(() => {
-    sinon.assert.calledOnce(fakeTimeline.draw)
-  })
+  await findByText(/^draw sentinel/)
 
   fakeResizeObserverCtor.callArgWith(0, entries)
 
