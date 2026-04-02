@@ -3,7 +3,7 @@
     "check": "deno fmt --check . && deno lint . && deno check **/*.ts && deno check **/*.tsx",
     "dev": "vite",
     "test-config": "deno run -RW tests/generate-config.ts",
-    "test": "deno task test-config && deno test -E -c deno-tests.json",
+    "test": "deno task test-config && LC_ALL=C TZ=UTC deno test -E -c deno-tests.json",
     "build": "vite build",
     "start": "deno serve -A _fresh/server.js",
     "update": "deno run -A -r jsr:@fresh/update ."
