@@ -10,6 +10,7 @@ editorconfig-checker = "latest"
 hadolint = "latest"
 rumdl = "latest"
 typos = "latest"
+"github:docker/docker-language-server" = "latest"
 
 [env]
 DENO_NO_UPDATE_CHECK = "1"
