@@ -7,7 +7,6 @@ import * as sinon from "sinon"
 import { componentTesting } from "@/tests/utils.ts"
 
 import { moduleUtils, TimelineDisplay } from "../Timeline.tsx"
-import { assertStringIncludes } from "@std/assert/string-includes"
 
 function Wrapper() {
   return (
@@ -25,7 +24,7 @@ function Wrapper() {
   )
 }
 
-Deno.test("instanciates the timeline object", async () => {
+Deno.test("instantiates the timeline object", async () => {
   await using _ctHandle = componentTesting()
 
   globalThis.document.body.style.fontFamily = "some font for testing"

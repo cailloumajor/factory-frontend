@@ -1,11 +1,20 @@
 [tools]
 deno = "2.7.11"
+hk = "latest"
 node = "lts"
 "npm:@tailwindcss/language-server" = "latest"
 tombi = "latest"
+pkl = "latest"
+"aqua:betterleaks/betterleaks" = "latest"
+editorconfig-checker = "latest"
+hadolint = "latest"
+rumdl = "latest"
+typos = "latest"
 
 [env]
 DENO_NO_UPDATE_CHECK = "1"
 
 [hooks]
 enter = "mise outdated --local"
+# Automatically install/update hooks when tools are installed
+postinstall = "hk install --mise"

@@ -55,7 +55,7 @@ function assertStatusIcon(icon: HTMLElement, expected: LinkStatus) {
   assert(icon.classList.contains(expectedClass))
 }
 
-Deno.test("instanciates Centrifuge", async () => {
+Deno.test("instantiates Centrifuge", async () => {
   await using _ctHandle = componentTesting()
 
   const fakeCentrifugo = sinon.createStubInstance(Centrifuge, {
@@ -221,7 +221,7 @@ Deno.test("subscribes to Centrifuge data change", async () => {
   })
 })
 
-Deno.test("updates the data upon successfull subscription", async () => {
+Deno.test("updates the data upon successful subscription", async () => {
   await using _ctHandle = componentTesting()
 
   const fakeSubscription = sinon.createStubInstance(Subscription)

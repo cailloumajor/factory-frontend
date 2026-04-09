@@ -84,7 +84,7 @@ export default define.page(({ params, state }) => {
         />
 
         <div class="toast bottom-10">
-          <Alert context="Dasboard config" errorText={dashboardConfigError} />
+          <Alert context="Dashboard config" errorText={dashboardConfigError} />
           <Alert context="Machine data" errorText={machineDataLinkError} />
           <Alert context="Performance" errorText={performanceError} />
         </div>
