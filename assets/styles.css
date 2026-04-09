@@ -7,7 +7,7 @@
 
 @theme {
   --font-sans: "Roboto Variable", "Noto Color Emoji";
-  --font-mono: "Roboto Mono Variable";
+  --font-mono: "Roboto Mono Variable", "Noto Color Emoji";
 }
 
 @utility stopped-background {
