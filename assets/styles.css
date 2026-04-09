@@ -1,11 +1,12 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+@import "@fontsource/noto-color-emoji";
 @import "@fontsource-variable/roboto";
 @import "@fontsource-variable/roboto-mono";
 
 @theme {
-  --font-sans: "Roboto Variable";
+  --font-sans: "Roboto Variable", "Noto Color Emoji";
   --font-mono: "Roboto Mono Variable";
 }
 
