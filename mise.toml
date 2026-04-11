@@ -1,5 +1,5 @@
 [tools]
-deno = "2.7.11"
+deno = "{{ read_file(path='Dockerfile') | split(pat='\n')| first | split(pat='=') | nth(n=1) | trim }}"
 hk = "latest"
 node = "lts"
 "npm:@tailwindcss/language-server" = "latest"
