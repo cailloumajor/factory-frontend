@@ -16,6 +16,4 @@ typos = "latest"
 DENO_NO_UPDATE_CHECK = "1"
 
 [hooks]
-enter = "mise outdated --local"
-# Automatically install/update hooks when tools are installed
-postinstall = "hk install --mise"
+enter = "mise outdated --local --silent"
