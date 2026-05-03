@@ -1,6 +1,6 @@
 import { Timeline, type TimelineConfig } from "@cailloumajor/frontend-utils-wasm"
 import { useComputed, useSignal } from "@preact/signals"
-import { debounce } from "@std/async"
+import { debounce } from "@std/async/unstable-debounce"
 import { clsx } from "clsx"
 import { useEffect, useRef } from "preact/hooks"
 
@@ -102,16 +102,20 @@ export function TimelineDisplay(props: TimelineProps) {
       }
     }
 
-    const onResize = debounce((width: number) => {
-      if (width === 0 || canvasSize.value.width === width) {
-        return
-      }
-      canvasSize.value = {
-        height: globalThis.innerHeight / 4,
-        width,
-      }
-      setTimeout(drawTimeline, 200)
-    }, 300)
+    const onResize = debounce(
+      (width: number) => {
+        if (width === 0 || canvasSize.value.width === width) {
+          return
+        }
+        canvasSize.value = {
+          height: globalThis.innerHeight / 4,
+          width,
+        }
+        setTimeout(drawTimeline, 200)
+      },
+      300,
+      { signal: abort.signal },
+    )
 
     const resizeObserver = new ResizeObserver((entries) => {
       for (const { contentBoxSize } of entries) {
