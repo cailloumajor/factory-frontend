@@ -1,0 +1,67 @@
+services:
+
+  frontend:
+    build:
+      context: ../
+    environment:
+      - SHIFT_START_TIMES=05:15,13:15,21:15
+      - DASHBOARD_CONFIG_BASE_API_PATH=/backend/dashboard-config
+      - TIMELINE_BASE_API_PATH=/backend/timeline
+      - TIMELINE_OFFSET_MINUTES=15
+      - PERFORMANCE_BASE_API_PATH=/backend/performance
+      - CENTRIFUGO_BASE_PATH=/centrifugo
+      - MACHINE_DATA_CENTRIFUGO_NAMESPACE=integration
+      - MACHINE_DATA_PLC_TIMEOUT_MILLIS=8000
+    healthcheck:
+      interval: 5s
+
+  backend:
+    image: denoland/deno:alpine-2.7.11
+    command:
+      - serve
+      - /backend.ts
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - --quiet
+        - --spider
+        - http://127.0.0.1:8000/up
+      interval: 5s
+      timeout: 5s
+    volumes:
+      - ./backend.ts:/backend.ts
+
+  centrifugo:
+    image: centrifugo/centrifugo:v6.6
+    command:
+      - centrifugo
+      - --config
+      - /centrifugo/config.toml
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - --quiet
+        - --spider
+        - http://127.0.0.1:8000/health
+      interval: 5s
+      timeout: 5s
+    volumes:
+      - ./centrifugo.toml:/centrifugo/config.toml:ro
+
+  reverse-proxy:
+    image: caddy:2.7
+    healthcheck:
+      test:
+        - CMD
+        - wget
+        - --quiet
+        - --spider
+        - http://127.0.0.1:2019/reverse_proxy/upstreams
+      interval: 5s
+      timeout: 5s
+    ports:
+      - 8080-8082:8080-8082
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro

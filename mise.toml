@@ -1,0 +1,56 @@
+[tools]
+deno = "{{ read_file(path='Dockerfile') | split(pat='\n')| first | split(pat='=') | nth(n=1) | trim }}"
+hk = "latest"
+node = "lts"
+"npm:@tailwindcss/language-server" = "latest"
+tombi = "latest"
+pkl = "latest"
+"aqua:betterleaks/betterleaks" = "latest"
+editorconfig-checker = "latest"
+hadolint = "latest"
+rumdl = "latest"
+typos = "latest"
+"github:docker/docker-language-server" = "latest"
+actionlint = "latest"
+ghalint = "latest"
+pinact = "latest"
+zizmor = "latest"
+"npm:yaml-language-server" = "latest"
+caddy = "latest"
+
+[env]
+BETTERLEAKS_CONFIG = "{{ config_root }}/.betterleaks.toml"
+DENO_NO_UPDATE_CHECK = "1"
+
+[hooks]
+enter = "mise outdated --local --silent"
+
+[tasks.lint]
+description = "Run hk lints"
+run = "hk check --all"
+
+[tasks."test:unit"]
+description = "Run unit tests"
+env.LC_ALL = "C"
+env.TZ = "UTC"
+run = [
+  "jq --compact-output '.compilerOptions.jsx = \"react-jsxdev\"' deno.json > deno-tests.json",
+  "deno test --allow-env --config deno-tests.json --coverage",
+]
+
+[tasks."test:unit".tools]
+jq = "latest"
+
+[tasks."test:integration"]
+description = "Run integration tests"
+env.LC_ALL = "C"
+env.TZ = "UTC"
+run = "deno test --allow-env --allow-net --allow-read --allow-write --allow-run --allow-sys integration/e2e-tests/*"
+
+[tasks."test:integration".tools]
+ffmpeg = "latest"
+
+[tasks.ci]
+description = "Run CI related tasks"
+depends = ["lint", "test:*"]
+run = "echo 'CI completed successfully'"

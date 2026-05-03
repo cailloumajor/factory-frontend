@@ -1,6 +1,6 @@
 {
   "$schema": "https://github.com/googleapis/release-please/raw/refs/heads/main/schemas/config.json",
-  "release-type": "node",
+  "release-type": "simple",
   "include-component-in-tag": false,
   "packages": {
     ".": {}

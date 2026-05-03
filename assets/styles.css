@@ -1,0 +1,24 @@
+@import "tailwindcss";
+@plugin "daisyui";
+
+@import "@fontsource/noto-color-emoji";
+@import "@fontsource-variable/roboto";
+@import "@fontsource-variable/roboto-mono";
+
+@theme {
+  --font-sans: "Roboto Variable", "Noto Color Emoji";
+  --font-mono: "Roboto Mono Variable", "Noto Color Emoji";
+}
+
+@utility stopped-background {
+  --first-stripe-color: color-mix(in oklab, var(--color-error) 50%, transparent);
+  --second-stripe-color: color-mix(in oklab, var(--color-error) 30%, transparent);
+
+  background: repeating-linear-gradient(
+    45deg,
+    var(--first-stripe-color),
+    var(--first-stripe-color) 1vw,
+    var(--second-stripe-color) 1vw,
+    var(--second-stripe-color) 2vw
+  );
+}

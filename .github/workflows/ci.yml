@@ -1,0 +1,138 @@
+name: Continuous Integration
+
+on:
+  push:
+    branches:
+      - main
+      - "renovate/**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  pre_job:
+    permissions:
+      actions: write
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      should_skip: ${{ steps.skip_check.outputs.should_skip }}
+    steps:
+      - id: skip_check
+        uses: fkirc/skip-duplicate-actions@f75f66ce1886f00957d99748a42c724f4330bdcf # v5.3.1
+        with:
+          concurrent_skipping: same_content
+          do_not_skip: '["pull_request", "workflow_dispatch", "schedule"]'
+          skip_after_successful_duplicate: true
+
+  ci:
+    name: Tests and code quality
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    needs: pre_job
+    if: needs.pre_job.outputs.should_skip != 'true'
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: jdx/mise-action@1648a7812b9aeae629881980618f079932869151 # v4.0.1
+        with:
+          experimental: true
+      - name: Get Deno cache directory
+        id: deno-cache-dir
+        run: echo "dir=$(deno info --json | jq --raw-output '.denoDir')" >> "${GITHUB_OUTPUT}"
+      - name: Setup Deno cache
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ${{ steps.deno-cache-dir.outputs.dir }}
+          key: ${{ runner.os }}-deno-${{ hashFiles('**/deno.lock') }}
+      - name: Install Deno dependencies
+        run: deno install
+      - name: Get Chrome version used by Puppeteer
+        id: chrome-version
+        run: |
+          script=$(cat <<'EOF'
+          import { PUPPETEER_REVISIONS } from "puppeteer"
+          const chromeVersion = PUPPETEER_REVISIONS.chrome
+          if (!chromeVersion) throw new Error("undefined chrome version")
+          console.log(chromeVersion)
+          EOF
+          )
+          echo "version=$(deno eval "${script}")" >> "${GITHUB_OUTPUT}"
+      - name: Setup Chrome installation cache
+        uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
+        with:
+          path: ~/.cache/puppeteer/chrome
+          key: ${{ runner.os }}-chrome-${{ steps.chrome-version.outputs.version }}
+      - name: Install Chrome for Puppeteer
+        run: deno x puppeteer browsers install chrome
+      - name: Start services for integration tests
+        working-directory: ./integration
+        run: docker compose up --build --detach --wait --wait-timeout 30
+      - name: Run CI task
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          HK_FAIL_FAST: true
+          HK_STATE_DIR: ${{ runner.temp }}/hk
+        run: mise run ci
+      - name: Upload lint task output
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        if: failure()
+        with:
+          name: lint-task-results
+          path: ${{ runner.temp }}/hk/output.log
+          archive: false
+      - name: Stop integration tests services and print logs
+        working-directory: ./integration
+        run: |
+          docker compose stop
+          docker compose logs --timestamps
+          docker compose down --volumes
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          flags: unittests
+          fail_ci_if_error: true
+  # e2e:
+  #   name: End-to-end tests
+  #   steps:
+  #     - name: Start services
+  #       run: docker compose --project-directory integration up -d
+  #     - name: Get Node version from Dockerfile
+  #       id: get-node-version
+  #       run: echo "node_version=$(grep -oP 'FROM .* node:\K[\d.]+' Dockerfile)" >> $GITHUB_OUTPUT
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: ${{ steps.get-node-version.outputs.node_version }}
+  #         cache: yarn
+  #     - name: Run end-to-end tests 🧪
+  #       uses: cypress-io/github-action@v4
+  #       env:
+  #         CENTRIFUGO_HOST: localhost
+  #       with:
+  #         command: yarn test:e2e:ci
+  #     - name: Upload Cypress screenshots and videos 🖥️📽️
+  #       uses: actions/upload-artifact@v4
+  #       if: always()
+  #       with:
+  #         name: cypress-results-e2e
+  #         path: |
+  #           test/cypress/screenshots
+  #           test/cypress/videos
+  #     - name: Stop services
+  #       if: always()
+  #       run: docker compose --project-directory integration down -v
+  # docker:
+  #   name: Check Docker build
+  #   steps:
+  #     - name: Set up Docker Buildx
+  #       uses: docker/setup-buildx-action@v3
+  #     - name: Build local image
+  #       uses: docker/build-push-action@v6
+  #       with:
+  #         cache-from: type=gha
+  #         cache-to: type=gha,mode=max

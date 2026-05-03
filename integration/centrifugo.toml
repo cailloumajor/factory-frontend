@@ -1,10 +1,20 @@
-token_hmac_secret_key = "dfa244ee-587f-43f9-adc5-b727a081d5de"
-api_key = "dc1e276a-9eb5-4950-a8bc-c13fe848154a"
-allowed_origins = [ "http://localhost:9090" ]
+[client]
+allowed_origins = "http://127.0.0.1:8080"
 allow_anonymous_connect_without_token = true
-sse = true
 
-[[namespaces]]
-name = "opcua.data"
+[log]
+level = "debug"
+
+[health]
+enabled = true
+
+[http_api]
+key = "dc1e276a-9eb5-4950-a8bc-c13fe848154a"
+
+[sse]
+enabled = true
+
+[[channel.namespaces]]
+name = "integration"
 allow_subscribe_for_client = true
 allow_subscribe_for_anonymous = true
