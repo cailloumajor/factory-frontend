@@ -1,14 +1,9 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:recommended"],
-  "hostRules": [
-    {
-      "matchHost": "npm.pkg.github.com",
-      "hostType": "npm",
-      "token": "{{ secrets.GH_FRONTEND_UTILS_WASM_READ_PKG_TOKEN }}"
-    }
+  "extends": [
+    "config:recommended",
+    "helpers:pinGitHubActionDigestsToSemver"
   ],
-  "npmrc": "@cailloumajor:registry=https://npm.pkg.github.com/",
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
@@ -16,24 +11,13 @@
   },
   "packageRules": [
     {
-      "groupName": "VueUse",
-      "matchPackageNames": ["@vueuse/{/,}**"]
+      "matchManagers": ["github-actions"],
+      "minimumReleaseAge": "14 days"
     },
     {
-      "matchPackageNames": ["busybox"],
+      "matchPackageNames": ["deno"],
       "matchManagers": ["dockerfile"],
       "semanticCommitType": "fix"
-    },
-    {
-      "matchPackageNames": ["node"],
-      "matchManagers": ["dockerfile"],
-      "semanticCommitType": "fix",
-      "versioning": "node"
-    },
-    {
-      "matchDepTypes": ["devDependencies"],
-      "automerge": true,
-      "automergeType": "branch"
     }
   ]
 }

@@ -1,0 +1,6 @@
+filter = '''
+containsAny(finding["secret"], [
+  // Centrifugo API key specifically used for tests.
+  "dc1e276a-9eb5-4950-a8bc-c13fe848154a"
+])
+'''

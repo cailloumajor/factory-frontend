@@ -1,35 +1,35 @@
-# syntax=docker/dockerfile:1
+ARG DENO_VERSION=2.7.11
+FROM denoland/deno:${DENO_VERSION} AS builder
 
-FROM --platform=$BUILDPLATFORM node:20.18.1 AS frontend-builder
+WORKDIR /usr/local/src/app
 
-WORKDIR /usr/src/app
-
-ENV YARN_CACHE_FOLDER=/var/cache/yarn
-COPY .npmrc package.json yarn.lock ./
-RUN --mount=type=cache,target=/var/cache/yarn \
-    --mount=type=secret,id=GHP_AUTH_TOKEN \
-    GHP_AUTH_TOKEN=$(cat /run/secrets/GHP_AUTH_TOKEN) yarn install
-
-COPY public ./public
-COPY src ./src
-COPY index.html \
-     .eslintignore \
-     .eslintrc.js \
-     .prettierrc \
-     postcss.config.js \
-     quasar.config.js \
-     tsconfig.json \
-     ./
-RUN --mount=type=secret,id=GHP_AUTH_TOKEN \
-    GHP_AUTH_TOKEN=$(cat /run/secrets/GHP_AUTH_TOKEN) yarn run quasar build --mode spa
+RUN --mount=type=cache,target=/deno-dir \
+    --mount=type=bind,source=deno.json,target=deno.json \
+    --mount=type=bind,source=deno.lock,target=deno.lock \
+    --mount=type=bind,source=client.ts,target=client.ts \
+    --mount=type=bind,source=main.ts,target=main.ts \
+    --mount=type=bind,source=vite.config.ts,target=vite.config.ts \
+    --mount=type=bind,source=assets,target=assets \
+    --mount=type=bind,source=components,target=components \
+    --mount=type=bind,source=hooks,target=hooks \
+    --mount=type=bind,source=islands,target=islands \
+    --mount=type=bind,source=locales,target=locales \
+    --mount=type=bind,source=routes,target=routes \
+    --mount=type=bind,source=static,target=static \
+    --mount=type=bind,source=utils,target=utils \
+    deno install --frozen && \
+    deno task build
 
 
-FROM busybox:1.37.0
+FROM denoland/deno:distroless-${DENO_VERSION}
 
-COPY --from=frontend-builder /usr/src/app/dist/spa /site
+WORKDIR /app
 
-COPY docker-run.sh /usr/local/bin/
+COPY --from=builder /usr/local/src/app/_fresh _fresh
+COPY healthcheck.ts /healthcheck.ts
 
-VOLUME [ "/srv/www" ]
+HEALTHCHECK --timeout=5s CMD ["deno", "run", "--allow-net=127.0.0.1", "/healthcheck.ts"]
 
-CMD [ "/usr/local/bin/docker-run.sh" ]
+EXPOSE 8000
+
+CMD ["serve", "--allow-env", "--allow-net", "--allow-read", "--no-prompt", "_fresh/server.js"]
