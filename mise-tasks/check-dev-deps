@@ -1,0 +1,31 @@
+#!/usr/bin/env -S deno run --allow-read
+//MISE description="Check that development dependencies are in sync"
+
+// deno-lint-ignore-file no-console -- console is used by purpose
+
+import { assertEquals, AssertionError } from "@std/assert"
+
+const denoConfigFile = "deno.jsonc"
+const renovateConfigFile = "renovate.json"
+const jsonKeyRe = /^\s*"(.*)":.*\/\/ dev\s*$/mg
+
+const denoConfig = await Deno.readTextFile(denoConfigFile)
+const denoDevDeps = Array.from(denoConfig.matchAll(jsonKeyRe).map((match) => match[1]))
+
+const renovateConfigRaw = await Deno.readTextFile(renovateConfigFile)
+const renovateConfig = JSON.parse(renovateConfigRaw)
+const devDepsRule = renovateConfig.packageRules[2]
+try {
+  assertEquals(devDepsRule.matchPackageNames, denoDevDeps)
+} catch (err) {
+  if (err instanceof AssertionError) {
+    console.error(
+      `Development dependencies in ${renovateConfigFile} are not the same as in ${denoConfigFile}`,
+    )
+    console.error(err.message)
+  } else {
+    console.error(err)
+  }
+
+  Deno.exit(1)
+}

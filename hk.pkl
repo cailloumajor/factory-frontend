@@ -4,6 +4,13 @@ import "package://github.com/jdx/hk/releases/download/v1.43.0/hk@1.43.0#/Builtin
 local linters = new Mapping<String, Step> {
   ["actionlint"] = Builtins.actionlint
   ["betterleaks"] = Builtins.betterleaks
+  ["check-dev-deps"] {
+    env {
+      ["MISE_QUIET"] = "true"
+    }
+    glob = List("deno.jsonc", "renovate.json")
+    check = "mise run check-dev-deps"
+  }
   ["deno"] = Builtins.deno
   ["deno-check"] = Builtins.deno_check
   ["deno-lint"] {

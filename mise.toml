@@ -34,13 +34,12 @@ description = "Run unit tests"
 env.LC_ALL = "C"
 env.TZ = "UTC"
 run = [
-  "json5 deno.jsonc | jq --compact-output '.compilerOptions.jsx = \"react-jsxdev\"' > deno-tests.json",
+  "fx deno.jsonc '.compilerOptions.jsx = \"react-jsxdev\", x' > deno-tests.json",
   "deno test --allow-env --config deno-tests.json --coverage",
 ]
 
 [tasks."test:unit".tools]
-jq = "latest"
-json5 = "latest"
+fx = "latest"
 
 [tasks."test:integration"]
 description = "Run integration tests"

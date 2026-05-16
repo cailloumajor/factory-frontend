@@ -20,6 +20,25 @@
       "semanticCommitType": "fix"
     },
     {
+      "matchManagers": ["deno"],
+      "matchDepTypes": ["imports"],
+      "matchPackageNames": [
+        "@faker-js/faker",
+        "@happy-dom/global-registrator",
+        "@std/assert",
+        "@std/testing",
+        "@testing-library/preact",
+        "@types/morgan",
+        "@types/sinon",
+        "morgan",
+        "puppeteer",
+        "sinon"
+      ],
+      "semanticCommitType": "chore",
+      "automerge": true,
+      "automergeType": "branch"
+    },
+    {
       "matchPackageNames": ["denoland/deno"],
       "matchManagers": ["dockerfile"],
       "semanticCommitType": "fix"
