@@ -15,7 +15,12 @@
       "minimumReleaseAge": "14 days"
     },
     {
-      "matchPackageNames": ["deno"],
+      "matchManagers": ["deno"],
+      "matchDepTypes": ["imports"],
+      "semanticCommitType": "fix"
+    },
+    {
+      "matchPackageNames": ["denoland/deno"],
       "matchManagers": ["dockerfile"],
       "semanticCommitType": "fix"
     }
