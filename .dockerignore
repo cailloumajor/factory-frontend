@@ -1,11 +1,10 @@
 *
 
-!deno.json
+!deno.jsonc
 !deno.lock
 !client.ts
 !healthcheck.ts
 !main.ts
-!package.json
 !vite.config.ts
 !assets/
 !components/

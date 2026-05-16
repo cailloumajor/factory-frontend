@@ -4,11 +4,10 @@ FROM denoland/deno:${DENO_VERSION} AS builder
 WORKDIR /usr/local/src/app
 
 RUN --mount=type=cache,target=/deno-dir \
-    --mount=type=bind,source=deno.json,target=deno.json \
+    --mount=type=bind,source=deno.jsonc,target=deno.jsonc \
     --mount=type=bind,source=deno.lock,target=deno.lock \
     --mount=type=bind,source=client.ts,target=client.ts \
     --mount=type=bind,source=main.ts,target=main.ts \
-    --mount=type=bind,source=package.json,target=package.json \
     --mount=type=bind,source=vite.config.ts,target=vite.config.ts \
     --mount=type=bind,source=assets,target=assets \
     --mount=type=bind,source=components,target=components \
