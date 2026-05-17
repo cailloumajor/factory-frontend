@@ -1,5 +1,4 @@
-ARG DENO_VERSION=2.7.14
-FROM --platform=$BUILDPLATFORM denoland/deno:${DENO_VERSION} AS builder
+FROM --platform=$BUILDPLATFORM denoland/deno:2.7.14 AS builder
 
 WORKDIR /usr/local/src/app
 
@@ -21,7 +20,7 @@ RUN --mount=type=cache,target=/deno-dir \
     deno task build
 
 
-FROM denoland/deno:distroless-${DENO_VERSION}
+FROM denoland/deno:distroless-2.7.14
 
 WORKDIR /app
 
