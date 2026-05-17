@@ -50,7 +50,7 @@
     "npm:@fontsource-variable/roboto-mono@5.2.9": "5.2.9",
     "npm:@fontsource-variable/roboto@5.2.10": "5.2.10",
     "npm:@fontsource/noto-color-emoji@5.2.12": "5.2.12",
-    "npm:@formatjs/intl-durationformat@0.10.7": "0.10.7",
+    "npm:@formatjs/intl-durationformat@0.10.11": "0.10.11",
     "npm:@happy-dom/global-registrator@20.9.0": "20.9.0",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
@@ -709,21 +709,21 @@
     "@fontsource/noto-color-emoji@5.2.12": {
       "integrity": "sha512-UVOh4qxD/y42mcB4XvEdpV1WE01zn7O4+4tAWwzp5QAd4JY5jWPHu3/3T1kQoD04oYbQ5cJ9SI12IfcCKaS8aw=="
     },
-    "@formatjs/bigdecimal@0.2.2": {
-      "integrity": "sha512-RfaAMveJdnjmCGZ+MPuzLJB8y5WTI/IK5uIoauBs6NffoMBOGwYutbRm0UsyFTejF9aayAolD+Kb8lfBTRLV7Q=="
+    "@formatjs/bigdecimal@0.2.5": {
+      "integrity": "sha512-2XTKNrZRaCUyXK2976wfutqxMBuPO/S/zbJnQdysLI2Zy5mWPVNVEkE6tsTcSVWSE7DgO88t8DtBy+uf3I8bxg=="
     },
-    "@formatjs/fast-memoize@3.1.3": {
-      "integrity": "sha512-Ocd1vPuD68rW6BJDuAOtnnc1GPeVepY5kZXML1psGVFQ+1Q8CfkftT3Tnam+Mxx97Pz08jIEDCotl/GV+Naccg=="
+    "@formatjs/fast-memoize@3.1.5": {
+      "integrity": "sha512-KLi3fan6WnCHmigd9pmEEN8Hid0v4wiFBW576M/d07KMWYecf1CvyMI3n34vCmHT4AoVqG2n702kiHbXjzZX2A=="
     },
-    "@formatjs/intl-durationformat@0.10.7": {
-      "integrity": "sha512-xFb3uNQFUZgUaZuhOe0LI3unCuVkYUrzwz3UWWKF4I2rmGyROvB+CLz0zCR+YEN9bBG3I9jE2XpecXrtKBwwJw==",
+    "@formatjs/intl-durationformat@0.10.11": {
+      "integrity": "sha512-DLSEJXRO4VS+s/zD6xg3rliJlfKVFIUbOxn2EMaYcWAcMHlByhfzSoFrZ2DZRyizjb8GYr8pd94XiA0AAC6Ikg==",
       "dependencies": [
         "@formatjs/bigdecimal",
         "@formatjs/intl-localematcher"
       ]
     },
-    "@formatjs/intl-localematcher@0.8.5": {
-      "integrity": "sha512-TEW/NR367c3PcQ2AXfkNig9jC740+qbkM0LgKl7UCE7Xtv7C5Uk1mvlu86MjQZBmscUai8HSWjcEETpwaVvJ6A==",
+    "@formatjs/intl-localematcher@0.8.8": {
+      "integrity": "sha512-pBr2hVKWvkHVnfXegW+53NT9U2uaVQCc+EgzLPCCwXqBA3nvM5fPbK9IcJlNjV+NMKGyZ2F3ZSG78iGdxAAqbA==",
       "dependencies": [
         "@formatjs/fast-memoize"
       ]
@@ -2671,7 +2671,7 @@
       "npm:@fontsource-variable/roboto-mono@5.2.9",
       "npm:@fontsource-variable/roboto@5.2.10",
       "npm:@fontsource/noto-color-emoji@5.2.12",
-      "npm:@formatjs/intl-durationformat@0.10.7",
+      "npm:@formatjs/intl-durationformat@0.10.11",
       "npm:@happy-dom/global-registrator@20.9.0",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.9.0",
