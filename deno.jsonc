@@ -61,7 +61,7 @@
     "@std/http": "jsr:@std/http@1.1.0",
     "@std/path": "jsr:@std/path@1.1.4",
     "@std/testing": "jsr:@std/testing@1.0.18", // dev
-    "@tailwindcss/vite": "npm:@tailwindcss/vite@4.2.4",
+    "@tailwindcss/vite": "npm:@tailwindcss/vite@4.3.0",
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4", // dev
     "@types/morgan": "npm:@types/morgan@1.9.10", // dev
     "@types/sinon": "npm:@types/sinon@21.0.1", // dev
@@ -74,7 +74,7 @@
     "preact": "npm:preact@10.29.2",
     "puppeteer": "npm:puppeteer@24.43.1", // dev
     "sinon": "npm:sinon@21.1.2", // dev
-    "tailwindcss": "npm:tailwindcss@4.2.4",
+    "tailwindcss": "npm:tailwindcss@4.3.0",
     "vite": "npm:vite@7.3.3",
     "zod": "npm:zod@4.4.2"
   },
