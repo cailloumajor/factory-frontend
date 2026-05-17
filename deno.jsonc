@@ -69,7 +69,7 @@
     "clsx": "npm:clsx@2.1.1",
     "daisyui": "npm:daisyui@5.5.19",
     "fresh": "jsr:@fresh/core@2.3.3",
-    "i18next": "npm:i18next@26.0.8",
+    "i18next": "npm:i18next@26.2.0",
     "morgan": "npm:morgan@1.10.1", // dev
     "preact": "npm:preact@10.29.2",
     "puppeteer": "npm:puppeteer@24.43.1", // dev
