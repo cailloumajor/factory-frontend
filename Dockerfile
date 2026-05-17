@@ -1,5 +1,5 @@
 ARG DENO_VERSION=2.7.14
-FROM denoland/deno:${DENO_VERSION} AS builder
+FROM --platform=$BUILDPLATFORM denoland/deno:${DENO_VERSION} AS builder
 
 WORKDIR /usr/local/src/app
 
