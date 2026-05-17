@@ -39,13 +39,14 @@
       "automergeType": "branch"
     },
     {
-      "matchManagers": ["mise"],
+      "matchDataSources": ["docker"],
       "matchPackageNames": ["denoland/deno"],
-      "enabled": false
+      "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$",
+      "versioning": "semver"
     },
     {
-      "matchPackageNames": ["denoland/deno"],
-      "matchManagers": ["dockerfile"],
+      "matchPackageNames": ["denoland/deno", "deno"],
+      "groupName": "Deno",
       "semanticCommitType": "fix"
     }
   ]
