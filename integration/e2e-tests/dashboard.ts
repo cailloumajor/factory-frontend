@@ -46,7 +46,12 @@ Deno.test({
         },
       })
 
-      const titleText = await page.locator("header > h1").map((el) => el.innerText).wait()
+      const titleText = await page
+        .locator("header > h1")
+        // Prevent test flakiness (locator found before config API values applied).
+        .filter((el) => el.textContent.startsWith("e2e-tests"))
+        .map((el) => el.innerText)
+        .wait()
       assertEquals(titleText, "e2e-tests—E2E-CAMPAIGN")
     })
   },
