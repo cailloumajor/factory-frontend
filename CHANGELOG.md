@@ -1,5 +1,27 @@
 # Changelog
 
+## [3.0.0-rc.1](https://github.com/cailloumajor/factory-frontend/compare/v2.4.5...v3.0.0-rc.1) (2026-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* move to Deno Fresh
+
+### Features
+
+* move to Deno Fresh ([96e939d](https://github.com/cailloumajor/factory-frontend/commit/96e939d4fcb8b7f623ff5e988b70b0409bca15d6))
+
+
+### Bug Fixes
+
+* **deps:** update dependency @fontsource-variable/roboto-mono to v5.2.9 ([46fceea](https://github.com/cailloumajor/factory-frontend/commit/46fceea57dc504ded495b630187d2a6feb9bece1))
+* **deps:** update dependency @formatjs/intl-durationformat to v0.10.11 ([d16598e](https://github.com/cailloumajor/factory-frontend/commit/d16598ebaa01ebd56c9fa2c4c5bc2797410e665f))
+* **deps:** update dependency i18next to v26.2.0 ([f7a4703](https://github.com/cailloumajor/factory-frontend/commit/f7a47033c3db9581b2a482b05ec0363b7b87792d))
+* **deps:** update dependency preact to v10.29.2 ([5f1cf37](https://github.com/cailloumajor/factory-frontend/commit/5f1cf37ab0e9d381459172eb8286957d2d9a1ccd))
+* **deps:** update dependency vite to v7.3.3 ([2e91282](https://github.com/cailloumajor/factory-frontend/commit/2e91282cdb113d58de9be78bffdb3493ea89e9eb))
+* **deps:** update dependency zod to v4.4.3 ([d9db77b](https://github.com/cailloumajor/factory-frontend/commit/d9db77bcb3dd0edd39a6131dc9e1d09d68dd3e1f))
+* **deps:** update tailwindcss monorepo to v4.3.0 ([b7dfe51](https://github.com/cailloumajor/factory-frontend/commit/b7dfe512e8e2b4906f54538e7d5a43a12f448f79))
+
 ## [2.4.5](https://github.com/cailloumajor/factory-frontend/compare/v2.4.4...v2.4.5) (2026-01-29)
 
 
