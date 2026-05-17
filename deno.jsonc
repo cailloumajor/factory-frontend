@@ -72,7 +72,7 @@
     "i18next": "npm:i18next@26.0.8",
     "morgan": "npm:morgan@1.10.1", // dev
     "preact": "npm:preact@10.29.1",
-    "puppeteer": "npm:puppeteer@24.42.0", // dev
+    "puppeteer": "npm:puppeteer@24.43.1", // dev
     "sinon": "npm:sinon@21.1.2", // dev
     "tailwindcss": "npm:tailwindcss@4.2.4",
     "vite": "npm:vite@7.3.1",
