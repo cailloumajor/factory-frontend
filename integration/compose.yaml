@@ -33,7 +33,7 @@ services:
       - ./backend.ts:/backend.ts
 
   centrifugo:
-    image: centrifugo/centrifugo:v6.6
+    image: centrifugo/centrifugo:v6.7
     command:
       - centrifugo
       - --config
