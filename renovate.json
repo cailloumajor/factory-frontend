@@ -39,7 +39,7 @@
       "automergeType": "branch"
     },
     {
-      "matchDataSources": ["docker"],
+      "matchDatasources": ["docker"],
       "matchPackageNames": ["denoland/deno"],
       "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$",
       "versioning": "semver"
