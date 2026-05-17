@@ -54,12 +54,12 @@
     "npm:@happy-dom/global-registrator@20.9.0": "20.9.0",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
-    "npm:@preact/signals@2.9.0": "2.9.0_preact@10.29.1",
-    "npm:@preact/signals@^2.5.1": "2.9.0_preact@10.29.1",
-    "npm:@prefresh/vite@^2.4.8": "2.4.12_preact@10.29.1_vite@7.3.1__terser@5.46.2",
+    "npm:@preact/signals@2.9.0": "2.9.0_preact@10.29.2",
+    "npm:@preact/signals@^2.5.1": "2.9.0_preact@10.29.2",
+    "npm:@prefresh/vite@^2.4.8": "2.4.12_preact@10.29.2_vite@7.3.1__terser@5.46.2",
     "npm:@remix-run/node-fetch-server@0.12": "0.12.0",
     "npm:@tailwindcss/vite@4.2.4": "4.2.4_vite@7.3.1__terser@5.46.2_terser@5.46.2",
-    "npm:@testing-library/preact@3.2.4": "3.2.4_preact@10.29.1",
+    "npm:@testing-library/preact@3.2.4": "3.2.4_preact@10.29.2",
     "npm:@types/babel__core@^7.20.5": "7.20.5",
     "npm:@types/morgan@1.9.10": "1.9.10",
     "npm:@types/sinon@21.0.1": "21.0.1",
@@ -71,10 +71,10 @@
     "npm:esbuild@~0.25.5": "0.25.7",
     "npm:i18next@26.0.8": "26.0.8",
     "npm:morgan@1.10.1": "1.10.1",
-    "npm:preact-render-to-string@^6.6.3": "6.6.7_preact@10.29.1",
-    "npm:preact@10.29.1": "10.29.1",
-    "npm:preact@^10.28.2": "10.29.1",
-    "npm:preact@^10.29.1": "10.29.1",
+    "npm:preact-render-to-string@^6.6.3": "6.6.7_preact@10.29.2",
+    "npm:preact@10.29.2": "10.29.2",
+    "npm:preact@^10.28.2": "10.29.2",
+    "npm:preact@^10.29.1": "10.29.2",
     "npm:puppeteer@24.43.1": "24.43.1",
     "npm:rollup@^4.55.1": "4.60.2",
     "npm:sinon@21.1.2": "21.1.2",
@@ -778,7 +778,7 @@
     "@preact/signals-core@1.14.1": {
       "integrity": "sha512-vxPpfXqrwUe9lpjqfYNjAF/0RF/eFGeLgdJzdmIIZjpOnTmGmAB4BjWone562mJGMRP4frU6iZ6ei3PDsu52Ng=="
     },
-    "@preact/signals@2.9.0_preact@10.29.1": {
+    "@preact/signals@2.9.0_preact@10.29.2": {
       "integrity": "sha512-hYrY0KyUqkDgOl1qba/JGn6y81pXnurn21PMaxfcMwdncdZ3M/oVdmpTvEnsGjh48dIwDVc7bjWHqIsngSjYug==",
       "dependencies": [
         "@preact/signals-core",
@@ -788,7 +788,7 @@
     "@prefresh/babel-plugin@0.5.3": {
       "integrity": "sha512-57LX2SHs4BX2s1IwCjNzTE2OJeEepRCNf1VTEpbNcUyHfMO68eeOWGDIt4ob9aYlW6PEWZ1SuwNikuoIXANDtQ=="
     },
-    "@prefresh/core@1.5.9_preact@10.29.1": {
+    "@prefresh/core@1.5.9_preact@10.29.2": {
       "integrity": "sha512-IKBKCPaz34OFVC+adiQ2qaTF5qdztO2/4ZPf4KsRTgjKosWqxVXmEbxCiUydYZRY8GVie+DQlKzQr9gt6HQ+EQ==",
       "dependencies": [
         "preact"
@@ -797,7 +797,7 @@
     "@prefresh/utils@1.2.1": {
       "integrity": "sha512-vq/sIuN5nYfYzvyayXI4C2QkprfNaHUQ9ZX+3xLD8nL3rWyzpxOm1+K7RtMbhd+66QcaISViK7amjnheQ/4WZw=="
     },
-    "@prefresh/vite@2.4.12_preact@10.29.1_vite@7.3.1__terser@5.46.2": {
+    "@prefresh/vite@2.4.12_preact@10.29.2_vite@7.3.1__terser@5.46.2": {
       "integrity": "sha512-FY1fzXpUjiuosznMV0YM7XAOPZjB5FIdWS0W24+XnlxYkt9hNAwwsiKYn+cuTEoMtD/ZVazS5QVssBr9YhpCQA==",
       "dependencies": [
         "@babel/core",
@@ -1120,7 +1120,7 @@
         "pretty-format"
       ]
     },
-    "@testing-library/preact@3.2.4_preact@10.29.1": {
+    "@testing-library/preact@3.2.4_preact@10.29.2": {
       "integrity": "sha512-F+kJ243LP6VmEK1M809unzTE/ijg+bsMNuiRN0JEDIJBELKKDNhdgC/WrUSZ7klwJvtlO3wQZ9ix+jhObG07Fg==",
       "dependencies": [
         "@testing-library/dom",
@@ -2182,14 +2182,14 @@
         "source-map-js"
       ]
     },
-    "preact-render-to-string@6.6.7_preact@10.29.1": {
+    "preact-render-to-string@6.6.7_preact@10.29.2": {
       "integrity": "sha512-3XdbsX3+vn9dQW+jJI/FsI9rlkgl6dbeUpqLsChak6jp3j3auFqBCkno7VChbMFs5Q8ylBj6DrUkKRwtVN3nvw==",
       "dependencies": [
         "preact"
       ]
     },
-    "preact@10.29.1": {
-      "integrity": "sha512-gQCLc/vWroE8lIpleXtdJhTFDogTdZG9AjMUpVkDf2iTCNwYNWA+u16dL41TqUDJO4gm2IgrcMv3uTpjd4Pwmg=="
+    "preact@10.29.2": {
+      "integrity": "sha512-7tNmwg/7mzzAoB/8kSg6Hl37JraAZw3Z3A0JSY7VXlZwo82Xn0G7wKbNNs2qoF4ZEEsQGTwDAroNdqKs1ofJxQ=="
     },
     "pretty-format@27.5.1": {
       "integrity": "sha512-Qb1gy5OrP5+zDf2Bvnzdl3jsTf1qXVMazbvCoKhtKqVs4/YK4ozX4gKQJJVyNe+cajNPn0KoC0MC3FUmaHWEmQ==",
@@ -2684,7 +2684,7 @@
       "npm:daisyui@5.5.19",
       "npm:i18next@26.0.8",
       "npm:morgan@1.10.1",
-      "npm:preact@10.29.1",
+      "npm:preact@10.29.2",
       "npm:puppeteer@24.43.1",
       "npm:sinon@21.1.2",
       "npm:tailwindcss@4.2.4",
