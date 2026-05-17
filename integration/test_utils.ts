@@ -1,17 +1,22 @@
 import * as path from "@std/path"
-import puppeteer from "puppeteer"
+import puppeteer, { type Browser, type Page } from "puppeteer"
 
 const size = { width: 1024, height: 768 }
 
 const isInCI = ["CI", "CONTINUOUS_INTEGRATION"].some((key) => Deno.env.has(key))
 
-let browser: puppeteer.Browser
+let browser: Browser
 
 export async function startBrowser() {
-  browser = await puppeteer.launch({
-    args: ["--no-sandbox"],
-    headless: isInCI,
-  })
+  try {
+    browser = await puppeteer.launch({
+      args: ["--no-sandbox"],
+      headless: isInCI,
+    })
+  } catch (err) {
+    // deno-lint-ignore no-console -- console is used by purpose
+    console.error(err)
+  }
 }
 
 export async function stopBrowser() {
@@ -26,7 +31,7 @@ export function testId(t: Deno.TestContext): string {
 
 export async function withBrowser(
   t: Deno.TestContext,
-  fn: (page: puppeteer.Page) => void | Promise<void>,
+  fn: (page: Page) => void | Promise<void>,
 ): Promise<void> {
   const page = await browser.newPage()
 
