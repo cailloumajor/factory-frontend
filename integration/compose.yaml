@@ -51,7 +51,7 @@ services:
       - ./centrifugo.toml:/centrifugo/config.toml:ro
 
   reverse-proxy:
-    image: caddy:2.7
+    image: caddy:2.11
     healthcheck:
       test:
         - CMD
