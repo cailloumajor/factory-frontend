@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.0-rc.2](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.1...v3.0.0-rc.2) (2026-05-17)
+
+
+### Bug Fixes
+
+* run the Docker image builder stage in build platform architecture ([fa7cc74](https://github.com/cailloumajor/factory-frontend/commit/fa7cc7402b4300d6490406f12f2b2f53bf959cef))
+
 ## [3.0.0-rc.1](https://github.com/cailloumajor/factory-frontend/compare/v2.4.5...v3.0.0-rc.1) (2026-05-17)
 
 
