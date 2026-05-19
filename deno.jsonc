@@ -49,7 +49,7 @@
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.5",
     "@faker-js/faker": "npm:@faker-js/faker@10.4.0", // dev
     "@fontsource/noto-color-emoji": "npm:@fontsource/noto-color-emoji@5.2.12",
-    "@formatjs/intl-durationformat": "npm:@formatjs/intl-durationformat@0.10.11",
+    "@formatjs/intl-durationformat": "npm:@formatjs/intl-durationformat@0.10.12",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.1.2",
     "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.10",
     "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.9",
