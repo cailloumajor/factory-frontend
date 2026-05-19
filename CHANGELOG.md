@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.0.1-rc.2](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.2...v3.0.1-rc.2) (2026-05-19)
+
+
+### Bug Fixes
+
+* **deps:** update denoland/deno docker tag to v2.7.14 ([0bea326](https://github.com/cailloumajor/factory-frontend/commit/0bea326656f789c92e66ea4f8a8f5a3a4582e3cf))
+* **deps:** update dependency daisyui to v5.5.20 ([3491633](https://github.com/cailloumajor/factory-frontend/commit/3491633f98f0e49b5a620bd193202332c96ecadc))
+
 ## [3.0.0-rc.2](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.1...v3.0.0-rc.2) (2026-05-17)
 
 
