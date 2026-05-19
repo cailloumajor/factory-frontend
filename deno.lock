@@ -50,7 +50,7 @@
     "npm:@fontsource-variable/roboto-mono@5.2.9": "5.2.9",
     "npm:@fontsource-variable/roboto@5.2.10": "5.2.10",
     "npm:@fontsource/noto-color-emoji@5.2.12": "5.2.12",
-    "npm:@formatjs/intl-durationformat@0.10.11": "0.10.11",
+    "npm:@formatjs/intl-durationformat@0.10.12": "0.10.12",
     "npm:@happy-dom/global-registrator@20.9.0": "20.9.0",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
@@ -845,8 +845,8 @@
     "@formatjs/fast-memoize@3.1.5": {
       "integrity": "sha512-KLi3fan6WnCHmigd9pmEEN8Hid0v4wiFBW576M/d07KMWYecf1CvyMI3n34vCmHT4AoVqG2n702kiHbXjzZX2A=="
     },
-    "@formatjs/intl-durationformat@0.10.11": {
-      "integrity": "sha512-DLSEJXRO4VS+s/zD6xg3rliJlfKVFIUbOxn2EMaYcWAcMHlByhfzSoFrZ2DZRyizjb8GYr8pd94XiA0AAC6Ikg==",
+    "@formatjs/intl-durationformat@0.10.12": {
+      "integrity": "sha512-k9LXUGERtAKoav1my1JIfMZY++ifg/2+7zAjFCUu+tPP2PEfN2N0shdZ9hddHMbaD0icr2iAVT8zleLNf70W8A==",
       "dependencies": [
         "@formatjs/bigdecimal",
         "@formatjs/intl-localematcher"
@@ -2611,7 +2611,7 @@
       "npm:@fontsource-variable/roboto-mono@5.2.9",
       "npm:@fontsource-variable/roboto@5.2.10",
       "npm:@fontsource/noto-color-emoji@5.2.12",
-      "npm:@formatjs/intl-durationformat@0.10.11",
+      "npm:@formatjs/intl-durationformat@0.10.12",
       "npm:@happy-dom/global-registrator@20.9.0",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.9.0",
