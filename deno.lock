@@ -63,7 +63,7 @@
     "npm:@types/babel__core@^7.20.5": "7.20.5",
     "npm:@types/morgan@1.9.10": "1.9.10",
     "npm:@types/sinon@21.0.1": "21.0.1",
-    "npm:centrifuge@5.5.3": "5.5.3",
+    "npm:centrifuge@5.6.0": "5.6.0",
     "npm:clsx@2.1.1": "2.1.1",
     "npm:daisyui@5.5.20": "5.5.20",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
@@ -1438,8 +1438,8 @@
     "caniuse-lite@1.0.30001793": {
       "integrity": "sha512-iwSsYWaCOoh26cV8NwNRViHlrfUvYsHDfRVcbtmw0Kg6PJIZZXwMkj1442FYLBGkeUf1juAsU3DTfxW579mrPA=="
     },
-    "centrifuge@5.5.3": {
-      "integrity": "sha512-LPkWnsAxu7JaE5S738XiREzJIko3Pf/qnWb3kd0q/OR0OJONUbSdnZ5pKsEI2yFi/odQ89SYsHPhLuEeZFhp/g==",
+    "centrifuge@5.6.0": {
+      "integrity": "sha512-Cs0uYnlngtxbsm8lwKXb5PCD3fhgVDRyqEaAtXEp0BMmP4pE/tcwFWCFxcYy6b2faChjmsrF9IgA/G44OSqu/w==",
       "dependencies": [
         "events",
         "protobufjs"
@@ -2210,8 +2210,8 @@
     "progress@2.0.3": {
       "integrity": "sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA=="
     },
-    "protobufjs@7.5.9": {
-      "integrity": "sha512-Od4muIm3HW1AouyHF5lONOf1FWo3hY1NbFDoy191X9GzhpgW1clCoaFjfVs2rKJNFYpTNJbje4cbAIDBZJ63ZA==",
+    "protobufjs@7.6.0": {
+      "integrity": "sha512-LtESOsMPTZgyYtwxhvdgdjGL0HmXEaRA/hVD6sol4zA60hVXXXP/SGmxnqDbgGE8gy7pYex7cym+5vYPcmaXBQ==",
       "dependencies": [
         "@protobufjs/aspromise",
         "@protobufjs/base64",
@@ -2619,7 +2619,7 @@
       "npm:@testing-library/preact@3.2.4",
       "npm:@types/morgan@1.9.10",
       "npm:@types/sinon@21.0.1",
-      "npm:centrifuge@5.5.3",
+      "npm:centrifuge@5.6.0",
       "npm:clsx@2.1.1",
       "npm:daisyui@5.5.20",
       "npm:i18next@26.2.0",
