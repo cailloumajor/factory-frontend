@@ -41,7 +41,7 @@
     {
       "matchDatasources": ["docker"],
       "matchPackageNames": ["denoland/deno"],
-      "versionCompatibility": "^(?<compatibility>.*)-(?<version>.*)$",
+      "versionCompatibility": "^((?<compatibility>.*)-)?(?<version>.*)$",
       "versioning": "semver"
     },
     {
