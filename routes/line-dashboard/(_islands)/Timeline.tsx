@@ -84,7 +84,7 @@ export function TimelineDisplay(props: TimelineProps) {
           props.errorText.value = String(err)
         })
         .finally(() => {
-          timeoutHandle = setTimeout(fetchTimelineData, props.refreshMillis)
+          timeoutHandle = +setTimeout(fetchTimelineData, props.refreshMillis)
         })
     }
 

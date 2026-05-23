@@ -50,7 +50,7 @@ jobs:
           path: ${{ steps.deno-cache-dir.outputs.dir }}
           key: ${{ runner.os }}-deno-${{ hashFiles('**/deno.lock') }}
       - name: Install Deno dependencies
-        run: deno install
+        run: deno ci
       - name: Get Chrome version used by Puppeteer
         id: chrome-version
         run: |

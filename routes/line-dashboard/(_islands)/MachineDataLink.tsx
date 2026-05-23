@@ -184,7 +184,7 @@ export function MachineDataLink(props: MachineDataLinkProps) {
     if (gotUpdate) {
       plcRawStatus.value = LinkStatus.Up
       clearTimeout(updateTimeoutHandle)
-      updateTimeoutHandle = setTimeout(() => {
+      updateTimeoutHandle = +setTimeout(() => {
         plcRawStatus.value = LinkStatus.Down
       }, props.plcTimeoutMillis)
     }

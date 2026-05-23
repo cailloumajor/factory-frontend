@@ -16,7 +16,7 @@ RUN --mount=type=cache,target=/deno-dir \
     --mount=type=bind,source=routes,target=routes \
     --mount=type=bind,source=static,target=static \
     --mount=type=bind,source=utils,target=utils \
-    deno install --frozen && \
+    deno ci --prod --skip-types && \
     deno task build
 
 
