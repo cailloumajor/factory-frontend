@@ -1,5 +1,5 @@
 [tools]
-deno = "2.7.14"
+deno = "2.8.0"
 hk = "latest"
 node = "lts"
 "npm:@tailwindcss/language-server" = "latest"
