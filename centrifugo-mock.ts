@@ -66,7 +66,7 @@ function updatePublished() {
 }
 
 function setupPublish(ws: WebSocket, channel: string): number {
-  return setInterval(() => {
+  return +setInterval(() => {
     updatePublished()
     ws.send(JSON.stringify({
       id: 0,

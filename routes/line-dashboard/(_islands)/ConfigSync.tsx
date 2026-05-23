@@ -70,7 +70,7 @@ export function ConfigSync(props: ConfigSyncProps) {
           props.errorText.value = String(message)
         })
         .finally(() => {
-          timeoutHandle = setTimeout(updateConfig, props.refreshMillis)
+          timeoutHandle = +setTimeout(updateConfig, props.refreshMillis)
         })
     }
 

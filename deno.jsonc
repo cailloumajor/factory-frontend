@@ -23,6 +23,8 @@
         "no-external-import",
         "no-implicit-declare-namespace-export",
         "no-inferrable-types",
+        "no-node-globals",
+        "no-process-global",
         "no-self-compare",
         "no-sparse-arrays",
         "no-throw-literal",

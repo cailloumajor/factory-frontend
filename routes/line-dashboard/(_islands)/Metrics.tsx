@@ -127,7 +127,7 @@ export function Metrics(props: MetricsProps) {
           props.performanceError.value = String(err)
         })
         .finally(() => {
-          timeoutHandle = setTimeout(updatePerformance, props.performanceRefreshMillis)
+          timeoutHandle = +setTimeout(updatePerformance, props.performanceRefreshMillis)
         })
     }
 
