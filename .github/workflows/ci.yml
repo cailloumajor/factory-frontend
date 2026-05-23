@@ -70,8 +70,7 @@ jobs:
       - name: Install Chrome for Puppeteer
         run: deno x puppeteer browsers install chrome
       - name: Start services for integration tests
-        working-directory: ./integration
-        run: docker compose up --build --detach --wait --wait-timeout 30
+        run: mise run start-integration-tests-services
       - name: Run CI task
         env:
           GITHUB_TOKEN: ${{ github.token }}
@@ -86,11 +85,7 @@ jobs:
           path: ${{ runner.temp }}/hk/output.log
           archive: false
       - name: Stop integration tests services and print logs
-        working-directory: ./integration
-        run: |
-          docker compose stop
-          docker compose logs --timestamps
-          docker compose down --volumes
+        run: mise run stop-integration-tests-services
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@57e3a136b779b570ffcdbf80b3bdc90e7fab3de2 # v6.0.0
         with:

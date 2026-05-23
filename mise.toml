@@ -41,6 +41,20 @@ run = [
 [tasks."test:unit".tools]
 jq = "latest"
 
+[tasks.start-integration-tests-services]
+description = "Start services required for integration tests"
+dir = "integration"
+run = "docker compose up --build --detach --wait --wait-timeout 30"
+
+[tasks.stop-integration-tests-services]
+description = "Stop services required for integration tests"
+dir = "integration"
+run = [
+  "docker compose stop",
+  "docker compose logs --timestamps",
+  "docker compose down --volumes --rmi local",
+]
+
 [tasks."test:integration"]
 description = "Run integration tests"
 env.LC_ALL = "C"
