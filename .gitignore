@@ -15,3 +15,6 @@ coverage/
 
 # Deno configuration for tests (generated)
 deno-tests.json
+
+# Local mise configuration
+mise.local.toml

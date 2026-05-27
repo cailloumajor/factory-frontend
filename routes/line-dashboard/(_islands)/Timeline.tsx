@@ -1,6 +1,6 @@
 import { Timeline, type TimelineConfig } from "@cailloumajor/frontend-utils-wasm"
 import { type Signal, useSignal } from "@preact/signals"
-import { debounce } from "@std/async/unstable-debounce"
+import { debounce } from "@std/async"
 import { clsx } from "clsx"
 import { useEffect, useRef } from "preact/hooks"
 
