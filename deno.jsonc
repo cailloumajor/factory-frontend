@@ -62,7 +62,7 @@
     "@std/async": "jsr:@std/async@1.4.0",
     "@std/http": "jsr:@std/http@1.1.1",
     "@std/path": "jsr:@std/path@1.1.5",
-    "@std/testing": "jsr:@std/testing@1.0.18", // dev
+    "@std/testing": "jsr:@std/testing@1.0.19", // dev
     "@tailwindcss/vite": "npm:@tailwindcss/vite@4.3.0",
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4", // dev
     "@types/morgan": "npm:@types/morgan@1.9.10", // dev
