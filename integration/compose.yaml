@@ -16,7 +16,7 @@ services:
       interval: 5s
 
   backend:
-    image: denoland/deno:alpine-2.8.0
+    image: denoland/deno:alpine-2.8.1
     command:
       - serve
       - /backend.ts
