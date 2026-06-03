@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM denoland/deno:2.8.1 AS builder
+FROM --platform=$BUILDPLATFORM denoland/deno:2.8.2 AS builder
 
 WORKDIR /usr/local/src/app
 
@@ -20,7 +20,7 @@ RUN --mount=type=cache,target=/deno-dir \
     deno task build
 
 
-FROM denoland/deno:distroless-2.8.1
+FROM denoland/deno:distroless-2.8.2
 
 WORKDIR /app
 
