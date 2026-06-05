@@ -1,5 +1,24 @@
 # Changelog
 
+## [3.0.1-rc.2](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.2...v3.0.1-rc.2) (2026-06-05)
+
+
+### Bug Fixes
+
+* **deps:** update deno to v2.8.0 ([bba772e](https://github.com/cailloumajor/factory-frontend/commit/bba772e89de13a7fabd86f8a6eebe14e7dd1428c))
+* **deps:** update deno to v2.8.1 ([705c3ef](https://github.com/cailloumajor/factory-frontend/commit/705c3ef960ac5e3fa04060783a13de8de04e03f6))
+* **deps:** update deno to v2.8.2 ([d35949c](https://github.com/cailloumajor/factory-frontend/commit/d35949c7d8ae1a2ab456bdf8e1da28b0ec02f1d3))
+* **deps:** update denoland/deno docker tag to v2.7.14 ([0bea326](https://github.com/cailloumajor/factory-frontend/commit/0bea326656f789c92e66ea4f8a8f5a3a4582e3cf))
+* **deps:** update dependency @formatjs/intl-durationformat to v0.10.12 ([89844b2](https://github.com/cailloumajor/factory-frontend/commit/89844b240e39b1d0e7fa58237e8a79fad385a0af))
+* **deps:** update dependency @formatjs/intl-durationformat to v0.10.13 ([67e3481](https://github.com/cailloumajor/factory-frontend/commit/67e3481d2c493492e3d5e22e86024398bb269dbc))
+* **deps:** update dependency @preact/signals to v2.9.1 ([de269dd](https://github.com/cailloumajor/factory-frontend/commit/de269dd2fd17519dbc12c77db28fc3723a44d867))
+* **deps:** update dependency @std/async to v1.4.0 ([693cc9f](https://github.com/cailloumajor/factory-frontend/commit/693cc9fec0e2d28f69e9f31e5759489735ed17e8))
+* **deps:** update dependency @std/http to v1.1.1 ([c67ea40](https://github.com/cailloumajor/factory-frontend/commit/c67ea40cd72a4214eeb2c7ca6507cc9dff4630d1))
+* **deps:** update dependency @std/path to v1.1.5 ([dd4749b](https://github.com/cailloumajor/factory-frontend/commit/dd4749bb8c27e570100b281416a7a51b829318af))
+* **deps:** update dependency centrifuge to v5.6.0 ([67547ba](https://github.com/cailloumajor/factory-frontend/commit/67547ba1a7432337b0268cdc79a25f8776ee966a))
+* **deps:** update dependency daisyui to v5.5.20 ([3491633](https://github.com/cailloumajor/factory-frontend/commit/3491633f98f0e49b5a620bd193202332c96ecadc))
+* **deps:** update dependency i18next to v26.3.0 ([0378167](https://github.com/cailloumajor/factory-frontend/commit/03781670d79fd7ac5aec10f0582cc5cbd2acb6a1))
+
 ## [3.0.0-rc.2](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.1...v3.0.0-rc.2) (2026-05-17)
 
 
