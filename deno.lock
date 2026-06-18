@@ -54,8 +54,8 @@
     "npm:@happy-dom/global-registrator@20.9.0": "20.9.0",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
-    "npm:@preact/signals@2.9.1": "2.9.1_preact@10.29.2",
-    "npm:@preact/signals@^2.5.1": "2.9.1_preact@10.29.2",
+    "npm:@preact/signals@2.9.2": "2.9.2_preact@10.29.2",
+    "npm:@preact/signals@^2.5.1": "2.9.2_preact@10.29.2",
     "npm:@prefresh/vite@^2.4.8": "2.4.12_preact@10.29.2_vite@7.3.3",
     "npm:@remix-run/node-fetch-server@0.12": "0.12.0",
     "npm:@tailwindcss/vite@4.3.0": "4.3.0_vite@7.3.3",
@@ -898,11 +898,11 @@
     "@opentelemetry/api@1.9.1": {
       "integrity": "sha512-gLyJlPHPZYdAk1JENA9LeHejZe1Ti77/pTeFm/nMXmQH/HFZlcS/O2XJB+L8fkbrNSqhdtlvjBVjxwUYanNH5Q=="
     },
-    "@preact/signals-core@1.14.2": {
-      "integrity": "sha512-RZHdBj9ZF4n40Rp4jS052EHHjBWf96P9oNdXPfhQTovCuWY9iQn3Gq+gOTJSgBO9A/JBuPfMOWsSX/lIU9Pc/A=="
+    "@preact/signals-core@1.14.3": {
+      "integrity": "sha512-m0K3vnbSLC5rHs2ZVfeAMvBtT1zIyq4mxx5OlNncSgMj5Iz6W5Rn3kPrDxAC+iIKmiVe0lSl6U37t5ZkEWoVAw=="
     },
-    "@preact/signals@2.9.1_preact@10.29.2": {
-      "integrity": "sha512-xVqN8mJjbSN5IB/8Ubmd9NN+Ew6zJswoRxrjZbH3YsgkMshFeO6d8zxEFpHRTq9GJZx7cnPs2CnCpFqtGXGNsw==",
+    "@preact/signals@2.9.2_preact@10.29.2": {
+      "integrity": "sha512-DvFPISNMSh3vPqRwPa1tAVAHl85aDq4pTyNu1bTGfrKr64F3EOCHjdUl9aUdohKBf1v9PRGLYuGFcJpfztkdoQ==",
       "dependencies": [
         "@preact/signals-core",
         "preact"
@@ -2431,7 +2431,7 @@
       "npm:@formatjs/intl-durationformat@0.10.13",
       "npm:@happy-dom/global-registrator@20.9.0",
       "npm:@mdi/js@7.4.47",
-      "npm:@preact/signals@2.9.1",
+      "npm:@preact/signals@2.9.2",
       "npm:@tailwindcss/vite@4.3.0",
       "npm:@testing-library/preact@3.2.4",
       "npm:@types/morgan@1.9.10",
