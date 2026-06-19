@@ -63,7 +63,7 @@
     "npm:@types/babel__core@^7.20.5": "7.20.5",
     "npm:@types/morgan@1.9.10": "1.9.10",
     "npm:@types/sinon@21.0.1": "21.0.1",
-    "npm:centrifuge@5.6.0": "5.6.0",
+    "npm:centrifuge@5.7.0": "5.7.0",
     "npm:clsx@2.1.1": "2.1.1",
     "npm:daisyui@5.5.23": "5.5.23",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
@@ -953,9 +953,6 @@
     "@protobufjs/float@1.0.2": {
       "integrity": "sha512-Ddb+kVXlXst9d+R9PfTIxh1EdNkgoRe5tOX6t01f1lYWOvJnSPDBlG241QLzcyPdoNTsblLUdujGSE4RzrTZGQ=="
     },
-    "@protobufjs/inquire@1.1.2": {
-      "integrity": "sha512-pa0vFRuws4wkvaXKK1uXZMAwAX4/t8ANaJo45iw/oQHNQ9q5xUzwgFmVJGXiga2BeN+zpX7Vf9vmsiIa2J+MUw=="
-    },
     "@protobufjs/path@1.1.2": {
       "integrity": "sha512-6JOcJ5Tm08dOHAbdR3GrvP+yUUfkjG5ePsHYczMFLq3ZmMkAD98cDgcT2iA1lJ9NVwFd4tH/iSSoe44YWkltEA=="
     },
@@ -1387,8 +1384,8 @@
     "caniuse-lite@1.0.30001793": {
       "integrity": "sha512-iwSsYWaCOoh26cV8NwNRViHlrfUvYsHDfRVcbtmw0Kg6PJIZZXwMkj1442FYLBGkeUf1juAsU3DTfxW579mrPA=="
     },
-    "centrifuge@5.6.0": {
-      "integrity": "sha512-Cs0uYnlngtxbsm8lwKXb5PCD3fhgVDRyqEaAtXEp0BMmP4pE/tcwFWCFxcYy6b2faChjmsrF9IgA/G44OSqu/w==",
+    "centrifuge@5.7.0": {
+      "integrity": "sha512-Ptx7ELyVc7/KgzpadVlISTtdTWsuzumze5/vo9sH4RsvtFulJJMhmKr/cNDg6se1eKKbS6ZywIBl4eSZxqY3fw==",
       "dependencies": [
         "events",
         "protobufjs"
@@ -2085,8 +2082,8 @@
         "react-is"
       ]
     },
-    "protobufjs@7.6.1": {
-      "integrity": "sha512-4K0myLaWL5EteuSAro91EGFgcfVgxb64Jx+7oDAY6GOkXD4M69yuSEljNcInGVCA5sOPxmZ/EqDLj2x0Q0+Ygg==",
+    "protobufjs@7.6.4": {
+      "integrity": "sha512-RJJPTTpvFfHcWLkIa2JFWK4XvtSzS0yEWDmunqHXli1h3JlkbcQZXDZdcWxv+JK3Xsl5/UFDPZ0iGm7DAengYw==",
       "dependencies": [
         "@protobufjs/aspromise",
         "@protobufjs/base64",
@@ -2094,7 +2091,6 @@
         "@protobufjs/eventemitter",
         "@protobufjs/fetch",
         "@protobufjs/float",
-        "@protobufjs/inquire",
         "@protobufjs/path",
         "@protobufjs/pool",
         "@protobufjs/utf8",
@@ -2436,7 +2432,7 @@
       "npm:@testing-library/preact@3.2.4",
       "npm:@types/morgan@1.9.10",
       "npm:@types/sinon@21.0.1",
-      "npm:centrifuge@5.6.0",
+      "npm:centrifuge@5.7.0",
       "npm:clsx@2.1.1",
       "npm:daisyui@5.5.23",
       "npm:i18next@26.3.1",
