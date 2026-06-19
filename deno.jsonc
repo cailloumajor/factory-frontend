@@ -72,7 +72,7 @@
     "daisyui": "npm:daisyui@5.5.23",
     "fresh": "jsr:@fresh/core@2.3.3",
     "i18next": "npm:i18next@26.3.1",
-    "morgan": "npm:morgan@1.10.1", // dev
+    "morgan": "npm:morgan@1.11.0", // dev
     "preact": "npm:preact@10.29.2",
     "puppeteer": "npm:puppeteer@25.1.0", // dev
     "sinon": "npm:sinon@22.0.0", // dev

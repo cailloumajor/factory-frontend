@@ -70,7 +70,7 @@
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.12",
     "npm:i18next@26.3.1": "26.3.1",
-    "npm:morgan@1.10.1": "1.10.1",
+    "npm:morgan@1.11.0": "1.11.0",
     "npm:preact-render-to-string@^6.6.3": "6.7.0_preact@10.29.2",
     "npm:preact@10.29.2": "10.29.2",
     "npm:preact@^10.28.2": "10.29.2",
@@ -1989,8 +1989,8 @@
     "modern-tar@0.7.6": {
       "integrity": "sha512-sweCIVXzx1aIGTCdzcMlSZt1h8k5Tmk08VNAuRk3IU28XamGiOH5ypi11g6De2CH7PhYqSSnGy2A/EFhbWnVKg=="
     },
-    "morgan@1.10.1": {
-      "integrity": "sha512-223dMRJtI/l25dJKWpgij2cMtywuG/WiUKXdvwfbhGKBhy1puASqXwFzmWZ7+K73vUPoR7SS2Qz2cI/g9MKw0A==",
+    "morgan@1.11.0": {
+      "integrity": "sha512-zSkVu3t18r39pw4ixfBKvfZi3y2UOqr7d4WYwcj3m8nXpEQK4rPO6GLzs/CExoRgmX3y9EjmmcXqv6jq0SK46g==",
       "dependencies": [
         "basic-auth",
         "debug@2.6.9",
@@ -2036,8 +2036,8 @@
         "object-keys"
       ]
     },
-    "on-finished@2.3.0": {
-      "integrity": "sha512-ikqdkGAAyf/X/gPhXGvfgAytDZtDbr+bkNUJ0N9h5MI/dmdgCs3l6hoHrcUv41sRKew3jIwrp4qQDXiK99Utww==",
+    "on-finished@2.4.1": {
+      "integrity": "sha512-oVlzkg3ENAhCk2zdv7IJwd/QUD4z2RxRwpkcGY8psCVcCYZNq4wYnVWALHM+brtuJjePWiYF/ClmuDr8Ch5+kg==",
       "dependencies": [
         "ee-first"
       ]
@@ -2436,7 +2436,7 @@
       "npm:clsx@2.1.1",
       "npm:daisyui@5.5.23",
       "npm:i18next@26.3.1",
-      "npm:morgan@1.10.1",
+      "npm:morgan@1.11.0",
       "npm:preact@10.29.2",
       "npm:puppeteer@25.1.0",
       "npm:sinon@22.0.0",
