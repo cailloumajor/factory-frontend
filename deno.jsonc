@@ -49,7 +49,7 @@
   "imports": {
     "@/": "./",
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.5",
-    "@faker-js/faker": "npm:@faker-js/faker@10.4.0", // dev
+    "@faker-js/faker": "npm:@faker-js/faker@10.5.0", // dev
     "@fontsource/noto-color-emoji": "npm:@fontsource/noto-color-emoji@5.2.12",
     "@formatjs/intl-durationformat": "npm:@formatjs/intl-durationformat@0.10.15",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.1.2",
