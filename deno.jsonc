@@ -67,7 +67,7 @@
     "@testing-library/preact": "npm:@testing-library/preact@3.2.4", // dev
     "@types/morgan": "npm:@types/morgan@1.9.10", // dev
     "@types/sinon": "npm:@types/sinon@21.0.1", // dev
-    "centrifuge": "npm:centrifuge@5.6.0",
+    "centrifuge": "npm:centrifuge@5.7.0",
     "clsx": "npm:clsx@2.1.1",
     "daisyui": "npm:daisyui@5.5.23",
     "fresh": "jsr:@fresh/core@2.3.3",
