@@ -51,7 +51,7 @@
     "npm:@fontsource-variable/roboto@5.2.10": "5.2.10",
     "npm:@fontsource/noto-color-emoji@5.2.12": "5.2.12",
     "npm:@formatjs/intl-durationformat@0.10.15": "0.10.15",
-    "npm:@happy-dom/global-registrator@20.9.0": "20.9.0",
+    "npm:@happy-dom/global-registrator@20.10.6": "20.10.6",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
     "npm:@preact/signals@2.9.2": "2.9.2_preact@10.29.2",
@@ -858,8 +858,8 @@
         "@formatjs/fast-memoize"
       ]
     },
-    "@happy-dom/global-registrator@20.9.0": {
-      "integrity": "sha512-lBW6/m5BIFl3pMuWPNN0lIOYw9LMCmPfix53ExS3FBi4E+NELEljQ3xH6aAV9IYiQRfn9YIIgzzMrD0vIcD7tw==",
+    "@happy-dom/global-registrator@20.10.6": {
+      "integrity": "sha512-Nu/IjRkkNxmeG2ywWsyJSO4d1BrWTqVzxCPL+gXj0b97klhmjd6wLzt6Bx/laNpkZ3WLW7zNCqmtMIbIlahqug==",
       "dependencies": [
         "@types/node",
         "happy-dom"
@@ -1358,6 +1358,12 @@
       ],
       "bin": true
     },
+    "buffer-image-size@0.6.4": {
+      "integrity": "sha512-nEh+kZOPY1w+gcCMobZ6ETUp9WfibndnosbpwB1iJk/8Gt5ZF2bhS6+B6bPYz424KtwsR6Rflc3tCz1/ghX2dQ==",
+      "dependencies": [
+        "@types/node"
+      ]
+    },
     "call-bind-apply-helpers@1.0.2": {
       "integrity": "sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ==",
       "dependencies": [
@@ -1723,12 +1729,13 @@
     "graceful-fs@4.2.11": {
       "integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
     },
-    "happy-dom@20.9.0": {
-      "integrity": "sha512-GZZ9mKe8r646NUAf/zemnGbjYh4Bt8/MqASJY+pSm5ZDtc3YQox+4gsLI7yi1hba6o+eCsGxpHn5+iEVn31/FQ==",
+    "happy-dom@20.10.6": {
+      "integrity": "sha512-6QD0ilzDDt93tX44y8tbmZdAcdTRYDhUP+Asgi6pC8Pp5IA3cvaZGyoVN/EGtlq9ziT65iPuBBn3ASLr6hCgVw==",
       "dependencies": [
         "@types/node",
         "@types/whatwg-mimetype",
         "@types/ws",
+        "buffer-image-size",
         "entities",
         "whatwg-mimetype",
         "ws"
@@ -2425,7 +2432,7 @@
       "npm:@fontsource-variable/roboto@5.2.10",
       "npm:@fontsource/noto-color-emoji@5.2.12",
       "npm:@formatjs/intl-durationformat@0.10.15",
-      "npm:@happy-dom/global-registrator@20.9.0",
+      "npm:@happy-dom/global-registrator@20.10.6",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.9.2",
       "npm:@tailwindcss/vite@4.3.1",
