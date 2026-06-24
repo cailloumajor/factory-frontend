@@ -75,7 +75,7 @@
     "npm:preact@10.29.2": "10.29.2",
     "npm:preact@^10.28.2": "10.29.2",
     "npm:preact@^10.29.1": "10.29.2",
-    "npm:puppeteer@25.2.0": "25.2.0",
+    "npm:puppeteer@25.2.1": "25.2.1",
     "npm:rollup@^4.55.1": "4.62.2",
     "npm:sinon@22.0.0": "22.0.0",
     "npm:tailwindcss@4.3.1": "4.3.1",
@@ -2112,8 +2112,8 @@
       ],
       "scripts": true
     },
-    "puppeteer-core@25.2.0": {
-      "integrity": "sha512-jGhuGAlkgOcbyGRc0Cm9b/y4vvqoxhyAyl6a1diVe8F3sHsgTaQ60QQT5F3rGegTZV3prysgHVc+0LsvPZo3GA==",
+    "puppeteer-core@25.2.1": {
+      "integrity": "sha512-MwEZ4FFGJ1ZLOmu/04eISxoEMKtCnHyJBRFfgpwPPSYNG6gT6Xw1laNziFSV7uwDcx3jK+ATYIo9SfOd8Uhc3w==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2123,8 +2123,8 @@
         "ws"
       ]
     },
-    "puppeteer@25.2.0": {
-      "integrity": "sha512-JPMPd/2+lgdkLhEyPqH895oR3ccMt1wSra6oewgjjTuLmo2s9zPZpKXQTFEIiA/fMKpiL01kjU3+2zPEReRWNg==",
+    "puppeteer@25.2.1": {
+      "integrity": "sha512-2D5RMkQH9FRhDU57a1/jV9xWoxqZvUjaZOYjAAPdRCEY8A01V5sxzyGOMs8XiKU9fPF91SOSwNYpHRu5SD958g==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2447,7 +2447,7 @@
       "npm:i18next@26.3.2",
       "npm:morgan@1.11.0",
       "npm:preact@10.29.2",
-      "npm:puppeteer@25.2.0",
+      "npm:puppeteer@25.2.1",
       "npm:sinon@22.0.0",
       "npm:tailwindcss@4.3.1",
       "npm:vite@7.3.5",
