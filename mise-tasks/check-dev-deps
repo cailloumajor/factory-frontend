@@ -14,7 +14,7 @@ const denoDevDeps = Array.from(denoConfig.matchAll(jsonKeyRe).map((match) => mat
 
 const renovateConfigRaw = await Deno.readTextFile(renovateConfigFile)
 const renovateConfig = JSON.parse(renovateConfigRaw)
-const devDepsRule = renovateConfig.packageRules[2]
+const devDepsRule = renovateConfig.packageRules[1]
 try {
   assertEquals(devDepsRule.matchPackageNames, denoDevDeps)
 } catch (err) {

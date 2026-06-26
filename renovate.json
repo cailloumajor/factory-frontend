@@ -9,11 +9,8 @@
     "automerge": true,
     "automergeType": "branch"
   },
+  "minimumReleaseAge": "7 days",
   "packageRules": [
-    {
-      "matchManagers": ["deno", "github-actions", "mise"],
-      "minimumReleaseAge": "7 days"
-    },
     {
       "matchManagers": ["deno"],
       "matchDepTypes": ["imports"],
