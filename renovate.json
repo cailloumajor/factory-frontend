@@ -11,7 +11,7 @@
   },
   "packageRules": [
     {
-      "matchManagers": ["github-actions"],
+      "matchManagers": ["deno", "github-actions", "mise"],
       "minimumReleaseAge": "7 days"
     },
     {

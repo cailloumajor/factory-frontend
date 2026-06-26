@@ -5,7 +5,6 @@ node = "lts"
 "npm:@tailwindcss/language-server" = "latest"
 tombi = "latest"
 pkl = "latest"
-"aqua:betterleaks/betterleaks" = "latest"
 editorconfig-checker = "latest"
 hadolint = "latest"
 rumdl = "latest"
@@ -17,6 +16,10 @@ pinact = "latest"
 zizmor = "latest"
 "npm:yaml-language-server" = "latest"
 caddy = "latest"
+betterleaks = "latest"
+
+[settings]
+minimum_release_age = "7d"
 
 [env]
 BETTERLEAKS_CONFIG = "{{ config_root }}/.betterleaks.toml"

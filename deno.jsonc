@@ -9,6 +9,7 @@
   "unstable": [
     "raw-imports"
   ],
+  "minimumDependencyAge": "P7D",
   "lint": {
     "rules": {
       "tags": [
