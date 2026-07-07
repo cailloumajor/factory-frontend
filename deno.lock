@@ -12,11 +12,12 @@
     "jsr:@fresh/plugin-vite@1.1.2": "1.1.2",
     "jsr:@std/assert@1.0.19": "1.0.19",
     "jsr:@std/assert@^1.0.19": "1.0.19",
-    "jsr:@std/async@1.4.0": "1.4.0",
-    "jsr:@std/async@^1.4.0": "1.4.0",
+    "jsr:@std/async@1.5.0": "1.5.0",
+    "jsr:@std/async@^1.4.0": "1.5.0",
     "jsr:@std/bytes@^1.0.6": "1.0.6",
     "jsr:@std/cli@^1.0.31": "1.0.31",
     "jsr:@std/data-structures@^1.1.0": "1.1.1",
+    "jsr:@std/data-structures@^1.1.1": "1.1.1",
     "jsr:@std/dotenv@~0.225.5": "0.225.7",
     "jsr:@std/encoding@^1.0.10": "1.0.11",
     "jsr:@std/encoding@^1.0.11": "1.0.11",
@@ -159,10 +160,10 @@
         "jsr:@std/internal@^1.0.12"
       ]
     },
-    "@std/async@1.4.0": {
-      "integrity": "4d70b008634f571cff9b554090d628c76141c32613aae0ff283fd5fa23d0c379",
+    "@std/async@1.5.0": {
+      "integrity": "4c1f22d287a17ad7d8643b1952bc5a4d21e5d8b68dc8c20d8268eecc69096e82",
       "dependencies": [
-        "jsr:@std/data-structures"
+        "jsr:@std/data-structures@^1.1.1"
       ]
     },
     "@std/bytes@1.0.6": {
@@ -241,7 +242,7 @@
       "dependencies": [
         "jsr:@std/assert@^1.0.19",
         "jsr:@std/async@^1.4.0",
-        "jsr:@std/data-structures",
+        "jsr:@std/data-structures@^1.1.0",
         "jsr:@std/fs@^1.0.24",
         "jsr:@std/internal@^1.0.14",
         "jsr:@std/path@^1.1.5"
@@ -2427,7 +2428,7 @@
       "jsr:@fresh/core@2.3.3",
       "jsr:@fresh/plugin-vite@1.1.2",
       "jsr:@std/assert@1.0.19",
-      "jsr:@std/async@1.4.0",
+      "jsr:@std/async@1.5.0",
       "jsr:@std/http@1.1.2",
       "jsr:@std/path@1.1.6",
       "jsr:@std/testing@1.0.19",
