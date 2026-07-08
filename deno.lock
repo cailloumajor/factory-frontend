@@ -78,7 +78,7 @@
     "npm:preact@10.29.3": "10.29.3",
     "npm:preact@^10.28.2": "10.29.3",
     "npm:preact@^10.29.1": "10.29.3",
-    "npm:puppeteer@25.2.1": "25.2.1",
+    "npm:puppeteer@25.3.0": "25.3.0",
     "npm:rollup@^4.55.1": "4.62.2",
     "npm:sinon@22.0.0": "22.0.0",
     "npm:tailwindcss@4.3.2": "4.3.2",
@@ -965,8 +965,8 @@
     "@protobufjs/utf8@1.1.1": {
       "integrity": "sha512-oOAWABowe8EAbMyWKM0tYDKi8Yaox52D+HWZhAIJqQXbqe0xI/GV7FhLWqlEKreMkfDjshR5FKgi3mnle0h6Eg=="
     },
-    "@puppeteer/browsers@3.0.5": {
-      "integrity": "sha512-xYXNuEQmHNIPWWcbL/skf2KF7seyp7c1xmKFRk3wmdFx7VwBsKVrtOLKs8ecaezsKPsWeF1YsgwIiElAscaryA==",
+    "@puppeteer/browsers@3.0.6": {
+      "integrity": "sha512-B/gKoqlFkzhvzsI6jo9K1cZz9o5ypviVv/xu8CwA4grZzyVwN+XfkT+tu8T1zrauuEXv6VhS2oGX+6NL95WcKA==",
       "dependencies": [
         "modern-tar",
         "yargs"
@@ -2115,8 +2115,8 @@
       ],
       "scripts": true
     },
-    "puppeteer-core@25.2.1": {
-      "integrity": "sha512-MwEZ4FFGJ1ZLOmu/04eISxoEMKtCnHyJBRFfgpwPPSYNG6gT6Xw1laNziFSV7uwDcx3jK+ATYIo9SfOd8Uhc3w==",
+    "puppeteer-core@25.3.0": {
+      "integrity": "sha512-fm+wpUr2oigH1PXZvwgATrM2tYWHMDG8ASzTEe9uukCye4X5Ldx1K5BTHPFKITrIWvQQAQ256d1NpbEveBcKjA==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2126,8 +2126,8 @@
         "ws"
       ]
     },
-    "puppeteer@25.2.1": {
-      "integrity": "sha512-2D5RMkQH9FRhDU57a1/jV9xWoxqZvUjaZOYjAAPdRCEY8A01V5sxzyGOMs8XiKU9fPF91SOSwNYpHRu5SD958g==",
+    "puppeteer@25.3.0": {
+      "integrity": "sha512-O1tx8S315aw8eI99HZ5ZNcVEzJ9+jKF//eO5UvfZ3cXJ6okZ5sX3Y50u7DJaM+ewEK4LqXP068tBhfRaWikj+g==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2450,7 +2450,7 @@
       "npm:i18next@26.3.4",
       "npm:morgan@1.11.0",
       "npm:preact@10.29.3",
-      "npm:puppeteer@25.2.1",
+      "npm:puppeteer@25.3.0",
       "npm:sinon@22.0.0",
       "npm:tailwindcss@4.3.2",
       "npm:vite@7.3.6",
