@@ -74,7 +74,7 @@
     "fresh": "jsr:@fresh/core@2.3.3",
     "i18next": "npm:i18next@26.3.4",
     "morgan": "npm:morgan@1.11.0", // dev
-    "preact": "npm:preact@10.29.3",
+    "preact": "npm:preact@10.29.4",
     "puppeteer": "npm:puppeteer@25.3.0", // dev
     "sinon": "npm:sinon@22.0.0", // dev
     "tailwindcss": "npm:tailwindcss@4.3.2",
