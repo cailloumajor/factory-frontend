@@ -4,11 +4,6 @@
     "config:recommended",
     "helpers:pinGitHubActionDigestsToSemver"
   ],
-  "lockFileMaintenance": {
-    "enabled": true,
-    "automerge": true,
-    "automergeType": "branch"
-  },
   "minimumReleaseAge": "7 days",
   "packageRules": [
     {
