@@ -58,7 +58,7 @@
     "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.9",
     "@happy-dom/global-registrator": "npm:@happy-dom/global-registrator@20.10.6", // dev
     "@mdi/js": "npm:@mdi/js@7.4.47",
-    "@preact/signals": "npm:@preact/signals@2.9.2",
+    "@preact/signals": "npm:@preact/signals@2.9.3",
     "@std/assert": "jsr:@std/assert@1.0.19", // dev
     "@std/async": "jsr:@std/async@1.5.0",
     "@std/http": "jsr:@std/http@1.1.2",
