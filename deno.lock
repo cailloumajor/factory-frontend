@@ -53,7 +53,7 @@
     "npm:@fontsource-variable/roboto-mono@5.2.9": "5.2.9",
     "npm:@fontsource-variable/roboto@5.2.10": "5.2.10",
     "npm:@fontsource/noto-color-emoji@5.2.12": "5.2.12",
-    "npm:@formatjs/intl-durationformat@0.10.15": "0.10.15",
+    "npm:@formatjs/intl-durationformat@0.10.16": "0.10.16",
     "npm:@happy-dom/global-registrator@20.10.6": "20.10.6",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
@@ -848,15 +848,15 @@
     "@formatjs/fast-memoize@3.1.6": {
       "integrity": "sha512-H5aexk1Le7T9TPmscacZ+1pR6CTa2n1wq+HDVGXhH8TzUlQQpeXzZs91dRtmFHrbeNbjPFPfQujUqm7MHgVoXQ=="
     },
-    "@formatjs/intl-durationformat@0.10.15": {
-      "integrity": "sha512-3W636wOl2pOVKR2+aFC+2BMOHA/FYsHZfKTr/cT1OG0YIXI2hhGrBH2+EFmqEzzClRi5BlPvwE6LlLN2dikdDQ==",
+    "@formatjs/intl-durationformat@0.10.16": {
+      "integrity": "sha512-Ponn8K7eQAA7qeZRRD85lrvsByfeRDxw6aEE9EXapQ47wknptM0aYgumImVsMaBdJikpWYryGAMRZIB7IYYfmQ==",
       "dependencies": [
         "@formatjs/bigdecimal",
         "@formatjs/intl-localematcher"
       ]
     },
-    "@formatjs/intl-localematcher@0.8.10": {
-      "integrity": "sha512-P/IC3qws3jH+1fEs+o0RIFgXKRaQlFehjS5W0FPAqdo6hgzawLl+eD0q0JjheQ3XtoOe5n8WSYfX06KQZI/QJA==",
+    "@formatjs/intl-localematcher@0.8.11": {
+      "integrity": "sha512-MzBbR9ifqgtzHwUl2PGEDtRVZGXF9nXPtrMyN6/iKbQaim1Ob7fnPJQMllVkHm3RK74o5VqnLrZIE9egWJhf5g==",
       "dependencies": [
         "@formatjs/fast-memoize"
       ]
@@ -2436,7 +2436,7 @@
       "npm:@fontsource-variable/roboto-mono@5.2.9",
       "npm:@fontsource-variable/roboto@5.2.10",
       "npm:@fontsource/noto-color-emoji@5.2.12",
-      "npm:@formatjs/intl-durationformat@0.10.15",
+      "npm:@formatjs/intl-durationformat@0.10.16",
       "npm:@happy-dom/global-registrator@20.10.6",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.9.3",
