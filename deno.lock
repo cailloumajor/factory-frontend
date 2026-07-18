@@ -53,7 +53,7 @@
     "npm:@fontsource-variable/roboto-mono@5.2.9": "5.2.9",
     "npm:@fontsource-variable/roboto@5.2.10": "5.2.10",
     "npm:@fontsource/noto-color-emoji@5.2.12": "5.2.12",
-    "npm:@formatjs/intl-durationformat@0.10.16": "0.10.16",
+    "npm:@formatjs/intl-durationformat@0.10.17": "0.10.17",
     "npm:@happy-dom/global-registrator@20.10.6": "20.10.6",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
@@ -842,21 +842,21 @@
     "@fontsource/noto-color-emoji@5.2.12": {
       "integrity": "sha512-UVOh4qxD/y42mcB4XvEdpV1WE01zn7O4+4tAWwzp5QAd4JY5jWPHu3/3T1kQoD04oYbQ5cJ9SI12IfcCKaS8aw=="
     },
-    "@formatjs/bigdecimal@0.2.6": {
-      "integrity": "sha512-aPzKsGQOkQRHUEbyO/ZtYfr4EqaBQnSs6U4tzTla1xBnIdEHgY2GqEqso28UMwWRkzKqqTj5+/6BmuOsRkfn2A=="
+    "@formatjs/bigdecimal@0.2.7": {
+      "integrity": "sha512-B4+XY/e4u5v261r3a37Kq2ax91gPZSKGyVpx8X5dygAggLlUz+6MeBpmAhaBFGB8WQ4JB1qD+QtKHk9aJkEb9Q=="
     },
-    "@formatjs/fast-memoize@3.1.6": {
-      "integrity": "sha512-H5aexk1Le7T9TPmscacZ+1pR6CTa2n1wq+HDVGXhH8TzUlQQpeXzZs91dRtmFHrbeNbjPFPfQujUqm7MHgVoXQ=="
+    "@formatjs/fast-memoize@3.1.7": {
+      "integrity": "sha512-zXfhLpvA6T7+efdt9JLbBwZ00tT7NsBMDVnDu8rpHeNNv8KfRZAMo2gkG0k9lK/Nzc//3kJ9pImsfuJxk3KhUA=="
     },
-    "@formatjs/intl-durationformat@0.10.16": {
-      "integrity": "sha512-Ponn8K7eQAA7qeZRRD85lrvsByfeRDxw6aEE9EXapQ47wknptM0aYgumImVsMaBdJikpWYryGAMRZIB7IYYfmQ==",
+    "@formatjs/intl-durationformat@0.10.17": {
+      "integrity": "sha512-YXm0u5WMaSQ8Gr3th33RFNzoI24nMDScg6iZ9EQZk2CNY3Sg19qklq+FQIuuQEbrDwBlQGrMSDE97m4mETnOxw==",
       "dependencies": [
         "@formatjs/bigdecimal",
         "@formatjs/intl-localematcher"
       ]
     },
-    "@formatjs/intl-localematcher@0.8.11": {
-      "integrity": "sha512-MzBbR9ifqgtzHwUl2PGEDtRVZGXF9nXPtrMyN6/iKbQaim1Ob7fnPJQMllVkHm3RK74o5VqnLrZIE9egWJhf5g==",
+    "@formatjs/intl-localematcher@0.8.12": {
+      "integrity": "sha512-5H3r5ZJ2jZqHEv9K343lvHmeMDKMxssawAVD2H4J9xtu0ZXb6MlNxwLqdwBxJSHFU0C24KSZnffgmAi+59mK4A==",
       "dependencies": [
         "@formatjs/fast-memoize"
       ]
@@ -2442,7 +2442,7 @@
       "npm:@fontsource-variable/roboto-mono@5.2.9",
       "npm:@fontsource-variable/roboto@5.2.10",
       "npm:@fontsource/noto-color-emoji@5.2.12",
-      "npm:@formatjs/intl-durationformat@0.10.16",
+      "npm:@formatjs/intl-durationformat@0.10.17",
       "npm:@happy-dom/global-registrator@20.10.6",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.9.3",
