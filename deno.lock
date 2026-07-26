@@ -50,9 +50,9 @@
     "npm:@babel/core@^7.28.0": "7.29.7",
     "npm:@babel/preset-react@^7.27.1": "7.29.7_@babel+core@7.29.7",
     "npm:@faker-js/faker@10.5.0": "10.5.0",
-    "npm:@fontsource-variable/roboto-mono@5.2.9": "5.2.9",
-    "npm:@fontsource-variable/roboto@5.2.10": "5.2.10",
-    "npm:@fontsource/noto-color-emoji@5.2.12": "5.2.12",
+    "npm:@fontsource-variable/roboto-mono@5.3.0": "5.3.0",
+    "npm:@fontsource-variable/roboto@5.3.0": "5.3.0",
+    "npm:@fontsource/noto-color-emoji@5.3.0": "5.3.0",
     "npm:@formatjs/intl-durationformat@0.10.18": "0.10.18",
     "npm:@happy-dom/global-registrator@20.11.0": "20.11.0",
     "npm:@mdi/js@7.4.47": "7.4.47",
@@ -833,14 +833,14 @@
     "@faker-js/faker@10.5.0": {
       "integrity": "sha512-bsxD8WLS5lIj7aaoCx1YJkktqYj5vlBUE6HWzu2Q51ksrGJ0H737ECCKlFU7Yf8Br45z9t99frBp/J7kzbMPAg=="
     },
-    "@fontsource-variable/roboto-mono@5.2.9": {
-      "integrity": "sha512-OzFO2AXlSGcXl/NcXS3CGjImb6rczCByPJ1C+Dzp9kkYOrUPyrGTuAtqPcmA/d+nZGX5oyOWKXLk5BrwVLYqkw=="
+    "@fontsource-variable/roboto-mono@5.3.0": {
+      "integrity": "sha512-h5r+KY/6qy8JEOj33JgcrFO81YAnvrc1EAwMpl/EPJLb2OIvOy0/jmB5M7qs7x/uXk5JUP5Ux4LrkeOK7faHkQ=="
     },
-    "@fontsource-variable/roboto@5.2.10": {
-      "integrity": "sha512-LJ0iLg6aHbLzN515gyHzmdTqJzd9NlI95cCg1DW0F5G7KkFqRLBBKBbqEJx4nSu4aby3IKmw3ZH6Fe928IfaSQ=="
+    "@fontsource-variable/roboto@5.3.0": {
+      "integrity": "sha512-BoaaZiQf8fgtxv07KXkTwx1bKz/EoqIlTXq2OOKKXINxp6qXWdnlChqV+hSaDANS49yyUASFl3OVBMMDTCIHFA=="
     },
-    "@fontsource/noto-color-emoji@5.2.12": {
-      "integrity": "sha512-UVOh4qxD/y42mcB4XvEdpV1WE01zn7O4+4tAWwzp5QAd4JY5jWPHu3/3T1kQoD04oYbQ5cJ9SI12IfcCKaS8aw=="
+    "@fontsource/noto-color-emoji@5.3.0": {
+      "integrity": "sha512-5uVerNQW6zoxRVaMdjgpYSAxpo02WgCPjpVdE5MfrWd8sNwq7uGs3pMnKB1fVsIBwlxH++I2RisvI9XadC6NzA=="
     },
     "@formatjs/bigdecimal@0.2.7": {
       "integrity": "sha512-B4+XY/e4u5v261r3a37Kq2ax91gPZSKGyVpx8X5dygAggLlUz+6MeBpmAhaBFGB8WQ4JB1qD+QtKHk9aJkEb9Q=="
@@ -2439,9 +2439,9 @@
       "jsr:@std/path@1.1.6",
       "jsr:@std/testing@1.0.19",
       "npm:@faker-js/faker@10.5.0",
-      "npm:@fontsource-variable/roboto-mono@5.2.9",
-      "npm:@fontsource-variable/roboto@5.2.10",
-      "npm:@fontsource/noto-color-emoji@5.2.12",
+      "npm:@fontsource-variable/roboto-mono@5.3.0",
+      "npm:@fontsource-variable/roboto@5.3.0",
+      "npm:@fontsource/noto-color-emoji@5.3.0",
       "npm:@formatjs/intl-durationformat@0.10.18",
       "npm:@happy-dom/global-registrator@20.11.0",
       "npm:@mdi/js@7.4.47",
