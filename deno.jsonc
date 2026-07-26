@@ -51,11 +51,11 @@
     "@/": "./",
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.5",
     "@faker-js/faker": "npm:@faker-js/faker@10.5.0", // dev
-    "@fontsource/noto-color-emoji": "npm:@fontsource/noto-color-emoji@5.2.12",
+    "@fontsource/noto-color-emoji": "npm:@fontsource/noto-color-emoji@5.3.0",
     "@formatjs/intl-durationformat": "npm:@formatjs/intl-durationformat@0.10.18",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.1.2",
-    "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.2.10",
-    "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.2.9",
+    "@fontsource-variable/roboto": "npm:@fontsource-variable/roboto@5.3.0",
+    "@fontsource-variable/roboto-mono": "npm:@fontsource-variable/roboto-mono@5.3.0",
     "@happy-dom/global-registrator": "npm:@happy-dom/global-registrator@20.11.0", // dev
     "@mdi/js": "npm:@mdi/js@7.4.47",
     "@preact/signals": "npm:@preact/signals@2.9.4",
