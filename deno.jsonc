@@ -76,7 +76,7 @@
     "morgan": "npm:morgan@1.11.0", // dev
     "preact": "npm:preact@10.29.7",
     "puppeteer": "npm:puppeteer@25.3.0", // dev
-    "sinon": "npm:sinon@22.0.0", // dev
+    "sinon": "npm:sinon@22.1.0", // dev
     "tailwindcss": "npm:tailwindcss@4.3.3",
     "vite": "npm:vite@7.3.6",
     "zod": "npm:zod@4.4.3"
