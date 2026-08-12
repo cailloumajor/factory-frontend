@@ -78,7 +78,7 @@
     "npm:preact@10.29.8": "10.29.8_preact-render-to-string@6.7.0",
     "npm:preact@^10.28.2": "10.29.8_preact-render-to-string@6.7.0",
     "npm:preact@^10.29.1": "10.29.8_preact-render-to-string@6.7.0",
-    "npm:puppeteer@25.4.0": "25.4.0",
+    "npm:puppeteer@25.5.0": "25.5.0",
     "npm:rollup@^4.55.1": "4.62.2",
     "npm:sinon@22.1.0": "22.1.0",
     "npm:tailwindcss@4.3.3": "4.3.3",
@@ -965,8 +965,8 @@
     "@protobufjs/utf8@1.1.1": {
       "integrity": "sha512-oOAWABowe8EAbMyWKM0tYDKi8Yaox52D+HWZhAIJqQXbqe0xI/GV7FhLWqlEKreMkfDjshR5FKgi3mnle0h6Eg=="
     },
-    "@puppeteer/browsers@3.0.6": {
-      "integrity": "sha512-B/gKoqlFkzhvzsI6jo9K1cZz9o5ypviVv/xu8CwA4grZzyVwN+XfkT+tu8T1zrauuEXv6VhS2oGX+6NL95WcKA==",
+    "@puppeteer/browsers@3.1.0": {
+      "integrity": "sha512-RDLpio3fH/qrj5k4DVY6eyiN8tCS0Zovd/6jW//n605oeqkWcUjn+3k+9ZtZBnbwMpsu0F7xDIiKXvVmG5c5Bw==",
       "dependencies": [
         "modern-tar",
         "yargs"
@@ -2121,8 +2121,8 @@
       ],
       "scripts": true
     },
-    "puppeteer-core@25.4.0": {
-      "integrity": "sha512-K1plkLOdeoUnGeT1OvdqF3qxl33v+Ra/uH5VyPEhXdMcpvGiEskHzxxEU3fgpccJpJLIipB/rPUsvkZRWeKqOA==",
+    "puppeteer-core@25.5.0": {
+      "integrity": "sha512-XPNT0dQJtphqQ4I29zxlG4IIPbg1iEHAQKWuQgtMJGXjACV77pZSmJvDi51IIIfd+DTKICcopJwUx4upVQ4XbA==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2132,8 +2132,8 @@
         "ws"
       ]
     },
-    "puppeteer@25.4.0": {
-      "integrity": "sha512-xfQp8dFBcGaLc1hEMaVr7s+oW4ZkAurr8Y9H81ilKhu6QoLfSTkZjU7IavnyJ/VWpB9ni3KNJUQHUatslLWyGw==",
+    "puppeteer@25.5.0": {
+      "integrity": "sha512-qpp73xblxNr+bF0nSXTodM3v+zcK5IPo/GkjLsdUqRf/qpLJp/1KxBUbstoMMnwnPw9xD6OMei8kmYf6CLWfGw==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2463,7 +2463,7 @@
       "npm:i18next@26.3.6",
       "npm:morgan@1.11.0",
       "npm:preact@10.29.8",
-      "npm:puppeteer@25.4.0",
+      "npm:puppeteer@25.5.0",
       "npm:sinon@22.1.0",
       "npm:tailwindcss@4.3.3",
       "npm:vite@7.3.6",
