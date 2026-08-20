@@ -78,7 +78,7 @@
     "npm:preact@10.29.8": "10.29.8_preact-render-to-string@6.7.0",
     "npm:preact@^10.28.2": "10.29.8_preact-render-to-string@6.7.0",
     "npm:preact@^10.29.1": "10.29.8_preact-render-to-string@6.7.0",
-    "npm:puppeteer@25.6.0": "25.6.0",
+    "npm:puppeteer@25.7.0": "25.7.0",
     "npm:rollup@^4.55.1": "4.62.2",
     "npm:sinon@22.1.0": "22.1.0",
     "npm:tailwindcss@4.3.3": "4.3.3",
@@ -1312,8 +1312,8 @@
     "ansi-regex@5.0.1": {
       "integrity": "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ=="
     },
-    "ansi-regex@6.2.2": {
-      "integrity": "sha512-Bq3SmSpyFHaWjPk8If9yc6svM8c56dB5BAtW4Qbw5jHTwwXXcTLoRMkpDJp6VL0XzlWaCHTXrkFURMYmD0sLqg=="
+    "ansi-regex@6.3.0": {
+      "integrity": "sha512-WpDfL7NO6j7tH88IDBNVdUJxDh9nmCteAVW9dsep846XdwF4naCBK+/tGLX3KJgcpgMRXCFlTM2hKGoK9FsdrQ=="
     },
     "ansi-styles@4.3.0": {
       "integrity": "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==",
@@ -1413,7 +1413,7 @@
         "supports-color"
       ]
     },
-    "chromium-bidi@17.0.2_devtools-protocol@0.0.1653615": {
+    "chromium-bidi@17.0.2_devtools-protocol@0.0.1666840": {
       "integrity": "sha512-5v9GQFhTktFvotn/OFNJBmKLKRAb6n9r0bVCwf7sHgWc3/JryK0bj1nn93L3pHFrfgcsu6Be6EWsDi+1XHTGDg==",
       "dependencies": [
         "devtools-protocol",
@@ -1504,8 +1504,8 @@
     "detect-libc@2.1.2": {
       "integrity": "sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ=="
     },
-    "devtools-protocol@0.0.1653615": {
-      "integrity": "sha512-pGVkY3T/qXxAp2nFPodwYqOevk6ncNMSmvL8QfRCx5ZWGd6Vor7AFNmyaA8Zs6uJyP1QAfjuLandCgvSix1BNA=="
+    "devtools-protocol@0.0.1666840": {
+      "integrity": "sha512-gCcO42XCHKEs7Ag0S7aGYsnJ7hlgrO3qderYqeiY0Eqk+0GFfuvT13IA0hHreJTa2KCdDVyGMeOhdMNmrrTjVg=="
     },
     "diff@9.0.0": {
       "integrity": "sha512-svtcdpS8CgJyqAjEQIXdb3OjhFVVYjzGAPO8WGCmRbrml64SPw/jJD4GoE98aR7r25A0XcgrK3F02yw9R/vhQw=="
@@ -2121,8 +2121,8 @@
       ],
       "scripts": true
     },
-    "puppeteer-core@25.6.0": {
-      "integrity": "sha512-GJ67rjZdVQzZmD2Ab0cgttfQN9j387QYMv3t6MN3/4nmjursNt6M5Utj4/T/4y0AwNrSwJzjw6Q/zuWFEIizOg==",
+    "puppeteer-core@25.7.0": {
+      "integrity": "sha512-wgBBj7dU5ceGyoT2PCrJpkYOhxPY8mDOmcSKZP92Cj5GgqQ3kv/UxzawnOLxiYuupe4bDf/yiQm3bzs/1nI0rQ==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2132,8 +2132,8 @@
         "ws"
       ]
     },
-    "puppeteer@25.6.0": {
-      "integrity": "sha512-TXUolDddU4AwISjOOrGk2AhJDpbM/ZDt2KvGIqz74EOk+8bKwXFo+acUvP1sQx3hUda7owOeNuuT1UnJT1o0qA==",
+    "puppeteer@25.7.0": {
+      "integrity": "sha512-zLBIYuW66SGwY7JNqGmiqeKiM92CYOs6xPibSRBPIeYGIfM1nE/8VCE8G0fGot2EfXENC4PbhktxLrQ0EK5Thg==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -2302,7 +2302,7 @@
     "strip-ansi@7.2.0": {
       "integrity": "sha512-yDPMNjp4WyfYBkHnjIRLfca1i6KMyGCtsVgoKe/z1+6vukgaENdgGBZt+ZmKPc4gavvEZ5OgHfHdrazhgNyG7w==",
       "dependencies": [
-        "ansi-regex@6.2.2"
+        "ansi-regex@6.3.0"
       ]
     },
     "supports-color@7.2.0": {
@@ -2463,7 +2463,7 @@
       "npm:i18next@26.3.6",
       "npm:morgan@1.11.0",
       "npm:preact@10.29.8",
-      "npm:puppeteer@25.6.0",
+      "npm:puppeteer@25.7.0",
       "npm:sinon@22.1.0",
       "npm:tailwindcss@4.3.3",
       "npm:vite@7.3.6",
