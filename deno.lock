@@ -66,7 +66,7 @@
     "npm:@types/babel__core@^7.20.5": "7.20.5",
     "npm:@types/morgan@1.9.10": "1.9.10",
     "npm:@types/sinon@22.0.0": "22.0.0",
-    "npm:centrifuge@5.7.0": "5.7.0",
+    "npm:centrifuge@5.7.1": "5.7.1",
     "npm:clsx@2.1.1": "2.1.1",
     "npm:daisyui@5.7.16": "5.7.16",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
@@ -962,8 +962,8 @@
     "@protobufjs/pool@1.1.0": {
       "integrity": "sha512-0kELaGSIDBKvcgS4zkjz1PeddatrjYcmMWOlAuAPwAeccUrPHdUqo/J6LiymHHEiJT5NrF1UVwxY14f+fy4WQw=="
     },
-    "@protobufjs/utf8@1.1.1": {
-      "integrity": "sha512-oOAWABowe8EAbMyWKM0tYDKi8Yaox52D+HWZhAIJqQXbqe0xI/GV7FhLWqlEKreMkfDjshR5FKgi3mnle0h6Eg=="
+    "@protobufjs/utf8@1.1.2": {
+      "integrity": "sha512-b1UQwcEZ4yCnMCD8DAL1VlbvBJE9/IX4FTIp7BG1xYpf29SLazLSrqUkj4w7Y5y7cCVP6E5tcqqcI0xemPkHug=="
     },
     "@puppeteer/browsers@3.2.0": {
       "integrity": "sha512-LlBrE8oqGfU7b1Nk2d5Q1SbuPhZxTj0cJEMDPEws28OjNMELlflekmPPuf4FnK03x0ZRjKaYwJElUcKK4kyqJA==",
@@ -1399,8 +1399,8 @@
     "caniuse-lite@1.0.30001806": {
       "integrity": "sha512-72Cuvd95zbSYPKq6Fhg8eDJRlzgWDf7/mtoZv6Qe/DYNCEBdNxoA3+rZAU2ZhGCpZlns3EssFavaZomckT5Uuw=="
     },
-    "centrifuge@5.7.0": {
-      "integrity": "sha512-Ptx7ELyVc7/KgzpadVlISTtdTWsuzumze5/vo9sH4RsvtFulJJMhmKr/cNDg6se1eKKbS6ZywIBl4eSZxqY3fw==",
+    "centrifuge@5.7.1": {
+      "integrity": "sha512-Jq+T/cAulZVJPfRLfKHX2jcELdwt/LNG4wVx7vQlpaLQlNS+s/HVysRlTNYZ/FktP/NY4sKPI1qz2gh2IGamUA==",
       "dependencies": [
         "events",
         "protobufjs"
@@ -2104,8 +2104,8 @@
         "react-is"
       ]
     },
-    "protobufjs@7.6.4": {
-      "integrity": "sha512-RJJPTTpvFfHcWLkIa2JFWK4XvtSzS0yEWDmunqHXli1h3JlkbcQZXDZdcWxv+JK3Xsl5/UFDPZ0iGm7DAengYw==",
+    "protobufjs@7.6.5": {
+      "integrity": "sha512-/FPD0nUc9jH6rfFjji9IBqOz4pcSE3CsT1m7Ep6Mdb0LxSUMj8hgl6GomOvZzpNpAqqGaXA0P3VSrZLFzIhQrw==",
       "dependencies": [
         "@protobufjs/aspromise",
         "@protobufjs/base64",
@@ -2457,7 +2457,7 @@
       "npm:@testing-library/preact@3.2.4",
       "npm:@types/morgan@1.9.10",
       "npm:@types/sinon@22.0.0",
-      "npm:centrifuge@5.7.0",
+      "npm:centrifuge@5.7.1",
       "npm:clsx@2.1.1",
       "npm:daisyui@5.7.16",
       "npm:i18next@26.3.6",
