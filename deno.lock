@@ -52,7 +52,7 @@
     "npm:@faker-js/faker@10.6.0": "10.6.0",
     "npm:@fontsource-variable/roboto-mono@5.3.0": "5.3.0",
     "npm:@fontsource-variable/roboto@5.3.0": "5.3.0",
-    "npm:@fontsource/noto-color-emoji@5.3.0": "5.3.0",
+    "npm:@fontsource/noto-color-emoji@5.3.1": "5.3.1",
     "npm:@formatjs/intl-durationformat@0.10.18": "0.10.18",
     "npm:@happy-dom/global-registrator@20.11.2": "20.11.2",
     "npm:@mdi/js@7.4.47": "7.4.47",
@@ -839,8 +839,8 @@
     "@fontsource-variable/roboto@5.3.0": {
       "integrity": "sha512-BoaaZiQf8fgtxv07KXkTwx1bKz/EoqIlTXq2OOKKXINxp6qXWdnlChqV+hSaDANS49yyUASFl3OVBMMDTCIHFA=="
     },
-    "@fontsource/noto-color-emoji@5.3.0": {
-      "integrity": "sha512-5uVerNQW6zoxRVaMdjgpYSAxpo02WgCPjpVdE5MfrWd8sNwq7uGs3pMnKB1fVsIBwlxH++I2RisvI9XadC6NzA=="
+    "@fontsource/noto-color-emoji@5.3.1": {
+      "integrity": "sha512-g7gLb7aznnC50pkW78d7UnXiQcmVMQUpEXXOT4rNK6N3l90Rh7KV6Lp4MzfaHijVajA3kjy0aX9N1pvvj+Cprg=="
     },
     "@formatjs/bigdecimal@0.2.7": {
       "integrity": "sha512-B4+XY/e4u5v261r3a37Kq2ax91gPZSKGyVpx8X5dygAggLlUz+6MeBpmAhaBFGB8WQ4JB1qD+QtKHk9aJkEb9Q=="
@@ -2448,7 +2448,7 @@
       "npm:@faker-js/faker@10.6.0",
       "npm:@fontsource-variable/roboto-mono@5.3.0",
       "npm:@fontsource-variable/roboto@5.3.0",
-      "npm:@fontsource/noto-color-emoji@5.3.0",
+      "npm:@fontsource/noto-color-emoji@5.3.1",
       "npm:@formatjs/intl-durationformat@0.10.18",
       "npm:@happy-dom/global-registrator@20.11.2",
       "npm:@mdi/js@7.4.47",
