@@ -54,7 +54,7 @@
     "npm:@fontsource-variable/roboto@5.3.0": "5.3.0",
     "npm:@fontsource/noto-color-emoji@5.3.1": "5.3.1",
     "npm:@formatjs/intl-durationformat@0.10.18": "0.10.18",
-    "npm:@happy-dom/global-registrator@20.11.2": "20.11.2",
+    "npm:@happy-dom/global-registrator@20.11.6": "20.11.6",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.9.1",
     "npm:@preact/signals@2.11.1": "2.11.1_preact@10.29.8__preact-render-to-string@6.7.0",
@@ -861,8 +861,8 @@
         "@formatjs/fast-memoize"
       ]
     },
-    "@happy-dom/global-registrator@20.11.2": {
-      "integrity": "sha512-7fkpoXZWzyxaBkzRtlD0wRU5ckxbNT4j6BywzpSYh+SFPsGxEVmNR9KHaMwM2xkHB0pADQLl4Z8DSrztECJ7Ww==",
+    "@happy-dom/global-registrator@20.11.6": {
+      "integrity": "sha512-ZQ47qUTeNbGhHkCGExJ1oZhruoxKRaxO44RgFETl3T4c1rRxIBlAOnM3SAH4XHu7Ue2owJXP+jOx1vOuKuxcSg==",
       "dependencies": [
         "@types/node",
         "happy-dom"
@@ -1741,8 +1741,8 @@
     "graceful-fs@4.2.11": {
       "integrity": "sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ=="
     },
-    "happy-dom@20.11.2": {
-      "integrity": "sha512-7MB+bJLkxu3SowAfBJbjW+c55kNz5tkR45gu2qzrxznezhLeN5YIlJbwUgSzlGc+qWoZ8Ykg71H5ezz69xixrw==",
+    "happy-dom@20.11.6": {
+      "integrity": "sha512-Hldbg8AdAa5a5oDcZpjqnGitp7JB0hqWmfv/8qr+kft4vzSD8BHsbdRfzYvL/0QcbKcURC/yyoygbeDQarPvYg==",
       "dependencies": [
         "@types/node",
         "@types/whatwg-mimetype",
@@ -2450,7 +2450,7 @@
       "npm:@fontsource-variable/roboto@5.3.0",
       "npm:@fontsource/noto-color-emoji@5.3.1",
       "npm:@formatjs/intl-durationformat@0.10.18",
-      "npm:@happy-dom/global-registrator@20.11.2",
+      "npm:@happy-dom/global-registrator@20.11.6",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.11.1",
       "npm:@tailwindcss/vite@4.3.3",
