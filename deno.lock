@@ -66,7 +66,7 @@
     "npm:@types/babel__core@^7.20.5": "7.20.5",
     "npm:@types/morgan@1.9.10": "1.9.10",
     "npm:@types/sinon@22.0.0": "22.0.0",
-    "npm:centrifuge@5.7.1": "5.7.1",
+    "npm:centrifuge@5.7.2": "5.7.2",
     "npm:clsx@2.1.1": "2.1.1",
     "npm:daisyui@5.7.22": "5.7.22",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
@@ -1399,8 +1399,8 @@
     "caniuse-lite@1.0.30001806": {
       "integrity": "sha512-72Cuvd95zbSYPKq6Fhg8eDJRlzgWDf7/mtoZv6Qe/DYNCEBdNxoA3+rZAU2ZhGCpZlns3EssFavaZomckT5Uuw=="
     },
-    "centrifuge@5.7.1": {
-      "integrity": "sha512-Jq+T/cAulZVJPfRLfKHX2jcELdwt/LNG4wVx7vQlpaLQlNS+s/HVysRlTNYZ/FktP/NY4sKPI1qz2gh2IGamUA==",
+    "centrifuge@5.7.2": {
+      "integrity": "sha512-7NClNCeUxVY+zTO1XIZBgULTM2JsCZDXWWw2FD/WfNvJEZ9yawCeXhCbyxgJIcFpMuHwH8V+hYFIitmix4N5dg==",
       "dependencies": [
         "events",
         "protobufjs"
@@ -2457,7 +2457,7 @@
       "npm:@testing-library/preact@3.2.4",
       "npm:@types/morgan@1.9.10",
       "npm:@types/sinon@22.0.0",
-      "npm:centrifuge@5.7.1",
+      "npm:centrifuge@5.7.2",
       "npm:clsx@2.1.1",
       "npm:daisyui@5.7.22",
       "npm:i18next@26.4.0",
