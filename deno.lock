@@ -73,7 +73,7 @@
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.12",
     "npm:i18next@26.4.0": "26.4.0",
-    "npm:morgan@1.11.0": "1.11.0",
+    "npm:morgan@1.12.0": "1.12.0",
     "npm:preact-render-to-string@^6.6.3": "6.7.0_preact@10.29.8",
     "npm:preact@10.29.8": "10.29.8_preact-render-to-string@6.7.0",
     "npm:preact@^10.28.2": "10.29.8_preact-render-to-string@6.7.0",
@@ -2005,8 +2005,8 @@
     "modern-tar@0.8.4": {
       "integrity": "sha512-gN54ddmyzEg10orwZ2u4OOv+bjpMWdIl5jIkodK97bMq8QBSL5c0D7YX0lT1Ooz+99S7+PvFbnxzdjgHo1r41g=="
     },
-    "morgan@1.11.0": {
-      "integrity": "sha512-zSkVu3t18r39pw4ixfBKvfZi3y2UOqr7d4WYwcj3m8nXpEQK4rPO6GLzs/CExoRgmX3y9EjmmcXqv6jq0SK46g==",
+    "morgan@1.12.0": {
+      "integrity": "sha512-OHpTRQwn2ezasILW8iKe+Yww1XsfWsZIpUOLF7RDb2g5GwO3trPaRwi7+8BDiJ7HFx2Kg2mfUdCBcVhwYlOz2g==",
       "dependencies": [
         "basic-auth",
         "debug@2.6.9",
@@ -2461,7 +2461,7 @@
       "npm:clsx@2.1.1",
       "npm:daisyui@5.7.22",
       "npm:i18next@26.4.0",
-      "npm:morgan@1.11.0",
+      "npm:morgan@1.12.0",
       "npm:preact@10.29.8",
       "npm:puppeteer@25.9.0",
       "npm:sinon@22.1.0",
