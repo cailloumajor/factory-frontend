@@ -79,7 +79,7 @@
     "sinon": "npm:sinon@22.1.0", // dev
     "tailwindcss": "npm:tailwindcss@4.3.3",
     "vite": "npm:vite@7.3.6",
-    "zod": "npm:zod@4.4.3"
+    "zod": "npm:zod@4.5.4"
   },
   "compilerOptions": {
     "lib": [
