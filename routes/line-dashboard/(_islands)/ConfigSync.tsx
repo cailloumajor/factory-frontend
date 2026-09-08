@@ -18,11 +18,13 @@ export function createDashboardConfig(): DashboardConfig {
 
 const configKeys = Object.keys(createDashboardConfig()) as (keyof DashboardConfig)[]
 
-const configSchema = z.object({
-  title: z.string(),
-  targetCycleTime: z.number().positive(),
-  targetEfficiency: z.number().positive(),
-})
+const configSchema = z.compile(
+  z.object({
+    title: z.string(),
+    targetCycleTime: z.number().positive(),
+    targetEfficiency: z.number().positive(),
+  }),
+)
 
 interface ConfigSyncProps {
   /** The URL of the API to fetch for data. */
