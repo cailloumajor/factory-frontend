@@ -68,7 +68,7 @@
     "npm:@types/sinon@22.0.0": "22.0.0",
     "npm:centrifuge@5.7.2": "5.7.2",
     "npm:clsx@2.1.1": "2.1.1",
-    "npm:daisyui@5.7.24": "5.7.24",
+    "npm:daisyui@5.7.25": "5.7.25",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.12",
@@ -1444,8 +1444,8 @@
     "convert-source-map@2.0.0": {
       "integrity": "sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg=="
     },
-    "daisyui@5.7.24": {
-      "integrity": "sha512-NFmc4EGeVWHSwHjVLeyKMsnn2iJ+9JHod9ZX9EMpAe6JxcQgzWN9mflHSLCkUrmD4w8W6s/CUjXf3wD2jOQeBA=="
+    "daisyui@5.7.25": {
+      "integrity": "sha512-lE5kR8FjHxUHiCb3/PAPuaNkv0MSm6B8GWd5x/l7SLDsH58IxYCiPG8wrcRgdZCI5q8jxpeA2Utx6O6X/kpLnw=="
     },
     "debug@2.6.9": {
       "integrity": "sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==",
@@ -2459,7 +2459,7 @@
       "npm:@types/sinon@22.0.0",
       "npm:centrifuge@5.7.2",
       "npm:clsx@2.1.1",
-      "npm:daisyui@5.7.24",
+      "npm:daisyui@5.7.25",
       "npm:i18next@26.4.1",
       "npm:morgan@1.12.0",
       "npm:preact@10.29.8",
