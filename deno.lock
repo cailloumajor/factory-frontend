@@ -66,7 +66,7 @@
     "npm:@types/babel__core@^7.20.5": "7.20.5",
     "npm:@types/morgan@1.9.10": "1.9.10",
     "npm:@types/sinon@22.0.0": "22.0.0",
-    "npm:centrifuge@5.7.2": "5.7.2",
+    "npm:centrifuge@5.7.3": "5.7.3",
     "npm:clsx@2.1.1": "2.1.1",
     "npm:daisyui@5.7.27": "5.7.27",
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
@@ -1399,8 +1399,8 @@
     "caniuse-lite@1.0.30001806": {
       "integrity": "sha512-72Cuvd95zbSYPKq6Fhg8eDJRlzgWDf7/mtoZv6Qe/DYNCEBdNxoA3+rZAU2ZhGCpZlns3EssFavaZomckT5Uuw=="
     },
-    "centrifuge@5.7.2": {
-      "integrity": "sha512-7NClNCeUxVY+zTO1XIZBgULTM2JsCZDXWWw2FD/WfNvJEZ9yawCeXhCbyxgJIcFpMuHwH8V+hYFIitmix4N5dg==",
+    "centrifuge@5.7.3": {
+      "integrity": "sha512-gJZ8R3P1To1jfKBAhhm1w7XQf7ViLFzmOecbEJEwpC8oOViuOycIsv5WqzrSVVWbc0l8AUY4GaX6/eO9NQZzKA==",
       "dependencies": [
         "events",
         "protobufjs"
@@ -2104,8 +2104,8 @@
         "react-is"
       ]
     },
-    "protobufjs@7.6.5": {
-      "integrity": "sha512-/FPD0nUc9jH6rfFjji9IBqOz4pcSE3CsT1m7Ep6Mdb0LxSUMj8hgl6GomOvZzpNpAqqGaXA0P3VSrZLFzIhQrw==",
+    "protobufjs@7.6.6": {
+      "integrity": "sha512-dYDWdjSl5RNb7SgPxGQcRU+GtvP7s2fpkrY0r432PcOIaZ0/rBcxEZnQN67iJhFuQiVw754JDoPruPCNdGsbjg==",
       "dependencies": [
         "@protobufjs/aspromise",
         "@protobufjs/base64",
@@ -2457,7 +2457,7 @@
       "npm:@testing-library/preact@3.2.4",
       "npm:@types/morgan@1.9.10",
       "npm:@types/sinon@22.0.0",
-      "npm:centrifuge@5.7.2",
+      "npm:centrifuge@5.7.3",
       "npm:clsx@2.1.1",
       "npm:daisyui@5.7.27",
       "npm:i18next@26.4.1",
