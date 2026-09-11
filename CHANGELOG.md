@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.0.1-rc.3](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.3...v3.0.1-rc.3) (2026-09-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @preact/signals to v2.11.2 ([d5d5a80](https://github.com/cailloumajor/factory-frontend/commit/d5d5a80a0b9aafeccd6bbab0a3b406ffb316cd5f))
+* **deps:** update dependency centrifuge to v5.7.3 ([27536fd](https://github.com/cailloumajor/factory-frontend/commit/27536fd9b72c5c68a808b40bbf2a1754a0ba2ca1))
+* **deps:** update dependency daisyui to v5.7.27 ([be0c36a](https://github.com/cailloumajor/factory-frontend/commit/be0c36aca1eb9cb79d56ebe601dc259901bdcdbe))
+* **deps:** update dependency daisyui to v5.7.28 ([1eb6ebe](https://github.com/cailloumajor/factory-frontend/commit/1eb6ebe3c7af3e2d1393d0e64878cdf856dce4d8))
+* **deps:** update dependency i18next to v26.4.2 ([5f03b45](https://github.com/cailloumajor/factory-frontend/commit/5f03b4562a0d494754bfe70dfe67f464304d7133))
+
 ## [3.0.0-rc.3](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.2...v3.0.0-rc.3) (2026-09-08)
 
 
