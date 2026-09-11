@@ -72,7 +72,7 @@
     "npm:esbuild-wasm@~0.25.11": "0.25.12",
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.12",
-    "npm:i18next@26.4.1": "26.4.1",
+    "npm:i18next@26.4.2": "26.4.2",
     "npm:morgan@1.12.0": "1.12.0",
     "npm:preact-render-to-string@^6.6.3": "6.7.0_preact@10.29.8",
     "npm:preact@10.29.8": "10.29.8_preact-render-to-string@6.7.0",
@@ -1780,8 +1780,8 @@
         "function-bind"
       ]
     },
-    "i18next@26.4.1": {
-      "integrity": "sha512-9YbX5E6gd1H+yaOSX3izCsPj5iWXyH7X4oC+iuHHJJw8AeHglzOK5SJf+1CHxaYKYigcea+8jvzSxqYx46YvyA=="
+    "i18next@26.4.2": {
+      "integrity": "sha512-RX+R0VLg13IbvRuJSxnqykUFS9vQZTl8wYpWPCIUDWVrSGjsQywB5Y+pjzrkboxGAuYfJZVH1InFTdgBdxq6ug=="
     },
     "internal-slot@1.1.0": {
       "integrity": "sha512-4gd7VpWNQNB4UKKCFFVcp1AVv+FMOgs9NKzjHKusc8jTMhd5eL1NqQqOpE0KzMds804/yHlglp3uxgluOqAPLw==",
@@ -2460,7 +2460,7 @@
       "npm:centrifuge@5.7.3",
       "npm:clsx@2.1.1",
       "npm:daisyui@5.7.28",
-      "npm:i18next@26.4.1",
+      "npm:i18next@26.4.2",
       "npm:morgan@1.12.0",
       "npm:preact@10.29.8",
       "npm:puppeteer@25.9.0",
