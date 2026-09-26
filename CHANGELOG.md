@@ -1,5 +1,33 @@
 # Changelog
 
+## [3.0.0-rc.4](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.3...v3.0.0-rc.4) (2026-09-26)
+
+
+### Bug Fixes
+
+* **deps:** update deno to v2.9.7 ([3900747](https://github.com/cailloumajor/factory-frontend/commit/39007476b057790c3bfb64338d7e48da785f5f5e))
+* **deps:** update dependency @fontsource/noto-color-emoji to v5.3.2 ([e38e1e1](https://github.com/cailloumajor/factory-frontend/commit/e38e1e1bf8138456bfc78f53d9c0189007360d91))
+* **deps:** update dependency @formatjs/intl-durationformat to v0.11.1 ([a659fa5](https://github.com/cailloumajor/factory-frontend/commit/a659fa53f8e84bd79fa78d28ed49cc3977b04d32))
+* **deps:** update dependency @preact/signals to v2.11.2 ([d5d5a80](https://github.com/cailloumajor/factory-frontend/commit/d5d5a80a0b9aafeccd6bbab0a3b406ffb316cd5f))
+* **deps:** update dependency centrifuge to v5.7.3 ([27536fd](https://github.com/cailloumajor/factory-frontend/commit/27536fd9b72c5c68a808b40bbf2a1754a0ba2ca1))
+* **deps:** update dependency centrifuge to v5.7.4 ([86253fd](https://github.com/cailloumajor/factory-frontend/commit/86253fddb20c7bfa61bc634cce624b15b389d453))
+* **deps:** update dependency daisyui to v5.7.27 ([be0c36a](https://github.com/cailloumajor/factory-frontend/commit/be0c36aca1eb9cb79d56ebe601dc259901bdcdbe))
+* **deps:** update dependency daisyui to v5.7.28 ([1eb6ebe](https://github.com/cailloumajor/factory-frontend/commit/1eb6ebe3c7af3e2d1393d0e64878cdf856dce4d8))
+* **deps:** update dependency daisyui to v5.7.32 ([141b6d3](https://github.com/cailloumajor/factory-frontend/commit/141b6d37effdf732e6be4b3762b9b70530798734))
+* **deps:** update dependency daisyui to v5.7.36 ([6d86854](https://github.com/cailloumajor/factory-frontend/commit/6d8685499ceffbb6bcc52d5a3d77215120fde9b7))
+* **deps:** update dependency daisyui to v5.7.37 ([84914f8](https://github.com/cailloumajor/factory-frontend/commit/84914f8197c0bae77e00cf33d8f6d5c87cbe8f4f))
+* **deps:** update dependency daisyui to v5.7.38 ([7176dde](https://github.com/cailloumajor/factory-frontend/commit/7176ddea8554dfa559fce71ffad5a19d979c59c4))
+* **deps:** update dependency daisyui to v5.7.39 ([e9cffd9](https://github.com/cailloumajor/factory-frontend/commit/e9cffd93306da2017932f1fce8f7894443c7c8ca))
+* **deps:** update dependency daisyui to v5.7.40 ([429fc05](https://github.com/cailloumajor/factory-frontend/commit/429fc050a31ee9360c2501f67b1b93c76a19c133))
+* **deps:** update dependency daisyui to v5.7.42 ([ef76e09](https://github.com/cailloumajor/factory-frontend/commit/ef76e09169f8bf1bf6b02f0369990bb21dfa5118))
+* **deps:** update dependency daisyui to v5.7.44 ([9428553](https://github.com/cailloumajor/factory-frontend/commit/9428553075f755a6ca1f4f5002010970a599b000))
+* **deps:** update dependency i18next to v26.4.2 ([5f03b45](https://github.com/cailloumajor/factory-frontend/commit/5f03b4562a0d494754bfe70dfe67f464304d7133))
+* **deps:** update dependency zod to v4.6.0 ([7f8d08a](https://github.com/cailloumajor/factory-frontend/commit/7f8d08a14cc463a8d9fa2d06f640e97cdeca2f9e))
+* **deps:** update dependency zod to v4.6.1 ([d8e8a2f](https://github.com/cailloumajor/factory-frontend/commit/d8e8a2f82ceffdad2928d0c6c176477cc310c369))
+* **deps:** update dependency zod to v4.6.2 ([32381da](https://github.com/cailloumajor/factory-frontend/commit/32381da23911af2057d39ed42d0e88ab992c9ba9))
+* **deps:** update dependency zod to v4.6.4 ([8e870c0](https://github.com/cailloumajor/factory-frontend/commit/8e870c0ce44fc5410ead5ecddbf0d8724f1416ba))
+* **deps:** update dependency zod to v4.6.5 ([a1f3034](https://github.com/cailloumajor/factory-frontend/commit/a1f3034017634ed4154dd7da0887750ed28b0367))
+
 ## [3.0.0-rc.3](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.2...v3.0.0-rc.3) (2026-09-08)
 
 
