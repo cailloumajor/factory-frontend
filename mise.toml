@@ -3,7 +3,7 @@ actionlint = "latest"
 betterleaks = "latest"
 caddy = "latest"
 deno = "2.9.6"
-editorconfig-checker = "3"
+editorconfig-checker = "latest"
 ghalint = "latest"
 "github:docker/docker-language-server" = "latest"
 hadolint = "latest"
@@ -63,7 +63,7 @@ env.TZ = "UTC"
 run = "deno test --allow-env --allow-net --allow-read --allow-write --allow-run --allow-sys integration/e2e-tests/*"
 
 [tasks."test:integration".tools]
-ffmpeg = "latest"
+"aqua:Tyrrrz/FFmpegBin" = "latest"
 
 [tasks.ci]
 description = "Run CI related tasks"
