@@ -4,7 +4,14 @@
     "config:recommended",
     "helpers:pinGitHubActionDigestsToSemver"
   ],
-  "minimumReleaseAge": "7 days",
+  "automergeType": "branch",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["* 0-4 * * *"],
+    "automerge": true
+  },
+  "semanticCommits": "enabled",
+  "minimumReleaseAge": "3 days",
   "packageRules": [
     {
       "matchManagers": ["deno"],
@@ -27,8 +34,7 @@
         "sinon"
       ],
       "semanticCommitType": "chore",
-      "automerge": true,
-      "automergeType": "branch"
+      "automerge": true
     },
     {
       "matchDatasources": ["docker"],
@@ -40,6 +46,12 @@
       "matchPackageNames": ["denoland/deno", "deno"],
       "groupName": "Deno",
       "semanticCommitType": "fix"
+    },
+    {
+      "matchDepTypes": ["tools"],
+      "matchCurrentValue": "latest",
+      "minimumReleaseAge": "1 day",
+      "enabled": false
     }
   ]
 }
