@@ -2,7 +2,7 @@
 actionlint = "latest"
 betterleaks = "latest"
 caddy = "latest"
-deno = "2.9.6"
+deno = "2.9.7"
 editorconfig-checker = "latest"
 ghalint = "latest"
 "github:docker/docker-language-server" = "latest"
