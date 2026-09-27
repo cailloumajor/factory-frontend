@@ -48,9 +48,14 @@
       "semanticCommitType": "fix"
     },
     {
+      "description": "Do not require Minimum Release Age for update types that are controlled by the package manager",
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Disable update PRs (in favor of lock file maintenance) for mise tools with requested version being latest",
       "matchDepTypes": ["tools"],
       "matchCurrentValue": "latest",
-      "minimumReleaseAge": "1 day",
       "enabled": false
     }
   ]
