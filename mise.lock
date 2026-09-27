@@ -521,13 +521,11 @@ url = "https://nodejs.org/dist/v24.21.0/node-v24.21.0-win-x64.zip"
 
 [[tools."npm:@tailwindcss/language-server"]]
 version = "0.16.0"
-aube = { path = ".mise/locks/npm-tailwindcss-language-server/0.16.0", digest = "sha256:fc4d7ea57df94cfd16f73e26409d8070d4a9383fda9b9e92533a3e3df5c705fe" }
 backend = "npm:@tailwindcss/language-server"
 specifiers = ["latest"]
 
 [[tools."npm:yaml-language-server"]]
 version = "1.24.0"
-aube = { path = ".mise/locks/npm-yaml-language-server/1.24.0", digest = "sha256:3927457c9029c683e6d49eb8289a8fdcf1c220531a4999a90bd4cf2157699491" }
 backend = "npm:yaml-language-server"
 specifiers = ["latest"]
 
