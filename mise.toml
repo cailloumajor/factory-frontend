@@ -69,6 +69,3 @@ run = "deno test --allow-env --allow-net --allow-read --allow-write --allow-run 
 description = "Run CI related tasks"
 depends = ["lint", "test:*"]
 run = "echo 'CI completed successfully'"
-
-[settings.npm]
-package_manager = "npm"
