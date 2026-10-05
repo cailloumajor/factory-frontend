@@ -137,44 +137,44 @@ url_api = "https://api.github.com/repos/betterleaks/betterleaks/releases/assets/
 provenance = "cosign"
 
 [[tools.caddy]]
-version = "2.11.6"
+version = "2.11.7"
 backend = "aqua:caddyserver/caddy"
 specifiers = ["latest"]
 
 [tools.caddy."platforms.linux-arm64"]
-checksum = "sha256:6a59a88914db644d410c4773286784096a97b59ea74152311442c19e988071ac"
-url = "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/601930086"
+checksum = "sha256:d8fc6d179a5d283028a472a5618564f6ad8a86fed513e64f032b3b0b7cc45e42"
+url = "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/607244906"
 
 [tools.caddy."platforms.linux-arm64-musl"]
-checksum = "sha256:6a59a88914db644d410c4773286784096a97b59ea74152311442c19e988071ac"
-url = "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_linux_arm64.tar.gz"
-url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/601930086"
+checksum = "sha256:d8fc6d179a5d283028a472a5618564f6ad8a86fed513e64f032b3b0b7cc45e42"
+url = "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_linux_arm64.tar.gz"
+url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/607244906"
 
 [tools.caddy."platforms.linux-x64"]
-checksum = "sha256:22c84f8d2d4e4e0e2d422f8049fdd0fc1ed8d5665d0fe166f506c7fd863b4555"
-url = "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/601930028"
+checksum = "sha256:727b91701a392de6ebc5027509f548bf39979e5216340d0faed8fa5e69c84f8b"
+url = "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/607245028"
 
 [tools.caddy."platforms.linux-x64-musl"]
-checksum = "sha256:22c84f8d2d4e4e0e2d422f8049fdd0fc1ed8d5665d0fe166f506c7fd863b4555"
-url = "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_linux_amd64.tar.gz"
-url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/601930028"
+checksum = "sha256:727b91701a392de6ebc5027509f548bf39979e5216340d0faed8fa5e69c84f8b"
+url = "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_linux_amd64.tar.gz"
+url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/607245028"
 
 [tools.caddy."platforms.macos-arm64"]
-checksum = "sha256:4ad5a757d4ebb880e0a2bb333410a0089f09348d9e74693bcf13be0669675f6e"
-url = "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_mac_arm64.tar.gz"
-url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/601929869"
+checksum = "sha256:cda3030e5d5b13eb9f0b6fb541037f633bddd958c070c5f561d7a5cccb581665"
+url = "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_mac_arm64.tar.gz"
+url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/607245027"
 
 [tools.caddy."platforms.macos-x64"]
-checksum = "sha256:77f16d929a01bf8ff4f3fa2bec41867d19fef30f5a2489120f790f048d9d3003"
-url = "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_mac_amd64.tar.gz"
-url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/601929946"
+checksum = "sha256:110c53e5c093e4cfce6eda787f94f23bef913c309f620fab26b4f678031841ad"
+url = "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_mac_amd64.tar.gz"
+url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/607244902"
 
 [tools.caddy."platforms.windows-x64"]
-checksum = "sha256:07429393375227eb669e449764c5245eaac8fc69fc68b2f867717af794cc1153"
-url = "https://github.com/caddyserver/caddy/releases/download/v2.11.6/caddy_2.11.6_windows_amd64.zip"
-url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/601930095"
+checksum = "sha256:0a1edc0b799512051c57071ce0e798d3f2cf67dc98171366f1d2b326072e3b06"
+url = "https://github.com/caddyserver/caddy/releases/download/v2.11.7/caddy_2.11.7_windows_amd64.zip"
+url_api = "https://api.github.com/repos/caddyserver/caddy/releases/assets/607244987"
 
 [[tools.deno]]
 version = "2.9.7"
@@ -384,38 +384,38 @@ url_api = "https://api.github.com/repos/hadolint/hadolint/releases/assets/496546
 provenance = "github-attestations"
 
 [[tools.hk]]
-version = "2.4.0"
+version = "2.5.0"
 backend = "packslip:github.com/jdx/hk"
 specifiers = ["latest"]
 
 [tools.hk."platforms.linux-arm64"]
-checksum = "sha256:836235bd8aa06f25e7ff28591b32efb5297abe55366e912095636a49ffe4d363"
-url = "https://github.com/jdx/hk/releases/download/v2.4.0/hk-aarch64-unknown-linux-gnu.tar.gz"
+checksum = "sha256:c800091c414e1c8e8628137275d88c257bcfe0c35dd31d2762923a71dae7df7f"
+url = "https://github.com/jdx/hk/releases/download/v2.5.0/hk-aarch64-unknown-linux-gnu.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.linux-arm64-musl"]
-checksum = "sha256:ad5c5a556e0a505d9a3441868217976bd4ae610e1364e93516993b9717d9ef28"
-url = "https://github.com/jdx/hk/releases/download/v2.4.0/hk-aarch64-unknown-linux-musl.tar.gz"
+checksum = "sha256:1e839b96defad21b5118d9554f2146811a2ce8d8eef90b3da1d592834969b717"
+url = "https://github.com/jdx/hk/releases/download/v2.5.0/hk-aarch64-unknown-linux-musl.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.linux-x64"]
-checksum = "sha256:6efabe30aeabc4611a42ce6cf0fd46b9a19478e2cfd9acfd1bd93998736f3153"
-url = "https://github.com/jdx/hk/releases/download/v2.4.0/hk-x86_64-unknown-linux-gnu.tar.gz"
+checksum = "sha256:449b83c35ac3a460f80a4c9a41ad99430add8cf6caa6ceadc27e810feac3647d"
+url = "https://github.com/jdx/hk/releases/download/v2.5.0/hk-x86_64-unknown-linux-gnu.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.linux-x64-musl"]
-checksum = "sha256:f34598671ca40be5c308324a60ef30b736dbbbf4259dfb511abd79009ee4de2a"
-url = "https://github.com/jdx/hk/releases/download/v2.4.0/hk-x86_64-unknown-linux-musl.tar.gz"
+checksum = "sha256:55b349ed8ebbb9cc11e3ff7f741230035061e45621c0b2c87fffeeb37fadcfd0"
+url = "https://github.com/jdx/hk/releases/download/v2.5.0/hk-x86_64-unknown-linux-musl.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.macos-arm64"]
-checksum = "sha256:6e1c970b9de7ab4ee52c85869b2ea9cfe8769d25a0fe9536062e0ba62366ec59"
-url = "https://github.com/jdx/hk/releases/download/v2.4.0/hk-aarch64-apple-darwin.tar.gz"
+checksum = "sha256:fabbed3a44e72c601759fa81d56f3c9403ca466853bdf77e87cc69d986cb151a"
+url = "https://github.com/jdx/hk/releases/download/v2.5.0/hk-aarch64-apple-darwin.tar.gz"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [tools.hk."platforms.windows-x64"]
-checksum = "sha256:028931e00fd670ad891a428bf44e14ac8e2726a8f72b7fae80b27b6502af2be3"
-url = "https://github.com/jdx/hk/releases/download/v2.4.0/hk-x86_64-pc-windows-msvc.zip"
+checksum = "sha256:9d3063f0eadb316415dc2aaea51608f436eb6ffe44e00c2e460294c66f269a54"
+url = "https://github.com/jdx/hk/releases/download/v2.5.0/hk-x86_64-pc-windows-msvc.zip"
 signer = "sigstore-oidc:https://github.com/jdx/hk/.github/workflows/release.yml"
 
 [[tools.jq]]
