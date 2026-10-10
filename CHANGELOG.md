@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.0.1-rc.4](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.4...v3.0.1-rc.4) (2026-10-10)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @cailloumajor/frontend-utils-wasm to v6.0.8 ([faefa4b](https://github.com/cailloumajor/factory-frontend/commit/faefa4b71f5aa3b75e81084f5d10438c04022cab))
+* **deps:** update dependency @cailloumajor/frontend-utils-wasm to v6.0.9 ([ce6e1f9](https://github.com/cailloumajor/factory-frontend/commit/ce6e1f9ab6cecb6ca37b6f5abf9a37d08718f1ed))
+* **deps:** update dependency @preact/signals to v2.11.3 ([bd88053](https://github.com/cailloumajor/factory-frontend/commit/bd88053d24527eaff4531e1f7c81ae128981f7f2))
+* **deps:** update dependency @std/async to v1.5.1 ([0f07c6c](https://github.com/cailloumajor/factory-frontend/commit/0f07c6c00623ce7fe1d29fa2f58a491459a06bf1))
+* **deps:** update dependency @std/http to v1.1.4 ([045efed](https://github.com/cailloumajor/factory-frontend/commit/045efed2b6b4aeb68bb0566419c6a19437fa6d61))
+* **deps:** update dependency daisyui to v5.7.46 ([a30ea80](https://github.com/cailloumajor/factory-frontend/commit/a30ea80f4655fa0acccc1f2a31cc8acd2eb095a5))
+* **deps:** update dependency daisyui to v5.7.47 ([99e5092](https://github.com/cailloumajor/factory-frontend/commit/99e5092cd73e2e7140c7cf1e1eb1a0dca77d7a35))
+* **deps:** update dependency vite to v7.3.7 ([dc65fc9](https://github.com/cailloumajor/factory-frontend/commit/dc65fc9392a02e03a7fd1d04387fa08e679a8583))
+
 ## [3.0.0-rc.4](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.3...v3.0.0-rc.4) (2026-09-26)
 
 
