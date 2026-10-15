@@ -84,7 +84,7 @@
     "npm:tailwindcss@4.3.3": "4.3.3",
     "npm:vite@7.3.7": "7.3.7",
     "npm:vite@^7.1.4": "7.3.7",
-    "npm:zod@4.6.5": "4.6.5"
+    "npm:zod@4.6.7": "4.6.7"
   },
   "jsr": {
     "@cailloumajor/frontend-utils-wasm@6.0.9": {
@@ -2434,8 +2434,8 @@
         "yargs-parser"
       ]
     },
-    "zod@4.6.5": {
-      "integrity": "sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q=="
+    "zod@4.6.7": {
+      "integrity": "sha512-g8W2D2kU6a8untc053fX1uVBKzM7yqAxW/3zwk83+6RyF2+SKOuV+c0wBDhUwzV1PaGapmZH+rmcUzPf+3CGwg=="
     }
   },
   "workspace": {
@@ -2470,7 +2470,7 @@
       "npm:sinon@22.1.0",
       "npm:tailwindcss@4.3.3",
       "npm:vite@7.3.7",
-      "npm:zod@4.6.5"
+      "npm:zod@4.6.7"
     ]
   }
 }
