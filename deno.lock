@@ -56,7 +56,7 @@
     "npm:@formatjs/intl-durationformat@0.11.1": "0.11.1",
     "npm:@happy-dom/global-registrator@21.0.4": "21.0.4",
     "npm:@mdi/js@7.4.47": "7.4.47",
-    "npm:@opentelemetry/api@^1.9.0": "1.9.1",
+    "npm:@opentelemetry/api@^1.9.0": "1.10.0",
     "npm:@preact/signals@2.11.3": "2.11.3_preact@10.29.8_preact-render-to-string@6.8.1",
     "npm:@preact/signals@^2.5.1": "2.11.3_preact@10.29.8_preact-render-to-string@6.8.1",
     "npm:@prefresh/vite@^2.4.8": "2.4.12_preact@10.29.8_vite@7.3.7_preact-render-to-string@6.8.1",
@@ -903,8 +903,8 @@
       "os": ["linux"],
       "cpu": ["x64"]
     },
-    "@opentelemetry/api@1.9.1": {
-      "integrity": "sha512-gLyJlPHPZYdAk1JENA9LeHejZe1Ti77/pTeFm/nMXmQH/HFZlcS/O2XJB+L8fkbrNSqhdtlvjBVjxwUYanNH5Q=="
+    "@opentelemetry/api@1.10.0": {
+      "integrity": "sha512-lMkyes8iHrG+mk6WH7X70MdCLI2RS0FwNBY1PyQ8UemaijE2m5mv5A0Niy3HtbYTFrgkUEQjFMXmSAk2hQDuPQ=="
     },
     "@preact/signals-core@1.14.4": {
       "integrity": "sha512-HNB6HYeYKhQbJ1aKl+YRjrS4+QWHLKX6qKoUsfS/m0vqzsVaEBiZiaKbG/e+NKk2ch5ALQr/ihWaMHxiCuuWHA=="
@@ -1404,8 +1404,8 @@
         "get-intrinsic"
       ]
     },
-    "caniuse-lite@1.0.30001816": {
-      "integrity": "sha512-+8Yx7BXCoqk6IF8yTicjfUR6D/ldJzdlsodlEOiOSPmhK844WIgk67/zIQaGAOxNkZyyvBlrRFnLvqKIoqbAFw=="
+    "caniuse-lite@1.0.30001817": {
+      "integrity": "sha512-uZ1JG80BwhtMalIAGPxPfmNhHyd/B/nTdr3hITWlRamSyAdUStP1Gop01e7SD5q6J90ixJvWDbvmiFVfDgn4bw=="
     },
     "centrifuge@5.7.4": {
       "integrity": "sha512-PnkJSS5uDPcdIDK4kkrgVCiT7RT+4xUTVjO9FfUjrUpOdPNKXgjfY+6gdG+RQKGSRP7AxP4NxCuFk0Eb4sjrWw==",
@@ -1532,8 +1532,8 @@
     "ee-first@1.1.1": {
       "integrity": "sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow=="
     },
-    "electron-to-chromium@1.5.460": {
-      "integrity": "sha512-rRaVC7bNUyGsL+GMtmZfv3AfgG6za7gE9v5bT0PIbjEerddA0IQ+tCK05NFAXqCpNlrxBZqbFqquyxHRQONHTA=="
+    "electron-to-chromium@1.5.462": {
+      "integrity": "sha512-9qpCBlXPy5v7n1Q7WTO5rW2StI4WNQhl96HpgXRZLPlNoXAD0LbsQUflovQYAO44Yia073ISusqohncvGSMbGA=="
     },
     "emoji-regex@10.6.0": {
       "integrity": "sha512-toUI84YS5YmxW219erniWD0CIVOo46xGKColeNQRgOzDorgBi1v4D71/OFzgD9GO2UGKIv1C3Sp8DAn0+j5w7A=="

@@ -506,7 +506,7 @@ specifiers = ["latest"]
 
 [[tools."npm:yaml-language-server"]]
 version = "2.0.0"
-aube = { path = ".mise/locks/npm-yaml-language-server/2.0.0", digest = "sha256:23d8b7855aea93b17f97dcc5961aa137dfabcaac0e1fd2ff407517530b2e6e8c" }
+aube = { path = ".mise/locks/npm-yaml-language-server/2.0.0", digest = "sha256:f14f9558f1769c0512641de8d5616c039d5428aa64c46fdf60f0082e960a60b8" }
 backend = "npm:yaml-language-server"
 specifiers = ["latest"]
 

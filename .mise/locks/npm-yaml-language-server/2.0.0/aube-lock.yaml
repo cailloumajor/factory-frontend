@@ -74,6 +74,9 @@ packages:
   vscode-languageserver-types@3.18.4:
     resolution: {integrity: sha512-nQsacoiijvl0fRf2q28uFDrAVwRhdCa3QveiF7/CX0r18mLR5FU/1WskSsCKOjmEbtteKUnY8x8Yzxop+k0zwg==}
 
+  vscode-languageserver-types@3.18.5:
+    resolution: {integrity: sha512-kPd6+JQNz3HMJvjKlqUxERSlZHAntl/aGpsk7ImwIh0ewDKDcjgAEyVSYciPiOJD3ftbK9IrfiqUeTZLSbCizw==}
+
   vscode-languageserver@10.1.2:
     resolution: {integrity: sha512-pXPWde3RytdeBVEs6PulOOT5OpeXC5GkWRpcT11f5rNn41jviQsAYPyAqJ/0oVGETQLKPJtYbHNiMPlfLb0NTQ==}
     hasBin: true
@@ -96,7 +99,7 @@ snapshots:
   '@vscode/l10n@0.0.18': {}
 
   ajv-draft-04@1.0.0(ajv@8.20.0):
-    dependencies:
+    optionalDependencies:
       ajv: 8.20.0
 
   ajv-i18n@4.2.0(ajv@8.20.0):
@@ -137,6 +140,8 @@ snapshots:
 
   vscode-languageserver-types@3.18.4: {}
 
+  vscode-languageserver-types@3.18.5: {}
+
   vscode-languageserver@10.1.2:
     dependencies:
       vscode-languageserver-protocol: 3.18.4
@@ -155,7 +160,7 @@ snapshots:
       request-light: 0.5.8
       vscode-languageserver: 10.1.2
       vscode-languageserver-textdocument: 1.0.16
-      vscode-languageserver-types: 3.18.4
+      vscode-languageserver-types: 3.18.5
       vscode-uri: 3.2.0
       yaml: 2.8.3
 
