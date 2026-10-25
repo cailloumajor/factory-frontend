@@ -65,7 +65,7 @@
     "npm:@testing-library/preact@3.2.4": "3.2.4_preact@10.29.8_preact-render-to-string@6.8.1",
     "npm:@types/babel__core@^7.20.5": "7.20.5",
     "npm:@types/morgan@1.9.10": "1.9.10",
-    "npm:@types/sinon@22.0.0": "22.0.0",
+    "npm:@types/sinon@22.0.1": "22.0.1",
     "npm:centrifuge@5.7.4": "5.7.4",
     "npm:clsx@2.1.1": "2.1.1",
     "npm:daisyui@5.7.50": "5.7.50",
@@ -1299,14 +1299,11 @@
         "undici-types"
       ]
     },
-    "@types/sinon@22.0.0": {
-      "integrity": "sha512-TDbVpbccc2HfiqHR09Argj3mHV1KMW7sCCKj52fsl8lbRLkEn7fB1966EWhOKWUBcqfBueZuPoA7/OK1CKiy3g==",
+    "@types/sinon@22.0.1": {
+      "integrity": "sha512-MThluJXPmpBY+Z5S3565F2z+hjkCXnBrr36j2mitVQ7JUtxA+A+YQhs+0Q6J8jxb0SVJvydO+6NWfj9EBzpiBQ==",
       "dependencies": [
-        "@types/sinonjs__fake-timers"
+        "@sinonjs/fake-timers"
       ]
-    },
-    "@types/sinonjs__fake-timers@15.0.1": {
-      "integrity": "sha512-Ko2tjWJq8oozHzHV+reuvS5KYIRAokHnGbDwGh/J64LntgpbuylF74ipEL24HCyRjf9FOlBiBHWBR1RlVKsI1w=="
     },
     "@types/whatwg-mimetype@3.0.2": {
       "integrity": "sha512-c2AKvDT8ToxLIOUlN51gTiHXflsfIFisS4pO7pDPoKouJCESkhZnEy623gwP9laCy5lnLDAw1vAzu2vM2YLOrA=="
@@ -2462,7 +2459,7 @@
       "npm:@tailwindcss/vite@4.3.3",
       "npm:@testing-library/preact@3.2.4",
       "npm:@types/morgan@1.9.10",
-      "npm:@types/sinon@22.0.0",
+      "npm:@types/sinon@22.0.1",
       "npm:centrifuge@5.7.4",
       "npm:clsx@2.1.1",
       "npm:daisyui@5.7.50",
