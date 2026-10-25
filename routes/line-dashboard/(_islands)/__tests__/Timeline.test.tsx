@@ -3,7 +3,7 @@ import { useSignal } from "@preact/signals"
 import { assert, assertEquals, assertFalse, assertMatch } from "@std/assert"
 import { FakeTime } from "@std/testing/time"
 import { render, waitFor } from "@testing-library/preact"
-import * as sinon from "sinon"
+import sinon from "sinon"
 
 import { componentTesting } from "@/tests/utils.ts"
 
