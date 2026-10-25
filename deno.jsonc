@@ -65,7 +65,7 @@
     "@std/path": "jsr:@std/path@1.1.6",
     "@std/testing": "jsr:@std/testing@1.0.21", // dev
     "@tailwindcss/vite": "npm:@tailwindcss/vite@4.3.3",
-    "@testing-library/preact": "npm:@testing-library/preact@3.2.4", // dev
+    "@testing-library/preact": "npm:@testing-library/preact@3.2.6", // dev
     "@types/morgan": "npm:@types/morgan@1.9.10", // dev
     "@types/sinon": "npm:@types/sinon@22.0.1", // dev
     "centrifuge": "npm:centrifuge@5.7.4",
