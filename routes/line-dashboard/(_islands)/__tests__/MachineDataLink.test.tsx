@@ -4,7 +4,7 @@ import { assert, assertEquals } from "@std/assert"
 import { FakeTime } from "@std/testing/time"
 import { render, waitFor } from "@testing-library/preact"
 import { Centrifuge, Subscription, type TransportEndpoint } from "centrifuge"
-import * as sinon from "sinon"
+import sinon from "sinon"
 
 import { componentTesting } from "@/tests/utils.ts"
 
