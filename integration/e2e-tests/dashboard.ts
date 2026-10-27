@@ -155,7 +155,7 @@ Deno.test("shows alert if Centrifugo connection fails", async (t) => {
         const alert = document.querySelector<HTMLElement>(".alert.alert-error:not(.hidden)")
 
         return alert?.innerText ===
-          "Machine data\nCentrifuge error (connect): connection closed"
+          "Machine data\nCentrifuge error (transport): transport closed"
       },
       { polling: "mutation" },
     )
