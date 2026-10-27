@@ -19,10 +19,8 @@ steps {
     fix = "deno lint --fix {{ files }}"
   }
   ["editorconfig-checker"] = Builtins.editorconfig_checker
-  ["ghalint"] = Builtins.ghalint_workflow
   ["hadolint"] = Builtins.hadolint
   ["jactionlint"] = Builtins.jactionlint
-  ["pinact"] = Builtins.pinact
   ["pkl"] = Builtins.pkl
   ["pkl-format"] = Builtins.pkl_format
   ["rumdl"] = Builtins.rumdl
