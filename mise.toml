@@ -52,8 +52,6 @@ run = [
 
 [tasks."test:integration"]
 description = "Run integration tests"
-env.LC_ALL = "C"
-env.TZ = "UTC"
 run = "deno test --allow-env --allow-net --allow-read --allow-write --allow-run --allow-sys integration/e2e-tests/*"
 
 [tasks."test:integration".tools]
