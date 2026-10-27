@@ -36,6 +36,8 @@ export async function withBrowser(
   const page = await browser.newPage()
 
   await page.setViewport(size)
+  await page.emulateLocale("en-US")
+  await page.emulateTimezone("UTC")
 
   if (!isInCI) {
     await fn(page)
