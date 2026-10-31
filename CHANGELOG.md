@@ -1,5 +1,39 @@
 # Changelog
 
+## [3.0.1-rc.4](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.4...v3.0.1-rc.4) (2026-10-31)
+
+
+### Bug Fixes
+
+* **deps:** update deno to v2.9.8 ([eaa4ea9](https://github.com/cailloumajor/factory-frontend/commit/eaa4ea9cf5e5bdc1e38b98931701d0638fa5702e))
+* **deps:** update dependency @cailloumajor/frontend-utils-wasm to v6.0.8 ([faefa4b](https://github.com/cailloumajor/factory-frontend/commit/faefa4b71f5aa3b75e81084f5d10438c04022cab))
+* **deps:** update dependency @cailloumajor/frontend-utils-wasm to v6.0.9 ([ce6e1f9](https://github.com/cailloumajor/factory-frontend/commit/ce6e1f9ab6cecb6ca37b6f5abf9a37d08718f1ed))
+* **deps:** update dependency @preact/signals to v2.11.3 ([bd88053](https://github.com/cailloumajor/factory-frontend/commit/bd88053d24527eaff4531e1f7c81ae128981f7f2))
+* **deps:** update dependency @preact/signals to v2.11.4 ([8d09abc](https://github.com/cailloumajor/factory-frontend/commit/8d09abc8d4c3407ad731e91e2dfbff89f6f7105c))
+* **deps:** update dependency @std/async to v1.5.1 ([0f07c6c](https://github.com/cailloumajor/factory-frontend/commit/0f07c6c00623ce7fe1d29fa2f58a491459a06bf1))
+* **deps:** update dependency @std/http to v1.1.4 ([045efed](https://github.com/cailloumajor/factory-frontend/commit/045efed2b6b4aeb68bb0566419c6a19437fa6d61))
+* **deps:** update dependency centrifuge to v5.8.0 ([2b8cf8f](https://github.com/cailloumajor/factory-frontend/commit/2b8cf8f51200d8f24ef3c7c82766e727b051046b))
+* **deps:** update dependency daisyui to v5.7.46 ([a30ea80](https://github.com/cailloumajor/factory-frontend/commit/a30ea80f4655fa0acccc1f2a31cc8acd2eb095a5))
+* **deps:** update dependency daisyui to v5.7.47 ([99e5092](https://github.com/cailloumajor/factory-frontend/commit/99e5092cd73e2e7140c7cf1e1eb1a0dca77d7a35))
+* **deps:** update dependency daisyui to v5.7.48 ([f198391](https://github.com/cailloumajor/factory-frontend/commit/f198391ee7714dd0fa2396d2037c9cca7e2b67ad))
+* **deps:** update dependency daisyui to v5.7.50 ([bbb0c11](https://github.com/cailloumajor/factory-frontend/commit/bbb0c119b4ae0b10e7a93b32747ba0ce727bd73b))
+* **deps:** update dependency i18next to v26.4.3 ([2c4b800](https://github.com/cailloumajor/factory-frontend/commit/2c4b800c85331927f19f965fa9853f468f13a964))
+* **deps:** update dependency i18next to v26.4.4 ([76f8928](https://github.com/cailloumajor/factory-frontend/commit/76f8928e97e199bafc88794591554bbbaf55c353))
+* **deps:** update dependency i18next to v26.4.5 ([0435995](https://github.com/cailloumajor/factory-frontend/commit/0435995b594b4afa71a41e5c0cf5b62dd990d8dd))
+* **deps:** update dependency i18next to v26.4.6 ([103f06b](https://github.com/cailloumajor/factory-frontend/commit/103f06babe60f2cb458cc305483c874d82d03b09))
+* **deps:** update dependency i18next to v26.4.7 ([82639ac](https://github.com/cailloumajor/factory-frontend/commit/82639ac71ffc422fe97c2a242f757f2998f4a35e))
+* **deps:** update dependency i18next to v26.5.10 ([f37a94c](https://github.com/cailloumajor/factory-frontend/commit/f37a94c62880547eda4a26a7ed2c1bbc5967a8b4))
+* **deps:** update dependency i18next to v26.5.11 ([8bf8259](https://github.com/cailloumajor/factory-frontend/commit/8bf8259983a67503970dbd93be43646f20100c4e))
+* **deps:** update dependency i18next to v26.5.2 ([0e886cf](https://github.com/cailloumajor/factory-frontend/commit/0e886cf03c9773bb906893bb6b621e7da1ec8661))
+* **deps:** update dependency i18next to v26.5.3 ([9dfb7b1](https://github.com/cailloumajor/factory-frontend/commit/9dfb7b1f1d9ef9605d214d882fbbe05e5e1cf8aa))
+* **deps:** update dependency i18next to v26.5.4 ([b5db496](https://github.com/cailloumajor/factory-frontend/commit/b5db49688d98592cfd98094ef854fadf1ac57931))
+* **deps:** update dependency i18next to v26.5.5 ([7fd5beb](https://github.com/cailloumajor/factory-frontend/commit/7fd5beb6b3858bd70935ca463e713289cf9d7802))
+* **deps:** update dependency i18next to v26.5.6 ([9ba06ad](https://github.com/cailloumajor/factory-frontend/commit/9ba06ad1892a2452818186e8b442a3642edef079))
+* **deps:** update dependency i18next to v26.5.7 ([9f04986](https://github.com/cailloumajor/factory-frontend/commit/9f04986e3a36de8a2330be8decdc688c7a5fcf88))
+* **deps:** update dependency i18next to v26.5.8 ([a232f14](https://github.com/cailloumajor/factory-frontend/commit/a232f14a2748f6ccae3272462301e6a0cc3ba5f6))
+* **deps:** update dependency vite to v7.3.7 ([dc65fc9](https://github.com/cailloumajor/factory-frontend/commit/dc65fc9392a02e03a7fd1d04387fa08e679a8583))
+* **deps:** update dependency zod to v4.6.7 ([a951095](https://github.com/cailloumajor/factory-frontend/commit/a951095a34cc1bec61fb93c57a07e6b8b4c5227d))
+
 ## [3.0.0-rc.4](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.3...v3.0.0-rc.4) (2026-09-26)
 
 
