@@ -53,7 +53,7 @@
     "npm:@fontsource-variable/roboto-mono@5.3.0": "5.3.0",
     "npm:@fontsource-variable/roboto@5.3.0": "5.3.0",
     "npm:@fontsource/noto-color-emoji@5.3.2": "5.3.2",
-    "npm:@formatjs/intl-durationformat@0.12.1": "0.12.1",
+    "npm:@formatjs/intl-durationformat@0.12.2": "0.12.2",
     "npm:@happy-dom/global-registrator@21.0.4": "21.0.4",
     "npm:@mdi/js@7.4.47": "7.4.47",
     "npm:@opentelemetry/api@^1.9.0": "1.10.0",
@@ -842,21 +842,21 @@
     "@fontsource/noto-color-emoji@5.3.2": {
       "integrity": "sha512-rO15sQ45Dc28hMAMz1X1oSOWxcbqNL+CiHHJ7JPn1gmfiGIuR/QyLuHqBrXivSYHsHVTXGT/m6/DuQ42s5xQkw=="
     },
-    "@formatjs/bigdecimal@0.2.8": {
-      "integrity": "sha512-e/U8n09DJByWetRTG8pjNtNKOeW0T4efkFcceo72y0QAjyiP5egv97N6fSa2wKiTJHVydO8crTkTueF5bKuYjg=="
+    "@formatjs/bigdecimal@0.2.9": {
+      "integrity": "sha512-rV5U95Koz9LADq080OdPOLy629Z1HNaid3842EORxm+0Q7QhvUalH7rgVAK3Zsa9pbmNvac/mNmkP7+xf8wYwg=="
     },
     "@formatjs/fast-memoize@3.1.7": {
       "integrity": "sha512-zXfhLpvA6T7+efdt9JLbBwZ00tT7NsBMDVnDu8rpHeNNv8KfRZAMo2gkG0k9lK/Nzc//3kJ9pImsfuJxk3KhUA=="
     },
-    "@formatjs/intl-durationformat@0.12.1": {
-      "integrity": "sha512-3oFC9mxk/H6kae9zpejZXqLu6H8kSF4MkzRUcELBSfB943J7ypF7urXdIQT21jJ32bEYw5sU2QiFQlF/9bHtkQ==",
+    "@formatjs/intl-durationformat@0.12.2": {
+      "integrity": "sha512-qQzwm47mlPFRGv0vl7xBzzy6xdUQSo+1bIJqy05vxRCT4J0CXu7U0LUHYtW/LMY7o2bCyWi9ZHhMtF7roOLXkg==",
       "dependencies": [
         "@formatjs/bigdecimal",
         "@formatjs/intl-localematcher"
       ]
     },
-    "@formatjs/intl-localematcher@0.10.0": {
-      "integrity": "sha512-OvfBelurObm02D1+4BsuHSt3Xkn49RZPo7uJXt/1Z0dNET3EN39kY1rKMV3kG0tn0p4gyGWrcFx9HyeF07cq5g==",
+    "@formatjs/intl-localematcher@0.10.1": {
+      "integrity": "sha512-gBqglQK9rXuHsLmM8wzTMBy4Xo4d0jamirIVKuEL8F1rwbskWdpMA1kZarSkny+uvr5q/K6GSzE0Rcq1wZLl3g==",
       "dependencies": [
         "@formatjs/fast-memoize"
       ]
@@ -2015,7 +2015,7 @@
       "npm:@fontsource-variable/roboto-mono@5.3.0",
       "npm:@fontsource-variable/roboto@5.3.0",
       "npm:@fontsource/noto-color-emoji@5.3.2",
-      "npm:@formatjs/intl-durationformat@0.12.1",
+      "npm:@formatjs/intl-durationformat@0.12.2",
       "npm:@happy-dom/global-registrator@21.0.4",
       "npm:@mdi/js@7.4.47",
       "npm:@preact/signals@2.11.4",
