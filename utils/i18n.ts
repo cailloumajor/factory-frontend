@@ -1,6 +1,6 @@
-import { acceptsLanguages } from "@std/http"
 import type { Middleware } from "fresh"
-import { getFixedT, init } from "i18next"
+import i18next from "i18next"
+import { freshPlugin, LanguageDetector } from "i18next-http-middleware"
 
 import type { State } from "@/utils/state.ts"
 
@@ -31,26 +31,14 @@ const supportedLanguages = Object.keys(resources) as Language[]
 
 const defaultLanguage: Language = "en"
 
-function isLanguage(value: string): value is Language {
-  return supportedLanguages.includes(value as Language)
-}
-
-export function getTranslateFn(req: Request) {
-  const candidate = acceptsLanguages(req, ...supportedLanguages)
-  const lang = candidate !== undefined && isLanguage(candidate) ? candidate : defaultLanguage
-  return getFixedT(lang)
-}
-
 export async function i18n(): Promise<Middleware<State>> {
-  await init({
-    fallbackLng: defaultLanguage,
-    resources,
-    preload: supportedLanguages,
-  })
+  await i18next
+    .use(LanguageDetector)
+    .init({
+      fallbackLng: defaultLanguage,
+      resources,
+      preload: supportedLanguages,
+    })
 
-  return function i18nMiddleware(ctx) {
-    ctx.state.t = getTranslateFn(ctx.req)
-
-    return ctx.next()
-  }
+  return freshPlugin(i18next)
 }
