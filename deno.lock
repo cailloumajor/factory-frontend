@@ -67,7 +67,7 @@
     "npm:esbuild@0.25.7": "0.25.7",
     "npm:esbuild@~0.25.5": "0.25.12",
     "npm:i18next-http-middleware@3.10.0": "3.10.0",
-    "npm:i18next@27.1.0": "27.1.0",
+    "npm:i18next@27.1.1": "27.1.1",
     "npm:morgan@1.12.1": "1.12.1",
     "npm:preact-render-to-string@^6.6.3": "6.8.2_preact@10.29.8",
     "npm:preact@10.29.8": "10.29.8_preact-render-to-string@6.8.2",
@@ -1576,8 +1576,8 @@
     "i18next-http-middleware@3.10.0": {
       "integrity": "sha512-0ezuOHpMwXB1SnQE/iLps6T7oE3QTKOr9d4q2r5z1DxHkivDnhxYOCH7DcIgqSz0jhi4qBWvJ9Al9T+Pt30+yg=="
     },
-    "i18next@27.1.0": {
-      "integrity": "sha512-xdjb2OXFRm33rClqknpJmmYBvrPcaoEQ7/4kur5uTrbqckqzkbRO0ns6gFFki5TDmHzbIrFYpNBXhaRafmhJ/Q=="
+    "i18next@27.1.1": {
+      "integrity": "sha512-Qq3aJizS3RXQ30crhx9BKQLrHoa6GKpgrOJjVZ9vgj3EBxAddrmVfDNUrAMxSUimw5Jc+ld4SSZUAzf1q4nGyQ=="
     },
     "jiti@2.7.0": {
       "integrity": "sha512-AC/7JofJvZGrrneWNaEnJeOLUx+JlGt7tNa0wZiRPT4MY1wmfKjt2+6O2p2uz2+skll8OZZmJMNqeke7kKbNgQ==",
@@ -2003,7 +2003,7 @@
       "npm:clsx@2.1.1",
       "npm:daisyui@5.7.50",
       "npm:i18next-http-middleware@3.10.0",
-      "npm:i18next@27.1.0",
+      "npm:i18next@27.1.1",
       "npm:morgan@1.12.1",
       "npm:preact@10.29.8",
       "npm:puppeteer@25.17.0",
