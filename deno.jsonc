@@ -69,7 +69,7 @@
     "@types/sinon": "npm:@types/sinon@22.0.2", // dev
     "centrifuge": "npm:centrifuge@5.8.0",
     "clsx": "npm:clsx@2.1.1",
-    "daisyui": "npm:daisyui@5.8.0",
+    "daisyui": "npm:daisyui@5.8.1",
     "fresh": "jsr:@fresh/core@2.3.3",
     "i18next": "npm:i18next@27.1.1",
     "i18next-http-middleware": "npm:i18next-http-middleware@3.10.0",
