@@ -73,7 +73,7 @@
     "npm:preact@10.29.8": "10.29.8_preact-render-to-string@6.8.3",
     "npm:preact@^10.28.2": "10.29.8_preact-render-to-string@6.8.3",
     "npm:preact@^10.29.1": "10.29.8_preact-render-to-string@6.8.3",
-    "npm:puppeteer@25.17.0": "25.17.0",
+    "npm:puppeteer@25.18.1": "25.18.1",
     "npm:rollup@^4.55.1": "4.68.3",
     "npm:sinon@22.1.0": "22.1.0",
     "npm:tailwindcss@4.3.5": "4.3.5",
@@ -1785,8 +1785,8 @@
       ],
       "scripts": true
     },
-    "puppeteer-core@25.17.0": {
-      "integrity": "sha512-YAgBitkd+K9gxRt+wzBAFTTkGjkC8aC2o4OxofsU8JUy2nnK/RflTCJ9bRCvCMNbq9TPhqFk4Phz98otN9FrGg==",
+    "puppeteer-core@25.18.1": {
+      "integrity": "sha512-C0wHOJHDfAggGBtN5uUfsJGpeSKtPL5jzhgQYDuz4XKeOG1FUkxeZI2M5yK7AUyrdHO+RgDuiCfjmOpcw3PYTA==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -1796,8 +1796,8 @@
         "ws"
       ]
     },
-    "puppeteer@25.17.0": {
-      "integrity": "sha512-J+OQNlI7I6ZjHhF6Q8M+LgiUGldF7meer5EqMJBZMHgnFN3zcehOhpz/x0bYDEEvbEiXzKzmqSRP3QT+5accjQ==",
+    "puppeteer@25.18.1": {
+      "integrity": "sha512-fCsfwERKluvC84jsVyhDoBZMNuI8t5FFnWXcTdH1vn3NhMk6clZcrF0Da2se6/Hj6CBJ+2PRPpqeV0qPIETeJA==",
       "dependencies": [
         "@puppeteer/browsers",
         "chromium-bidi",
@@ -1907,8 +1907,8 @@
     "type-detect@4.1.0": {
       "integrity": "sha512-Acylog8/luQ8L7il+geoSxhEkazvkslg7PSNKOX59mbB9cOveP5aq9h74Y7YU8yDpJwetzQQrfIwtf4Wp4LKcw=="
     },
-    "typed-query-selector@2.12.3": {
-      "integrity": "sha512-/dtuMZyutHLlrxWhhC1uib00ELUr2dZ8C9B8YzZYsJmeE3V56OxRblrSM2UaF142pcMtak7ehZ6+poWGeehNIg=="
+    "typed-query-selector@2.12.4": {
+      "integrity": "sha512-lF6/OY655DSWZeuNovde8TZhju6QyC0Xtav57b07oZQ1EQvfSowA3+WfLEhvFJOc9sVfAtW5hie1lGIppOqbpQ=="
     },
     "undici-types@8.9.0": {
       "integrity": "sha512-KTDyRTYX8sWmKXAikPHHSyc63CRPETMctyjKFupcC6OBLXT3xsN0e9aF7m+mIXutFWpUXuedtowG7iLOzp0kQg=="
@@ -2006,7 +2006,7 @@
       "npm:i18next@27.1.5",
       "npm:morgan@1.12.1",
       "npm:preact@10.29.8",
-      "npm:puppeteer@25.17.0",
+      "npm:puppeteer@25.18.1",
       "npm:sinon@22.1.0",
       "npm:tailwindcss@4.3.5",
       "npm:vite@7.3.8",
