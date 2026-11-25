@@ -50,6 +50,7 @@ function getEnvStringArray(key: string, defaultValue?: string[]) {
 
 function getAppConfig() {
   return {
+    productName: getEnvString("PRODUCT_NAME", "factory-frontend"),
     shiftStartTimes: getEnvStringArray("SHIFT_START_TIMES"),
     dashboardConfig: {
       baseApiPath: getEnvString("DASHBOARD_CONFIG_BASE_API_PATH"),
