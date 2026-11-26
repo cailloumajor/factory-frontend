@@ -1,4 +1,8 @@
 {
+  "floorMenu": {
+    "home": "Home",
+    "traceability": "Traceability"
+  },
   "httpError": {
     "unspecific": "Something went wrong.",
     "404": "Page not found."

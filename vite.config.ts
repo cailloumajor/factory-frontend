@@ -28,9 +28,28 @@ const centrifugoMock: Plugin = {
   },
 }
 
+// Workaround for @fresh/plugin-vite 1.1.2: when the server snapshot is regenerated in dev
+// (e.g. after adding/removing a route file), island browser URLs are taken from Vite's
+// `mod.url` without the `/@id/` prefix. The browser then sees `fresh-island::X.tsx` as an
+// absolute URL with a `fresh-island:` scheme and refuses to load it.
+const freshIslandUrlFix: Plugin = {
+  name: "fresh-island-url-fix",
+  apply: "serve",
+  transform: {
+    filter: { id: /^\0fresh:server-snapshot$/ },
+    handler(code) {
+      return code.replace(
+        /(islandPreparer\.prepare\(islands, [^,]+, )"fresh-island::/g,
+        '$1"/@id/fresh-island::',
+      )
+    },
+  },
+}
+
 export default defineConfig({
   plugins: [
     fresh(),
+    freshIslandUrlFix,
     tailwindcss(),
     httpLogger,
     centrifugoMock,

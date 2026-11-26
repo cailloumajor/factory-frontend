@@ -51,6 +51,7 @@
     "@/": "./",
     "@cailloumajor/frontend-utils-wasm": "jsr:@cailloumajor/frontend-utils-wasm@6.0.11",
     "@faker-js/faker": "npm:@faker-js/faker@10.6.0", // dev
+    "@fontsource-variable/quicksand": "npm:@fontsource-variable/quicksand@5.3.0",
     "@fontsource/noto-color-emoji": "npm:@fontsource/noto-color-emoji@5.3.2",
     "@formatjs/intl-durationformat": "npm:@formatjs/intl-durationformat@0.13.1",
     "@fresh/plugin-vite": "jsr:@fresh/plugin-vite@1.1.2",
@@ -61,6 +62,7 @@
     "@preact/signals": "npm:@preact/signals@2.11.4",
     "@std/assert": "jsr:@std/assert@1.0.19", // dev
     "@std/async": "jsr:@std/async@1.5.1",
+    "@std/http": "jsr:@std/http@1.1.4",
     "@std/path": "jsr:@std/path@1.1.6",
     "@std/testing": "jsr:@std/testing@1.0.21", // dev
     "@tailwindcss/vite": "npm:@tailwindcss/vite@4.3.5",

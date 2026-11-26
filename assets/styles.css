@@ -2,12 +2,30 @@
 @plugin "daisyui";
 
 @import "@fontsource/noto-color-emoji";
+@import "@fontsource-variable/quicksand";
 @import "@fontsource-variable/roboto";
 @import "@fontsource-variable/roboto-mono";
 
 @theme {
+  --font-brand: "Quicksand Variable";
   --font-sans: "Roboto Variable", "Noto Color Emoji";
   --font-mono: "Roboto Mono Variable", "Noto Color Emoji";
+}
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+
+  --color-primary: #009adf;
+  --color-secondary: #7c2c7e;
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  prefersdark: true;
+
+  --color-primary: #009adf;
+  --color-secondary: #7c2c7e;
 }
 
 @utility stopped-background {
@@ -21,4 +39,8 @@
     var(--second-stripe-color) 1vw,
     var(--second-stripe-color) 2vw
   );
+}
+
+.floor-menu {
+  --menu-active-bg: var(--color-secondary);
 }

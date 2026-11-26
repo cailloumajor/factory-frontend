@@ -18,3 +18,8 @@ deno-tests.json
 
 # Local mise configuration
 mise.local.toml
+
+# Exclude branding material
+static/favicon.*
+static/logo.svg
+static/logo-company.png
