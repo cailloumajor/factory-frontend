@@ -1,5 +1,19 @@
 # Changelog
 
+## [3.0.0-rc.6](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.5...v3.0.0-rc.6) (2026-11-28)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @formatjs/intl-durationformat to v0.13.1 ([1ab7476](https://github.com/cailloumajor/factory-frontend/commit/1ab74762727a095a5c1183d04604994b0b672601))
+* **deps:** update dependency i18next to v27.2.3 ([b8c314f](https://github.com/cailloumajor/factory-frontend/commit/b8c314f5f8b72471b80cdc9384dcd30e809930c2))
+* **deps:** update dependency i18next to v27.2.4 ([e531bc8](https://github.com/cailloumajor/factory-frontend/commit/e531bc80c202ff47e0686d27263b2f3f4a4e4ae4))
+* **deps:** update dependency i18next to v27.2.5 ([42abdac](https://github.com/cailloumajor/factory-frontend/commit/42abdac530a39d8266f8e0e943999256f72b1570))
+* **deps:** update dependency i18next to v27.2.6 ([673abea](https://github.com/cailloumajor/factory-frontend/commit/673abeabce3bbd9989049f9fed8b9cdc8b5a5d81))
+* **deps:** update dependency i18next to v27.2.7 ([f245a16](https://github.com/cailloumajor/factory-frontend/commit/f245a163ed657a6c35f9ea386b9624af0e856ee8))
+* **deps:** update dependency i18next to v27.2.9 ([b0b1ac8](https://github.com/cailloumajor/factory-frontend/commit/b0b1ac8265e180d00a3a5d9745d8d4949061876b))
+* **deps:** update dependency i18next-http-middleware to v3.11.1 ([a52c877](https://github.com/cailloumajor/factory-frontend/commit/a52c87725303e97092db5b95bad5af2877e6fc99))
+
 ## [3.0.0-rc.5](https://github.com/cailloumajor/factory-frontend/compare/v3.0.0-rc.4...v3.0.0-rc.5) (2026-11-24)
 
 
